@@ -19,11 +19,11 @@ async function getPreferences() {
   _prefsLoading = (async () => {
     try {
       const result = await Promise.race([
-        import("@capacitor/preferences").then(m => m.Preferences),
+        import("@capacitor/preferences").then(m => ({ p: m.Preferences })),
         new Promise<null>((resolve) => setTimeout(() => resolve(null), 2000)),
       ]);
-      _prefsModule = result;
-      return result;
+      _prefsModule = result?.p ?? null;
+      return _prefsModule;
     } catch {
       return null;
     } finally {
