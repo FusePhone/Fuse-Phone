@@ -573,6 +573,10 @@ function dismissSplash() {
 
 (window as any).__dismissSplash = dismissSplash;
 
+setTimeout(() => {
+  try { dismissSplash(); } catch {}
+}, 4000);
+
 if ((window as any).__CAPACITOR_NATIVE || document.documentElement.classList.contains('capacitor-native') || (window as any).Capacitor?.isNative) {
   import("@/lib/native-auth").catch(() => {});
 }
