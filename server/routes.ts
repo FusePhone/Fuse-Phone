@@ -42599,6 +42599,100 @@ Return ONLY valid JSON, no markdown or explanation.`
     }
   });
 
+  // ============================================================
+  // One-shot: Reconcile every user's subscription status from Stripe.
+  // Needed because the dev environment was hijacking the Stripe webhook URL
+  // (fixed May 19, 2026) — events delivered to dev were dropped silently.
+  // This endpoint walks every user with a Stripe customer ID, pulls their
+  // current state from Stripe, and corrects our DB. Idempotent.
+  // GET /api/admin/stripe-reconcile?dryRun=1 to preview.
+  // ============================================================
+  app.post("/api/admin/stripe-reconcile", isAuthenticated, async (req: any, res) => {
+    try {
+      const userId = req.user.claims.sub;
+      const me = await db.select({ isAdmin: users.isAdmin }).from(users).where(eq(users.id, userId)).then(r => r[0]);
+      if (!me?.isAdmin) return res.status(403).json({ error: "Admin only" });
+
+      const dryRun = req.query.dryRun === "1";
+      const { getUncachableStripeClient } = await import("./stripeClient");
+      const stripe = await getUncachableStripeClient();
+
+      const allUsers = await db.select().from(users);
+      const withCustomer = allUsers.filter(u => u.stripeCustomerId);
+
+      const summary: any = {
+        dryRun,
+        totalUsersWithStripe: withCustomer.length,
+        corrected: [] as any[],
+        alreadyCorrect: 0,
+        errors: [] as string[],
+      };
+
+      for (const u of withCustomer) {
+        try {
+          const subs = await stripe.subscriptions.list({ customer: u.stripeCustomerId!, status: "all", limit: 10 });
+          const live = subs.data.find(s => s.status === "active" || s.status === "trialing");
+
+          if (live) {
+            // Has an active/trialing sub — should be active in our DB
+            const desired = { subscriptionStatus: "active" as const, stripeSubscriptionId: live.id };
+            const drift = u.subscriptionStatus !== "active" || u.stripeSubscriptionId !== live.id;
+            if (drift) {
+              if (!dryRun) {
+                await db.update(users).set({
+                  subscriptionStatus: "active",
+                  stripeSubscriptionId: live.id,
+                  subscriptionEndsAt: live.current_period_end ? new Date(live.current_period_end * 1000) : null,
+                }).where(eq(users.id, u.id));
+              }
+              summary.corrected.push({
+                email: u.email,
+                action: "marked_active",
+                wasStatus: u.subscriptionStatus,
+                wasSubId: u.stripeSubscriptionId,
+                nowSubId: live.id,
+              });
+            } else {
+              summary.alreadyCorrect++;
+            }
+          } else {
+            // No live sub — should be inactive in our DB
+            const drift = u.subscriptionStatus === "active" || u.stripeSubscriptionId;
+            if (drift) {
+              if (!dryRun) {
+                await db.update(users).set({
+                  subscriptionStatus: "inactive",
+                  stripeSubscriptionId: null,
+                  subscriptionEndsAt: new Date(),
+                  paidFieldWorkerSeats: 0,
+                  paidOfficeSeats: 0,
+                }).where(eq(users.id, u.id));
+              }
+              const lastSub = subs.data[0];
+              summary.corrected.push({
+                email: u.email,
+                action: "marked_inactive",
+                wasStatus: u.subscriptionStatus,
+                wasSubId: u.stripeSubscriptionId,
+                lastStripeStatus: lastSub?.status,
+                stripeCanceledAt: lastSub?.canceled_at ? new Date(lastSub.canceled_at * 1000).toISOString() : null,
+              });
+            } else {
+              summary.alreadyCorrect++;
+            }
+          }
+        } catch (err: any) {
+          summary.errors.push(`${u.email}: ${err.message}`);
+        }
+      }
+
+      res.json(summary);
+    } catch (error: any) {
+      console.error("[Stripe Reconcile]", error);
+      res.status(500).json({ error: error.message });
+    }
+  });
+
   return httpServer;
 }
 
