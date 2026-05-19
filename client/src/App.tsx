@@ -553,6 +553,7 @@ function AuthPageWithSplash({ forceNative }: { forceNative?: boolean }) {
 }
 
 function LoadingWithSplashFallback() {
+  useDismissSplash();
   const isNative = (() => {
     if ((window as any).__CAPACITOR_NATIVE) return true;
     if (document.documentElement.classList.contains('capacitor-native')) return true;
