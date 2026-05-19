@@ -870,6 +870,32 @@ function NewChatDialog({ open, onClose, teamMembers, currentUserId, onCreateChan
 }
 
 export function TeamChat({ initialChannelId }: { initialChannelId?: number | null }) {
+  const { user: _comingSoonUser } = useAuth();
+  const isAdminUser = !!(_comingSoonUser as any)?.isAdmin;
+
+  if (!isAdminUser) {
+    return (
+      <div className="flex flex-col items-center justify-center min-h-[60vh] px-6 text-center" data-testid="team-chat-coming-soon">
+        <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mb-5">
+          <MessageSquare className="w-8 h-8 text-primary" />
+        </div>
+        <Badge variant="secondary" className="mb-3" data-testid="badge-coming-soon">Coming Soon</Badge>
+        <h2 className="font-display font-bold text-2xl mb-2">Team Messages</h2>
+        <p className="text-muted-foreground max-w-md text-sm leading-relaxed">
+          We're putting the finishing touches on Team Messages — in-app chat, group channels, and voice calls between your crew and office.
+          It will turn on automatically for your account very soon.
+        </p>
+        <p className="text-xs text-muted-foreground mt-6">
+          In the meantime, owners can still broadcast notes from the Crew page.
+        </p>
+      </div>
+    );
+  }
+
+  return <TeamChatInner initialChannelId={initialChannelId} />;
+}
+
+function TeamChatInner({ initialChannelId }: { initialChannelId?: number | null }) {
   const { user } = useAuth();
   const { toast } = useToast();
   const queryClient = useQueryClient();
