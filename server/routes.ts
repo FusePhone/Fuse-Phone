@@ -42410,5 +42410,285 @@ Return ONLY valid JSON, no markdown or explanation.`
     }
   });
 
+  // ============================================================
+  // One-shot: Early Adopter App Store launch rollout
+  //   1. Idempotently create EARLY20 promo (20% off, forever)
+  //   2. Link promo to a fixed allowlist of early-adopter users
+  //   3. Apply 20%-off-forever Stripe coupon to anyone with a live sub
+  //   4. Email each allowlisted user the App Store launch announcement
+  // Safe to re-run: users already linked are skipped (no duplicate emails).
+  // POST /api/admin/early-adopter-rollout?dryRun=1 to preview without writes.
+  // ============================================================
+  app.post("/api/admin/early-adopter-rollout", isAuthenticated, async (req: any, res) => {
+    try {
+      const userId = req.user.claims.sub;
+      const me = await db.select({ isAdmin: users.isAdmin }).from(users).where(eq(users.id, userId)).then(r => r[0]);
+      if (!me?.isAdmin) return res.status(403).json({ error: "Admin only" });
+
+      const dryRun = req.query.dryRun === "1";
+
+      const RECIPIENT_EMAILS = [
+        "office@kasajpainting.com",
+        "jimelliot@gmail.com",
+        "slyespainting9@proton.me",
+        "orellana8212@gmail.com",
+        "agradepainting19@gmail.com",
+        "mpclarine@gmail.com",
+        "ivan.igls@monarcapaintingco.com",
+        "hellopeacepainters@gmail.com",
+        "alejandrogurdian29@gmail.com",
+        "commercialp97@gmail.com",
+        "gamalielrevolorio@gmail.com",
+      ];
+
+      const summary: any = {
+        dryRun,
+        promo: null,
+        usersLinked: [] as any[],
+        stripeApplied: null as any,
+        emailsSent: [] as any[],
+        emailsSkipped: [] as any[],
+        errors: [] as string[],
+      };
+
+      // 1. Ensure EARLY20 promo exists
+      let [promo] = await db.select().from(promoCodes).where(eq(promoCodes.code, "EARLY20"));
+      if (!promo) {
+        if (dryRun) {
+          summary.promo = { id: -1, code: "EARLY20", created: false, note: "would be created" };
+        } else {
+          [promo] = await db.insert(promoCodes).values({
+            code: "EARLY20",
+            description: "Early adopter — 20% off for life. App Store launch May 2026.",
+            discountType: "percent",
+            discountAmount: 20,
+            tier: null,
+            appliesTo: "plan",
+            durationMonths: null,
+            trialDays: null,
+            maxUses: null,
+            active: true,
+          }).returning();
+          summary.promo = { id: promo.id, code: promo.code, created: true };
+        }
+      } else {
+        summary.promo = { id: promo.id, code: promo.code, created: false };
+      }
+
+      if (!promo) {
+        return res.json(summary);
+      }
+
+      // 2. Link promo to allowlisted users
+      const targets = await db.select().from(users).where(inArray(users.email, RECIPIENT_EMAILS));
+      const byEmail = new Map(targets.map(u => [u.email!.toLowerCase(), u]));
+
+      for (const email of RECIPIENT_EMAILS) {
+        const u = byEmail.get(email.toLowerCase());
+        if (!u) {
+          summary.errors.push(`User not found: ${email}`);
+          continue;
+        }
+        const alreadyLinked = u.promoCodeId === promo.id;
+        if (!alreadyLinked && !dryRun) {
+          await db.update(users).set({ promoCodeId: promo.id }).where(eq(users.id, u.id));
+        }
+        summary.usersLinked.push({
+          email: u.email,
+          id: u.id,
+          firstName: u.firstName,
+          subscriptionTier: u.subscriptionTier,
+          subscriptionStatus: u.subscriptionStatus,
+          hasLiveSub: !!u.stripeSubscriptionId,
+          alreadyLinked,
+        });
+      }
+
+      // 3. Apply Stripe coupon to anyone with a live subscription
+      const stripePayers = summary.usersLinked.filter((l: any) => l.hasLiveSub);
+      summary.stripeApplied = { attempted: stripePayers.length, results: [] as any[] };
+
+      if (stripePayers.length > 0 && !dryRun) {
+        try {
+          const { getUncachableStripeClient } = await import("./stripeClient");
+          const stripe = await getUncachableStripeClient();
+
+          const COUPON_ID = "EARLY20_FOREVER_20PCT";
+          let coupon: any = null;
+          try {
+            coupon = await stripe.coupons.retrieve(COUPON_ID);
+          } catch (e: any) {
+            if (e?.code === "resource_missing") {
+              coupon = await stripe.coupons.create({
+                id: COUPON_ID,
+                name: "Early Adopter — 20% Off Forever",
+                percent_off: 20,
+                duration: "forever",
+              });
+            } else {
+              throw e;
+            }
+          }
+
+          for (const link of stripePayers) {
+            const u = byEmail.get(link.email.toLowerCase());
+            if (!u?.stripeSubscriptionId) continue;
+            try {
+              const sub: any = await stripe.subscriptions.retrieve(u.stripeSubscriptionId);
+              const existingCouponId =
+                sub.discount?.coupon?.id ||
+                (Array.isArray(sub.discounts) && sub.discounts[0]?.coupon?.id) ||
+                null;
+              if (existingCouponId === coupon.id) {
+                summary.stripeApplied.results.push({ email: u.email, skipped: true, reason: "Already has EARLY20 coupon" });
+              } else {
+                await stripe.subscriptions.update(u.stripeSubscriptionId, { coupon: coupon.id });
+                summary.stripeApplied.results.push({
+                  email: u.email,
+                  subscriptionId: u.stripeSubscriptionId,
+                  couponId: coupon.id,
+                  applied: true,
+                });
+              }
+            } catch (err: any) {
+              summary.errors.push(`Stripe apply failed for ${u.email}: ${err.message}`);
+            }
+          }
+        } catch (err: any) {
+          summary.errors.push(`Stripe coupon setup failed: ${err.message}`);
+        }
+      }
+
+      // 4. Send emails (only to users newly linked in this run)
+      if (!process.env.SENDGRID_API_KEY) {
+        summary.errors.push("SENDGRID_API_KEY not configured — emails not sent");
+      } else {
+        const { sendSendGridEmail } = await import("./sendgridEmail");
+        const FROM_EMAIL = process.env.SYSTEM_GMAIL_EMAIL || "office@fusephone.com";
+        const FROM_NAME = "Gamaliel at Fuse Phone";
+        const SUBJECT = "Fuse Phone is on the App Store — your 20% off for life inside";
+
+        for (const link of summary.usersLinked) {
+          const u = byEmail.get(link.email.toLowerCase());
+          if (!u || !u.email) continue;
+          if (link.alreadyLinked) {
+            summary.emailsSkipped.push({ email: u.email, reason: "Already linked in prior run — email previously sent" });
+            continue;
+          }
+          const firstName = ((u.firstName || u.email.split("@")[0] || "there") + "").trim().split(/\s+/)[0];
+          const html = buildEarlyAdopterEmailHtml(firstName);
+
+          if (dryRun) {
+            summary.emailsSent.push({ email: u.email, firstName, dryRun: true, htmlLength: html.length });
+            continue;
+          }
+
+          const result = await sendSendGridEmail(u.email, SUBJECT, html, FROM_EMAIL, FROM_NAME);
+          if (result.success) {
+            summary.emailsSent.push({ email: u.email, firstName, messageId: result.messageId });
+          } else {
+            summary.errors.push(`Email failed for ${u.email}: ${result.error}`);
+          }
+        }
+      }
+
+      res.json(summary);
+    } catch (error: any) {
+      console.error("[Early Adopter Rollout]", error);
+      res.status(500).json({ error: error.message, stack: error.stack });
+    }
+  });
+
   return httpServer;
+}
+
+function buildEarlyAdopterEmailHtml(firstName: string): string {
+  const safeName = String(firstName || "there").replace(/[<>&"']/g, "");
+  const appStoreUrl = "https://apps.apple.com/app/fuse-phone-crm/id6759543207";
+  const marketingUrl = "https://fusephone.com";
+  return `<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fuse Phone is on the App Store</title>
+</head>
+<body style="margin:0;padding:0;background:#f4f4f7;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;color:#1a1a2e;">
+  <div style="display:none;max-height:0;overflow:hidden;color:transparent;">Fuse Phone is live on the App Store, and your 20% off for life is locked in.</div>
+  <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="background:#f4f4f7;">
+    <tr>
+      <td align="center" style="padding:32px 16px;">
+        <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="max-width:600px;background:#ffffff;border-radius:14px;overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,0.06);">
+          <tr>
+            <td style="background:linear-gradient(135deg,#2563eb 0%,#1e40af 100%);padding:36px 32px;text-align:center;">
+              <h1 style="margin:0;color:#ffffff;font-size:26px;font-weight:800;letter-spacing:-0.5px;">Fuse Phone</h1>
+              <p style="margin:8px 0 0;color:#dbeafe;font-size:14px;">CRM for small business owners</p>
+            </td>
+          </tr>
+          <tr>
+            <td style="padding:36px 32px 8px;">
+              <h2 style="margin:0 0 12px;font-size:24px;font-weight:700;color:#1a1a2e;line-height:1.3;">We're officially on the App Store 🎉</h2>
+              <p style="margin:0 0 20px;font-size:16px;line-height:1.6;color:#374151;">Hi ${safeName},</p>
+              <p style="margin:0 0 16px;font-size:16px;line-height:1.6;color:#374151;">
+                Big news — after months of building this alongside contractors and small business owners like you, <strong>Fuse Phone is now live on the Apple App Store.</strong>
+              </p>
+              <p style="margin:0 0 24px;font-size:16px;line-height:1.6;color:#374151;">
+                Anyone can download it now, straight from their iPhone.
+              </p>
+              <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="margin:0 auto 28px;">
+                <tr>
+                  <td align="center" style="border-radius:10px;background:#000000;">
+                    <a href="${appStoreUrl}" target="_blank" style="display:inline-block;padding:14px 28px;font-size:16px;font-weight:600;color:#ffffff;text-decoration:none;border-radius:10px;">
+                      Get it on the App Store
+                    </a>
+                  </td>
+                </tr>
+              </table>
+              <div style="height:1px;background:#e5e7eb;margin:8px 0 28px;"></div>
+              <h3 style="margin:0 0 12px;font-size:20px;font-weight:700;color:#1a1a2e;">Because you've been here since the beginning…</h3>
+              <p style="margin:0 0 16px;font-size:16px;line-height:1.6;color:#374151;">
+                I wanted to do something real to say thank you for sticking with us through the early days.
+              </p>
+              <div style="background:#fef3c7;border:2px solid #f59e0b;border-radius:12px;padding:20px 24px;margin:0 0 20px;text-align:center;">
+                <div style="font-size:14px;font-weight:600;color:#92400e;letter-spacing:0.5px;text-transform:uppercase;margin-bottom:6px;">Early Adopter Reward</div>
+                <div style="font-size:32px;font-weight:800;color:#1a1a2e;line-height:1.1;margin-bottom:4px;">20% off, for life</div>
+                <div style="font-size:14px;color:#78350f;">No expiry. No fine print. Stays on every renewal.</div>
+              </div>
+              <p style="margin:0 0 16px;font-size:16px;line-height:1.6;color:#374151;">
+                The discount is already <strong>locked to your account</strong>. When you head to <a href="${marketingUrl}" style="color:#2563eb;font-weight:600;text-decoration:none;">fusephone.com</a> and pick your plan, it'll apply automatically at checkout.
+              </p>
+              <p style="margin:0 0 24px;font-size:14px;line-height:1.6;color:#6b7280;">
+                Just in case anything funny happens, the code <strong style="color:#1a1a2e;font-family:'Courier New',monospace;background:#f3f4f6;padding:2px 8px;border-radius:4px;">EARLY20</strong> is your backup — type it in if it's not already there.
+              </p>
+              <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="margin:0 auto 28px;">
+                <tr>
+                  <td align="center" style="border-radius:10px;background:#2563eb;">
+                    <a href="${marketingUrl}" target="_blank" style="display:inline-block;padding:16px 36px;font-size:16px;font-weight:700;color:#ffffff;text-decoration:none;border-radius:10px;">
+                      Claim your 20% off →
+                    </a>
+                  </td>
+                </tr>
+              </table>
+              <p style="margin:24px 0 8px;font-size:16px;line-height:1.6;color:#374151;">
+                Thank you for being part of this from day one. None of this happens without you.
+              </p>
+              <p style="margin:0 0 4px;font-size:16px;line-height:1.6;color:#374151;">— Gamaliel</p>
+              <p style="margin:0 0 32px;font-size:14px;color:#6b7280;">Founder, Fuse Phone</p>
+            </td>
+          </tr>
+          <tr>
+            <td style="background:#f9fafb;padding:20px 32px;text-align:center;border-top:1px solid #e5e7eb;">
+              <p style="margin:0 0 6px;font-size:12px;color:#6b7280;">Fuse Phone — CRM built for painters, contractors, and small business owners.</p>
+              <p style="margin:0;font-size:12px;color:#9ca3af;">
+                <a href="${marketingUrl}" style="color:#6b7280;text-decoration:underline;">fusephone.com</a> &nbsp;·&nbsp;
+                <a href="${appStoreUrl}" style="color:#6b7280;text-decoration:underline;">App Store</a>
+              </p>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>`;
 }
