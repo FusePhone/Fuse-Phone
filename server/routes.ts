@@ -42656,26 +42656,42 @@ Return ONLY valid JSON, no markdown or explanation.`
               summary.alreadyCorrect++;
             }
           } else {
-            // No live sub — should be inactive in our DB
+            // No live sub — should be inactive in our DB.
+            // Use the actual Stripe cancellation date (ended_at preferred, then
+            // canceled_at, then current_period_end) so the record reflects when
+            // it really ended — not when we noticed.
             const drift = u.subscriptionStatus === "active" || u.stripeSubscriptionId;
             if (drift) {
+              const sorted = [...subs.data].sort((a: any, b: any) => {
+                const at = a.ended_at || a.canceled_at || a.current_period_end || 0;
+                const bt = b.ended_at || b.canceled_at || b.current_period_end || 0;
+                return bt - at;
+              });
+              const mostRecent: any = sorted[0];
+              const endedAtSec =
+                mostRecent?.ended_at ||
+                mostRecent?.canceled_at ||
+                mostRecent?.current_period_end ||
+                null;
+              const endedAtDate = endedAtSec ? new Date(endedAtSec * 1000) : new Date();
               if (!dryRun) {
                 await db.update(users).set({
                   subscriptionStatus: "inactive",
                   stripeSubscriptionId: null,
-                  subscriptionEndsAt: new Date(),
+                  subscriptionEndsAt: endedAtDate,
                   paidFieldWorkerSeats: 0,
                   paidOfficeSeats: 0,
                 }).where(eq(users.id, u.id));
               }
-              const lastSub = subs.data[0];
               summary.corrected.push({
                 email: u.email,
                 action: "marked_inactive",
                 wasStatus: u.subscriptionStatus,
                 wasSubId: u.stripeSubscriptionId,
-                lastStripeStatus: lastSub?.status,
-                stripeCanceledAt: lastSub?.canceled_at ? new Date(lastSub.canceled_at * 1000).toISOString() : null,
+                lastStripeStatus: mostRecent?.status,
+                stripeCanceledAt: mostRecent?.canceled_at ? new Date(mostRecent.canceled_at * 1000).toISOString() : null,
+                stripeEndedAt: mostRecent?.ended_at ? new Date(mostRecent.ended_at * 1000).toISOString() : null,
+                subscriptionEndsAtWritten: endedAtDate.toISOString(),
               });
             } else {
               summary.alreadyCorrect++;
