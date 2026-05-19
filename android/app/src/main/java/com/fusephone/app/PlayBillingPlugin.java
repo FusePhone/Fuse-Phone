@@ -111,7 +111,7 @@ public class PlayBillingPlugin extends Plugin implements PurchasesUpdatedListene
                         + " msg=" + billingResult.getDebugMessage());
                 return;
             }
-            List<ProductDetails> details = queryResult.getProductDetailsList();
+            List<ProductDetails> details = queryResult;
             JSArray out = new JSArray();
             if (details != null) {
                 for (ProductDetails pd : details) {
@@ -164,7 +164,7 @@ public class PlayBillingPlugin extends Plugin implements PurchasesUpdatedListene
                 billingClient.queryProductDetailsAsync(
                         QueryProductDetailsParams.newBuilder().setProductList(q).build(),
                         (br, qr) -> {
-                            List<ProductDetails> list = qr.getProductDetailsList();
+                            List<ProductDetails> list = qr;
                             if (br.getResponseCode() != BillingClient.BillingResponseCode.OK
                                     || list == null || list.isEmpty()) {
                                 call.reject("Product " + productId + " not found in Play Console.");
