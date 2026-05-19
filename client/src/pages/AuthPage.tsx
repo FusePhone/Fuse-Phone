@@ -63,6 +63,7 @@ const CORE_FEATURES = [
 
 const ELITE_FEATURES = [
   "Everything in Core",
+  "3 Free Field Worker Seats — Crew Lead or Field Employee (clock in/out, view assigned jobs, upload photos & receipts)",
   "Unlimited Photos with Annotations",
   "SMS Texting & Send Documents via Text",
   "Full Phone System (VoIP)",
