@@ -68,6 +68,7 @@ const CORE_FEATURES: { label: string; tip?: string }[] = [
 
 const ELITE_FEATURES: { label: string; tip?: string }[] = [
   { label: "Everything in Core" },
+  { label: "3 Free Field Worker Seats Included", tip: "Owner is always free. Add up to 3 field workers (Crew Lead or Field Employee) at no extra charge so your crew can clock in, view assigned jobs, upload photos and log work from their own phones." },
   { label: "Unlimited Photos & AI Estimates" },
   { label: "Full Phone System (VoIP) + SMS", tip: "Dedicated business number — make calls and text customers right from the app." },
   { label: "Crew Payroll, GPS Tracking & Roles" },
