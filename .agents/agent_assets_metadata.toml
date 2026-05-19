@@ -1,0 +1,49 @@
+uploads = []
+
+[[generated]]
+id = "5gVKMmoX0BIiK5xneceYd"
+uri = "file://attached_assets/generated_images/drywall-repair.png"
+type = "image"
+title = "generated_image"
+
+[[generated]]
+id = "udUCKmbecuXWkUs2Nh-ga"
+uri = "file://attached_assets/generated_images/plaster-crack-repair.png"
+type = "image"
+title = "generated_image"
+
+[[generated]]
+id = "eXguPbyyi8_KkepmgRurp"
+uri = "file://attached_assets/generated_images/skim-coating.png"
+type = "image"
+title = "generated_image"
+
+[[generated]]
+id = "MhPlwsivRQB9w2sLCu9e3"
+uri = "file://attached_assets/generated_images/trim-molding-painting.png"
+type = "image"
+title = "generated_image"
+
+[[outputs]]
+id = "f7QprVqwEhNlUr8fkw2I_"
+uri = "file://attached_assets/dripjobs_proposal_1825248.pdf"
+type = "pdf"
+title = "DripJobs Proposal #1825248 - $1,200.00"
+
+[[outputs]]
+id = "nubv347jjiFhAltnYAxaY"
+uri = "file://attached_assets/dripjobs_invoice_291388.pdf"
+type = "pdf"
+title = "DripJobs Invoice #291388 - $1,200.00"
+
+[[outputs]]
+id = "5RtnLbc5oakQfrccheg93"
+uri = "file://client/public/logo-dark.png"
+type = "image"
+title = "Fuse Phone Logo (Dark)"
+
+[[outputs]]
+id = "DGNYgx7TuNApZF-5j_YNA"
+uri = "file://client/public/logo-light.png"
+type = "image"
+title = "Fuse Phone Logo (Light)"

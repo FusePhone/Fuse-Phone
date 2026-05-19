@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interior Painting Insights & Project Highlights | Gama Interior Painting</title>
+    <meta name="description" content="High-end interior painting projects, detailed finish guides, and homeowner advice from Gama Interior Painting. Serving Garden City, Glen Head, Old Westbury, Roslyn, Brooklyn, and all of Nassau County.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Inter', system-ui, -apple-system, sans-serif; color: #1a1a1a; line-height: 1.7; overflow-x: hidden; background: #fff; }
+  img { max-width: 100%; height: auto; display: block; }
+  a { text-decoration: none; color: inherit; }
+
+  .gp-header { background: #111; padding: 20px 24px; display: flex; align-items: center; justify-content: center; gap: 14px; }
+  .gp-header img { height: 120px; width: auto; }
+  .gp-header span { color: #fff; font-weight: 800; font-size: 1.1em; text-transform: uppercase; letter-spacing: 2px; }
+  .gp-btns { position: sticky; top: 0; z-index: 1000; background: #111; padding: 10px 24px; display: flex; justify-content: center; gap: 10px; }
+  .gp-btns a { color: #fff; font-weight: 700; border-radius: 999px; padding: 12px 22px; font-size: 0.85em; display: inline-flex; align-items: center; justify-content: center; gap: 6px; text-decoration: none; }
+  .gp-btn-call { background: #16a34a; }
+  .gp-btn-est { background: #e4181d; }
+
+  .trust-strip { background: #fafafa; border-bottom: 1px solid #eee; padding: 14px 24px; }
+  .trust-strip-inner { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 20px; max-width: 900px; margin: 0 auto; }
+  .trust-item { display: flex; align-items: center; gap: 6px; font-size: 0.8em; font-weight: 600; color: #666; }
+  .trust-item svg { width: 18px; height: 18px; flex-shrink: 0; }
+
+  .hero { background: #111; color: #fff; padding: 70px 24px 60px; text-align: center; position: relative; }
+  .hero::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 4px; background: #e4181d; }
+  .hero-label { font-size: 0.78em; text-transform: uppercase; letter-spacing: 3px; color: #e4181d; font-weight: 700; margin-bottom: 14px; }
+  .hero h1 { font-size: clamp(1.8em, 5vw, 2.8em); font-weight: 900; color: #fff; margin-bottom: 18px; letter-spacing: -0.02em; line-height: 1.15; max-width: 800px; margin-left: auto; margin-right: auto; }
+  .hero .subtitle { color: rgba(255,255,255,0.75); font-size: 1.05em; max-width: 660px; margin: 0 auto 14px; line-height: 1.7; }
+  .hero .subtitle-topics { color: rgba(255,255,255,0.5); font-size: 0.9em; max-width: 640px; margin: 0 auto 28px; line-height: 1.8; }
+  .hero-cta-group { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; }
+  .hero-cta-group a { display: inline-flex; align-items: center; justify-content: center; font-weight: 700; padding: 12px 26px; border-radius: 999px; font-size: 0.9em; transition: all 0.25s; }
+
+  .red-divider { width: 50px; height: 3px; background: #e4181d; margin: 0 auto 24px; border-radius: 2px; }
+
+  .filter-bar { background: #fff; border-bottom: 1px solid #eee; padding: 16px 24px; text-align: center; position: sticky; top: 44px; z-index: 999; }
+  .filter-tabs { display: inline-flex; gap: 6px; background: #f5f5f5; border-radius: 999px; padding: 4px; }
+  .filter-tab { padding: 8px 20px; border-radius: 999px; font-size: 0.85em; font-weight: 600; color: #666; cursor: pointer; transition: all 0.2s; border: none; background: transparent; font-family: inherit; }
+  .filter-tab.active { background: #111; color: #fff; }
+  .filter-tab:hover:not(.active) { background: #eee; color: #333; }
+
+  .blog-section { padding: 50px 24px; max-width: 1100px; margin: 0 auto; }
+  .blog-section-alt { background: #f9f9f9; }
+  .blog-section-alt .blog-section { max-width: 1100px; margin: 0 auto; }
+  .section-header { text-align: center; margin-bottom: 36px; }
+  .section-title { font-size: 1.8em; font-weight: 800; color: #111; line-height: 1.2; margin-bottom: 10px; }
+  .section-subtitle { color: #888; font-size: 0.95em; line-height: 1.6; max-width: 550px; margin: 0 auto; }
+
+  .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+  .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; }
+
+  .blog-card { background: #fff; border-radius: 12px; padding: 26px 22px; transition: all 0.25s; border: 1px solid #eee; display: flex; flex-direction: column; height: 100%; }
+  .blog-card:hover { box-shadow: 0 6px 24px rgba(0,0,0,0.08); transform: translateY(-3px); border-color: #ddd; }
+  .blog-card .card-meta { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; flex-wrap: wrap; }
+  .blog-card .card-tag { font-size: 0.68em; font-weight: 700; padding: 3px 9px; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .tag-brooklyn { background: #fef2f2; color: #e4181d; }
+  .tag-nassau { background: #faf5ff; color: #7c3aed; }
+  .tag-li { background: #f0fdf4; color: #16a34a; }
+  .tag-tips { background: #eff6ff; color: #2563eb; }
+  .tag-project { background: #fef9c3; color: #a16207; }
+  .tag-featured { background: #e4181d; color: #fff; }
+  .blog-card .card-date { font-size: 0.78em; color: #aaa; }
+  .blog-card h3 { font-size: 1em; line-height: 1.45; margin-bottom: 10px; color: #222; font-weight: 700; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  .blog-card p { font-size: 0.88em; color: #777; line-height: 1.7; flex: 1; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+  .blog-card .read-more { margin-top: 14px; color: #e4181d; font-size: 0.84em; font-weight: 600; }
+  .blog-card .related-link { margin-top: 8px; font-size: 0.78em; color: #999; }
+  .blog-card .related-link a { color: #e4181d; font-weight: 600; text-decoration: underline; text-decoration-color: rgba(228,24,29,0.3); }
+  .blog-card .related-link a:hover { text-decoration-color: #e4181d; }
+
+  .featured-card { background: #fff; border: 1px solid #eee; border-left: 4px solid #e4181d; border-radius: 12px; padding: 32px 28px; max-width: 780px; margin: 0 auto; transition: all 0.25s; }
+  .featured-card:hover { box-shadow: 0 6px 24px rgba(0,0,0,0.08); transform: translateY(-2px); }
+  .featured-card .card-meta { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
+  .featured-card h3 { font-size: 1.35em; line-height: 1.35; margin-bottom: 12px; color: #111; font-weight: 800; }
+  .featured-card p { color: #666; line-height: 1.7; font-size: 0.95em; }
+  .featured-card .read-more { margin-top: 16px; color: #e4181d; font-weight: 600; display: inline-block; font-size: 0.9em; }
+  .featured-card .related-link { margin-top: 10px; font-size: 0.82em; color: #999; }
+  .featured-card .related-link a { color: #e4181d; font-weight: 600; text-decoration: underline; text-decoration-color: rgba(228,24,29,0.3); }
+
+  .homes-section { background: #f9f9f9; padding: 50px 24px; }
+  .homes-inner { max-width: 800px; margin: 0 auto; text-align: center; }
+  .homes-inner p { color: #666; font-size: 0.95em; line-height: 1.7; max-width: 600px; margin: 0 auto 28px; }
+  .homes-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
+  .home-type { background: #fff; border: 1px solid #eee; border-radius: 10px; padding: 14px 24px; font-size: 0.9em; font-weight: 600; color: #333; transition: all 0.2s; }
+  .home-type:hover { border-color: #e4181d; color: #e4181d; }
+
+  .areas-section { background: #fff; padding: 50px 24px; }
+  .areas-inner { max-width: 900px; margin: 0 auto; text-align: center; }
+  .areas-group-title { font-size: 0.92em; font-weight: 700; color: #111; margin: 24px 0 12px; text-transform: uppercase; letter-spacing: 1px; }
+  .areas-group-title:first-of-type { margin-top: 0; }
+  .zip-list { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
+  .zip-badge { background: #fff; border: 1px solid #ddd; border-radius: 999px; padding: 6px 16px; font-size: 0.82em; color: #555; transition: all 0.2s; cursor: pointer; }
+  .zip-badge:hover { border-color: #e4181d; color: #e4181d; background: #fef2f2; }
+  .zip-badge-brooklyn { border-color: #e4181d; color: #e4181d; font-weight: 600; }
+  .zip-badge-premium { border-color: #7c3aed; color: #7c3aed; font-weight: 600; }
+
+  .contact-bar { background: #111; color: #fff; padding: 60px 24px; text-align: center; }
+  .contact-bar h2 { font-size: 1.8em; font-weight: 800; margin-bottom: 10px; color: #fff; }
+  .contact-bar p { color: #fff; opacity: 0.6; margin-bottom: 8px; font-size: 0.95em; }
+  .phone-link { color: #16a34a; font-weight: 900; font-size: 1.6em; display: block; margin: 16px 0 24px; text-decoration: none; }
+  .phone-link:hover { color: #22c55e; }
+  .contact-btns { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; }
+
+  .btn { display: inline-block; font-weight: 700; padding: 14px 32px; border-radius: 999px; font-size: 0.95em; transition: all 0.25s; border: none; cursor: pointer; text-align: center; }
+  .btn-red { background: #e4181d; color: #fff; }
+  .btn-red:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(228,24,29,0.3); }
+  .btn-green { background: #16a34a; color: #fff; }
+  .btn-green:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(22,163,74,0.3); }
+  .btn-outline { background: transparent; color: #fff; border: 2px solid rgba(255,255,255,0.3); }
+  .btn-outline:hover { border-color: #fff; background: rgba(255,255,255,0.1); }
+
+  .gp-footer { background: #000; color: rgba(255,255,255,0.6); text-align: center; padding: 24px; font-size: 0.85em; }
+
+  .sharedaddy, .sd-sharing-enabled, .sd-block { display: none !important; }
+  .entry-content, .post-content, .page-content, .elementor-widget-theme-post-content { margin: 0 !important; padding: 0 !important; }
+  .site-content, .content-area, #content, #primary, main { margin-top: 0 !important; padding-top: 0 !important; }
+  .elementor-section-wrap > .elementor-section:first-child { margin-top: 0 !important; }
+
+  #ast-desktop-header, .ast-above-header, .ast-below-header, .ast-main-header-wrap,
+  .site-header, header.site-header, .main-header-bar, .ast-mobile-header-wrap,
+  #masthead, .ast-primary-header, .ast-header-break-point .ast-mobile-header-wrap,
+  .ast-above-header-wrap, .ast-below-header-wrap,
+  .site-footer, footer.site-footer, .ast-footer-overlay, .ast-small-footer,
+  #colophon, .site-below-footer-wrap, .ast-footer-copyright,
+  .ast-above-footer, .ast-below-footer, .ast-footer-container,
+  footer, .footer-adv, .footer-sml-layout-1,
+  .ast-separate-container .ast-article-single,
+  .comments-area, .comment-respond, #comments,
+  nav.ast-breadcrumbs, .ast-breadcrumbs-wrapper,
+  .ast-single-post-order { display: none !important; }
+
+  .ast-separate-container, .ast-container { max-width: 100% !important; padding: 0 !important; margin: 0 !important; }
+  .ast-page-builder-template .site-content > .ast-container { max-width: 100% !important; padding: 0 !important; }
+
+  @media (max-width: 768px) {
+    .gp-header img { height: 80px; }
+    .gp-header span { font-size: 0.85em; }
+    .gp-btns a { padding: 10px 16px; font-size: 0.8em; }
+    .hero { padding: 50px 16px 45px; }
+    .hero h1 { font-size: 1.6em; }
+    .hero .subtitle { font-size: 0.95em; }
+    .hero-cta-group { flex-direction: column; align-items: stretch; padding: 0 20px; }
+    .filter-bar { top: 44px; }
+    .filter-tabs { flex-wrap: wrap; justify-content: center; }
+    .filter-tab { padding: 7px 14px; font-size: 0.8em; }
+    .blog-section { padding: 36px 16px; }
+    .section-title { font-size: 1.4em; }
+    .grid-3, .grid-2 { grid-template-columns: 1fr; gap: 14px; }
+    .featured-card { padding: 24px 20px; }
+    .featured-card h3 { font-size: 1.15em; }
+    .btn { padding: 12px 24px; font-size: 0.9em; width: 100%; display: block; }
+    .contact-bar { padding: 45px 16px; }
+    .contact-bar h2 { font-size: 1.5em; }
+    .phone-link { font-size: 1.3em; }
+    .contact-btns { flex-direction: column; gap: 10px; }
+    .trust-strip-inner { gap: 12px; }
+    .trust-item { font-size: 0.75em; }
+    .homes-grid { gap: 8px; }
+    .home-type { padding: 10px 18px; font-size: 0.82em; }
+  }
+
+  @media (max-width: 480px) {
+    .hero { padding: 40px 14px 35px; }
+    .hero h1 { font-size: 1.35em; }
+    .blog-section { padding: 28px 14px; }
+    .section-title { font-size: 1.25em; }
+    .blog-card { padding: 20px 16px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="gp-header">
+  <a href="https://gamainteriorpainting.com" style="display:flex;align-items:center;gap:14px;text-decoration:none;">
+    <img src="https://i0.wp.com/gamainteriorpainting.com/wp-content/uploads/2024/02/cropped-cropped-cropped-gama-Brush-handle-New-yelow.png?w=1200&ssl=1" alt="Gama Interior Painting">
+    <span>Painting &amp; Renovation</span>
+  </a>
+</div>
+<div class="gp-btns">
+  <a href="tel:18889716033" class="gp-btn-call">&#128222; CALL NOW</a>
+  <a href="https://gamainteriorpainting.com/contact-us/" class="gp-btn-est">&#128197; GET A FREE ESTIMATE</a>
+</div>
+
+<div class="trust-strip">
+  <div class="trust-strip-inner">
+    <div class="trust-item">
+      <svg viewBox="0 0 18 18"><circle cx="9" cy="9" r="8" fill="#16a34a"/><path d="M5.5 9l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Google Guaranteed
+    </div>
+    <div class="trust-item">
+      <svg viewBox="0 0 18 18"><path d="M9 1L3 4.5v4.5c0 4.2 2.6 8 6 9 3.4-1 6-4.8 6-9V4.5L9 1z" fill="#1e6b3a"/><text x="9" y="12" text-anchor="middle" font-size="5" font-weight="700" fill="#fff" font-family="Arial">EPA</text></svg>
+      EPA Lead-Safe
+    </div>
+    <div class="trust-item">
+      <svg viewBox="0 0 18 18"><path d="M9 1L3 4.5v4.5c0 4.2 2.6 8 6 9 3.4-1 6-4.8 6-9V4.5L9 1z" fill="#2563eb"/><path d="M5.5 9l2.5 2.5 4.5-4.5" stroke="#fff" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Licensed &amp; Insured
+    </div>
+    <div class="trust-item">
+      <svg viewBox="0 0 18 18"><path d="M9 1L3 4.5v4.5c0 4.2 2.6 8 6 9 3.4-1 6-4.8 6-9V4.5L9 1z" fill="#e4181d"/><text x="9" y="11" text-anchor="middle" font-size="5" font-weight="700" fill="#fff" font-family="Arial">2YR</text></svg>
+      2-Year Warranty
+    </div>
+  </div>
+</div>
+
+<div class="hero">
+    <div class="hero-label">Precision Interior Painting &bull; Nassau County &amp; Brooklyn</div>
+    <h1>Interior Painting Insights &amp; Project Highlights</h1>
+    <p class="subtitle">We specialize in detailed interior painting for homes across Nassau County and Brooklyn. Our work focuses on clean environments, careful preparation, and precision finishes for homeowners who expect quality.</p>
+    <p class="subtitle-topics">Covering interior painting &bull; cabinet refinishing &bull; drywall repair &bull; plaster crack repair &bull; skim coating &bull; wallpaper removal &bull; trim &amp; molding &bull; color selection &bull; local project walkthroughs</p>
+    <div class="hero-cta-group">
+        <a href="https://gamainteriorpainting.com" class="btn btn-outline">&larr; Back to Home</a>
+        <a href="tel:18889716033" class="btn btn-green">Call (888) 971-6033</a>
+    </div>
+</div>
+
+<div class="filter-bar">
+  <div class="filter-tabs">
+    <button class="filter-tab active" onclick="filterPosts('all')">All Posts</button>
+    <button class="filter-tab" onclick="filterPosts('nassau')">Nassau County</button>
+    <button class="filter-tab" onclick="filterPosts('brooklyn')">Brooklyn</button>
+    <button class="filter-tab" onclick="filterPosts('tips')">Tips &amp; Advice</button>
+  </div>
+</div>
+
+<div class="blog-section" data-section="featured">
+    <div class="section-header">
+        <h2 class="section-title">Featured Article</h2>
+        <div class="red-divider"></div>
+    </div>
+    <a href="https://gamainteriorpainting.com/2025/10/21/interior-painting-that-feels-like-home-in-brooklyn-ny-today/">
+        <div class="featured-card">
+            <div class="card-meta">
+                <span class="card-tag tag-featured">Featured</span>
+                <span class="card-tag tag-brooklyn">Brooklyn</span>
+                <span class="card-date">October 21, 2025</span>
+            </div>
+            <h3>Interior Painting That Feels Like Home in Brooklyn</h3>
+            <p>Great rooms do more than look nice &mdash; they support how you live, relax, and host. When we take on a project in Brooklyn, our focus goes beyond color. Here&rsquo;s how careful preparation and precision finishes make the difference.</p>
+            <span class="read-more">Read Full Article &rarr;</span>
+            <div class="related-link">Related: <a href="https://gamainteriorpainting.com/interior-painting-brooklyn-ny/">Brooklyn Interior Painting</a></div>
+        </div>
+    </a>
+</div>
+
+<div class="blog-section-alt" data-section="nassau">
+  <div class="blog-section">
+    <div class="section-header">
+        <h2 class="section-title">Featured Nassau County Projects</h2>
+        <div class="red-divider"></div>
+        <p class="section-subtitle">Recent work in Garden City, Glen Head, Old Westbury, and surrounding communities</p>
+    </div>
+    <div class="grid-3">
+
+        <div class="blog-card">
+          <div class="card-meta">
+            <span class="card-tag tag-project">Project</span>
+            <span class="card-tag tag-nassau">Garden City</span>
+          </div>
+          <h3>Interior Painting in a Garden City Colonial Home</h3>
+          <p>Full interior repaint of a 4-bedroom colonial in Garden City. Included careful trim work, wall repair, and a coordinated neutral palette throughout the main living areas and upstairs bedrooms.</p>
+          <span class="read-more">View Project &rarr;</span>
+          <div class="related-link">See our <a href="https://gamainteriorpainting.com/painter-garden-city-ny/">Garden City painting page</a></div>
+        </div>
+
+        <div class="blog-card">
+          <div class="card-meta">
+            <span class="card-tag tag-project">Project</span>
+            <span class="card-tag tag-nassau">Glen Head</span>
+          </div>
+          <h3>Modern Interior Refresh in Glen Head Residence</h3>
+          <p>A full-home interior update in Glen Head. Clean lines, detailed prep on older plaster walls, and precision cutting on all crown and baseboard molding. The homeowner wanted a bright, contemporary feel.</p>
+          <span class="read-more">View Project &rarr;</span>
+          <div class="related-link">See our <a href="https://gamainteriorpainting.com/painter-glen-head-ny/">Glen Head painting page</a></div>
+        </div>
+
+        <div class="blog-card">
+          <div class="card-meta">
+            <span class="card-tag tag-project">Project</span>
+            <span class="card-tag tag-nassau">Old Westbury</span>
+          </div>
+          <h3>Detailed Trim &amp; Wall Finishes in Old Westbury</h3>
+          <p>High-end interior painting for a large residence in Old Westbury. Extensive trim detailing, skim coating of imperfect surfaces, and a carefully chosen palette to complement the home&rsquo;s architectural character.</p>
+          <span class="read-more">View Project &rarr;</span>
+          <div class="related-link">Get a <a href="https://gamainteriorpainting.com/contact-us/">free estimate</a> for your project</div>
+        </div>
+
+        <div class="blog-card">
+          <div class="card-meta">
+            <span class="card-tag tag-project">Project</span>
+            <span class="card-tag tag-nassau">Roslyn</span>
+          </div>
+          <h3>Interior Painting Project in Roslyn Residence</h3>
+          <p>Complete interior repaint of a split-level home in Roslyn. Careful preparation of all surfaces, clean job site throughout, and professional crews that respected the homeowner&rsquo;s space and schedule.</p>
+          <span class="read-more">View Project &rarr;</span>
+          <div class="related-link">Get a <a href="https://gamainteriorpainting.com/contact-us/">free estimate</a> for your project</div>
+        </div>
+
+        <div class="blog-card">
+          <div class="card-meta">
+            <span class="card-tag tag-project">Project</span>
+            <span class="card-tag tag-nassau">Manhasset</span>
+          </div>
+          <h3>Whole-Home Repaint in a Manhasset Estate</h3>
+          <p>A multi-room project covering living areas, dining room, and primary suite. Premium paints, detailed cutting on extensive crown molding, and wallpaper removal in the foyer before applying a clean, warm finish.</p>
+          <span class="read-more">View Project &rarr;</span>
+          <div class="related-link">Get a <a href="https://gamainteriorpainting.com/contact-us/">free estimate</a> for your project</div>
+        </div>
+
+        <a href="https://gamainteriorpainting.com/2026/04/01/interior-painting-elmont-ny-bathrooms-hallway-ceiling/" style="text-decoration:none;color:inherit;">
+        <div class="blog-card">
+          <div class="card-meta">
+            <span class="card-tag tag-project">Project</span>
+            <span class="card-tag tag-nassau">Elmont</span>
+          </div>
+          <h3>Bathrooms, Hallway, Stairway &amp; Vaulted Ceiling Painting in Elmont</h3>
+          <p>Two bathroom repaints, deep green hallway with white trim, vaulted ceiling work around exposed wood beams and skylights, and metal stairway handrailings refinished in black DTM enamel. Six-day project with hand-finished detail throughout.</p>
+          <span class="read-more">View Project &rarr;</span>
+          <div class="related-link">See our <a href="https://gamainteriorpainting.com/painter-elmont-ny/">Elmont painting page</a></div>
+        </div>
+        </a>
+
+    </div>
+  </div>
+</div>
+
+<div class="homes-section">
+  <div class="homes-inner">
+    <div class="section-header">
+        <h2 class="section-title">Homes We Work In</h2>
+        <div class="red-divider"></div>
+        <p>We regularly work in a range of home styles across Nassau County and Brooklyn, adapting our process to match each property&rsquo;s finishes and expectations.</p>
+    </div>
+    <div class="homes-grid">
+      <div class="home-type">Colonials</div>
+      <div class="home-type">Luxury Homes</div>
+      <div class="home-type">Co-ops &amp; Condos</div>
+      <div class="home-type">Brownstones</div>
+      <div class="home-type">High-End Residential</div>
+      <div class="home-type">Split-Levels</div>
+      <div class="home-type">Historic Properties</div>
+    </div>
+  </div>
+</div>
+
+<div data-section="brooklyn">
+  <div class="blog-section">
+    <div class="section-header">
+        <h2 class="section-title">Brooklyn Painting Projects &amp; Tips</h2>
+        <div class="red-divider"></div>
+        <p class="section-subtitle">Project stories and insights for Brooklyn homeowners &mdash; brownstones, co-ops, and condos</p>
+    </div>
+    <div class="grid-3">
+
+        <a href="https://gamainteriorpainting.com/2025/10/16/home-painting-in-brooklyn-how-we-bring-rooms-to-life/">
+          <div class="blog-card">
+            <div class="card-meta">
+              <span class="card-tag tag-brooklyn">Brooklyn</span>
+              <span class="card-date">Oct 16, 2025</span>
+            </div>
+            <h3>How We Bring Brooklyn Rooms to Life With Paint</h3>
+            <p>Planning a refresh for your brownstone, condo, or co-op? Here&rsquo;s what goes into getting results that hold up &mdash; from surface prep to the final detailed finish.</p>
+            <span class="read-more">Read More &rarr;</span>
+            <div class="related-link">See our <a href="https://gamainteriorpainting.com/interior-painting-brooklyn-ny/">Brooklyn painting page</a></div>
+          </div>
+        </a>
+
+        <a href="https://gamainteriorpainting.com/2025/10/08/brooklyns-trusted-choice-for-residential-painting/">
+          <div class="blog-card">
+            <div class="card-meta">
+              <span class="card-tag tag-brooklyn">Brooklyn</span>
+              <span class="card-date">Oct 8, 2025</span>
+            </div>
+            <h3>Painting Brooklyn&rsquo;s Most Detailed Spaces</h3>
+            <p>Narrow stairwells, tall ceilings, and ornate mouldings &mdash; Brooklyn homes demand careful preparation and precision. Here&rsquo;s how our team handles the unique challenges.</p>
+            <span class="read-more">Read More &rarr;</span>
+            <div class="related-link">See our <a href="https://gamainteriorpainting.com/painter-brooklyn-heights-ny/">Brooklyn Heights page</a></div>
+          </div>
+        </a>
+
+        <a href="https://gamainteriorpainting.com/2025/10/01/finding-reliable-interior-painting-companies-near-me-our-brooklyn-approach/">
+          <div class="blog-card">
+            <div class="card-meta">
+              <span class="card-tag tag-brooklyn">Brooklyn</span>
+              <span class="card-date">Oct 1, 2025</span>
+            </div>
+            <h3>What Sets Our Brooklyn Painting Process Apart</h3>
+            <p>From initial walkthrough to final cleanup, every step is deliberate. Clean job sites, professional crews, and finishes that hold up &mdash; here&rsquo;s how we work differently.</p>
+            <span class="read-more">Read More &rarr;</span>
+            <div class="related-link">See our <a href="https://gamainteriorpainting.com/painter-park-slope-brooklyn-ny/">Park Slope page</a></div>
+          </div>
+        </a>
+
+        <a href="https://gamainteriorpainting.com/2025/09/08/looking-for-interior-painting-near-me-trust-gama-interior-painting-of-brooklyn/">
+          <div class="blog-card">
+            <div class="card-meta">
+              <span class="card-tag tag-brooklyn">Brooklyn</span>
+              <span class="card-date">Sep 8, 2025</span>
+            </div>
+            <h3>Why Brooklyn Homeowners Keep Coming Back to Us</h3>
+            <p>Repeat clients are our best referral. When homeowners see the level of care and detail we bring, they call again for the next room. Here&rsquo;s what makes the difference.</p>
+            <span class="read-more">Read More &rarr;</span>
+            <div class="related-link">See our <a href="https://gamainteriorpainting.com/interior-painting-brooklyn-ny/">Brooklyn painting page</a></div>
+          </div>
+        </a>
+
+        <a href="https://gamainteriorpainting.com/2025/09/08/interior-painting-services-that-bring-brooklyn-homes-to-life/">
+          <div class="blog-card">
+            <div class="card-meta">
+              <span class="card-tag tag-brooklyn">Brooklyn</span>
+              <span class="card-date">Sep 8, 2025</span>
+            </div>
+            <h3>From Tired Walls to Precision Finishes in Brooklyn</h3>
+            <p>Every wall tells a story. Whether it&rsquo;s a full brownstone repaint or a single room refresh, our process starts with proper preparation and ends with clean, lasting results.</p>
+            <span class="read-more">Read More &rarr;</span>
+            <div class="related-link">See our <a href="https://gamainteriorpainting.com/painter-brooklyn-heights-ny/">Brooklyn Heights page</a></div>
+          </div>
+        </a>
+
+        <a href="https://gamainteriorpainting.com/2025/08/04/bringing-color-and-quality-together-our-interior-painting-approach/">
+          <div class="blog-card">
+            <div class="card-meta">
+              <span class="card-tag tag-brooklyn">Brooklyn</span>
+              <span class="card-date">Aug 4, 2025</span>
+            </div>
+            <h3>How We Balance Color Selection and Quality Finishes</h3>
+            <p>Choosing the right color is only half the job. The finish, the prep, and the application all determine whether the result looks professional. Here&rsquo;s our approach.</p>
+            <span class="read-more">Read More &rarr;</span>
+            <div class="related-link">See our <a href="https://gamainteriorpainting.com/painter-park-slope-brooklyn-ny/">Park Slope page</a></div>
+          </div>
+        </a>
+    </div>
+  </div>
+</div>
+
+<div class="blog-section-alt" data-section="nassau">
+  <div class="blog-section">
+    <div class="section-header">
+        <h2 class="section-title">Nassau County Painting Guides</h2>
+        <div class="red-divider"></div>
+        <p class="section-subtitle">Expert advice for homeowners in Garden City, Glen Head, Old Westbury, Roslyn, Manhasset, and across Nassau County</p>
+    </div>
+    <div class="grid-3">
+
+        <div class="blog-card">
+          <div class="card-meta">
+            <span class="card-tag tag-nassau">Garden City</span>
+          </div>
+          <h3>Choosing the Right Interior Paint Finish for a Garden City Home</h3>
+          <p>Colonial homes in Garden City have architectural details that deserve the right finish. Here&rsquo;s how we select paints and sheens that complement crown molding, wainscoting, and built-ins.</p>
+          <span class="read-more">Read More &rarr;</span>
+          <div class="related-link">See our <a href="https://gamainteriorpainting.com/painter-garden-city-ny/">Garden City painting page</a></div>
+        </div>
+
+        <div class="blog-card">
+          <div class="card-meta">
+            <span class="card-tag tag-nassau">Glen Head</span>
+          </div>
+          <h3>What High-End Homeowners in Glen Head Look for in a Painter</h3>
+          <p>Glen Head homeowners expect precision work and clean job sites. Here&rsquo;s what separates a professional interior painting experience from an average one &mdash; and what to ask before hiring.</p>
+          <span class="read-more">Read More &rarr;</span>
+          <div class="related-link">See our <a href="https://gamainteriorpainting.com/painter-glen-head-ny/">Glen Head painting page</a></div>
+        </div>
+
+        <div class="blog-card">
+          <div class="card-meta">
+            <span class="card-tag tag-nassau">Old Westbury</span>
+          </div>
+          <h3>Interior Painting Ideas for Old Westbury Homes</h3>
+          <p>Large-scale residences in Old Westbury require careful planning &mdash; from color coordination across open floor plans to detailed trim work on extensive moldings. Here&rsquo;s how we approach it.</p>
+          <span class="read-more">Read More &rarr;</span>
+          <div class="related-link">Get a <a href="https://gamainteriorpainting.com/contact-us/">free estimate</a> for your project</div>
+        </div>
+
+        <div class="blog-card">
+          <div class="card-meta">
+            <span class="card-tag tag-nassau">Roslyn</span>
+          </div>
+          <h3>Clean, Detailed Interior Painting for Roslyn Homes</h3>
+          <p>Roslyn homeowners value quality and attention to detail. From proper surface preparation to precision cutting on all trim, here&rsquo;s what goes into delivering results that last.</p>
+          <span class="read-more">Read More &rarr;</span>
+          <div class="related-link">Get a <a href="https://gamainteriorpainting.com/contact-us/">free estimate</a> for your project</div>
+        </div>
+
+        <div class="blog-card">
+          <div class="card-meta">
+            <span class="card-tag tag-nassau">Manhasset</span>
+          </div>
+          <h3>What to Expect From a Professional Painter in Manhasset</h3>
+          <p>Professional interior painting goes beyond rolling walls. In Manhasset, our process includes detailed prep, clean work areas, furniture protection, and finishes that hold up for years.</p>
+          <span class="read-more">Read More &rarr;</span>
+          <div class="related-link">Get a <a href="https://gamainteriorpainting.com/contact-us/">free estimate</a> for your project</div>
+        </div>
+
+        <a href="https://gamainteriorpainting.com/2025/05/24/repaint-before-selling-in-lynbrook/">
+          <div class="blog-card">
+            <div class="card-meta">
+              <span class="card-tag tag-nassau">Lynbrook</span>
+              <span class="card-date">May 24, 2025</span>
+            </div>
+            <h3>Why a Quality Repaint Adds Value Before Selling in Lynbrook</h3>
+            <p>A professional interior repaint is one of the highest-ROI improvements you can make before listing. Clean walls and detailed trim make a strong impression on buyers.</p>
+            <span class="read-more">Read More &rarr;</span>
+            <div class="related-link">See our <a href="https://gamainteriorpainting.com/painter-lynbrook-ny/">Lynbrook painting page</a></div>
+          </div>
+        </a>
+
+    </div>
+  </div>
+</div>
+
+<div data-section="tips">
+  <div class="blog-section">
+    <div class="section-header">
+        <h2 class="section-title">Painting Advice &amp; Hiring Tips</h2>
+        <div class="red-divider"></div>
+        <p class="section-subtitle">What to look for when choosing a painting contractor</p>
+    </div>
+    <div class="grid-3">
+
+        <a href="https://gamainteriorpainting.com/2025/09/08/finding-the-best-interior-painting-companies-near-me/">
+          <div class="blog-card">
+            <div class="card-meta">
+              <span class="card-tag tag-tips">Advice</span>
+              <span class="card-date">Sep 8, 2025</span>
+            </div>
+            <h3>How to Evaluate an Interior Painting Company Before You Hire</h3>
+            <p>Homeowners want more than a fresh coat &mdash; they want professionals who listen, prepare properly, and deliver clean, detailed results. Here&rsquo;s how to tell the good from the rest.</p>
+            <span class="read-more">Read More &rarr;</span>
+            <div class="related-link">Get a <a href="https://gamainteriorpainting.com/contact-us/">free estimate</a> from our team</div>
+          </div>
+        </a>
+
+        <a href="https://gamainteriorpainting.com/2025/08/04/finding-interior-painting-near-me-heres-why-were-the-right-choice/">
+          <div class="blog-card">
+            <div class="card-meta">
+              <span class="card-tag tag-tips">Advice</span>
+              <span class="card-date">Aug 4, 2025</span>
+            </div>
+            <h3>5 Qualities That Separate Professional Painters From the Rest</h3>
+            <p>Looking for a team that delivers precision work the first time? Here are the qualities to watch for &mdash; and the red flags to avoid &mdash; when vetting painting contractors.</p>
+            <span class="read-more">Read More &rarr;</span>
+            <div class="related-link">See our work across <a href="https://gamainteriorpainting.com/interior-painting-brooklyn-ny/">Brooklyn</a> and <a href="https://gamainteriorpainting.com/painter-garden-city-ny/">Garden City</a></div>
+          </div>
+        </a>
+
+        <a href="https://gamainteriorpainting.com/2025/08/04/looking-for-interior-painting-companies-near-me-heres-what-matters-most/">
+          <div class="blog-card">
+            <div class="card-meta">
+              <span class="card-tag tag-tips">Advice</span>
+              <span class="card-date">Aug 4, 2025</span>
+            </div>
+            <h3>What Actually Matters When Choosing a Painting Contractor</h3>
+            <p>So many choices, each promising great results. Here&rsquo;s a practical checklist &mdash; preparation quality, clean job sites, professional crews &mdash; so you can hire with confidence.</p>
+            <span class="read-more">Read More &rarr;</span>
+            <div class="related-link">Explore our <a href="https://gamainteriorpainting.com/painter-garden-city-ny/">Garden City page</a></div>
+          </div>
+        </a>
+
+    </div>
+  </div>
+</div>
+
+<div class="areas-section">
+  <div class="areas-inner">
+    <div class="section-header">
+        <h2 class="section-title">Areas We Serve</h2>
+        <div class="red-divider"></div>
+    </div>
+
+    <h3 class="areas-group-title">Premium Nassau County &amp; North Shore</h3>
+    <div class="zip-list">
+      <a href="https://gamainteriorpainting.com/painter-garden-city-ny/"><span class="zip-badge zip-badge-premium">Garden City</span></a>
+      <a href="https://gamainteriorpainting.com/painter-glen-head-ny/"><span class="zip-badge zip-badge-premium">Glen Head</span></a>
+      <span class="zip-badge zip-badge-premium">Old Westbury</span>
+      <span class="zip-badge zip-badge-premium">Roslyn</span>
+      <span class="zip-badge zip-badge-premium">Manhasset</span>
+      <span class="zip-badge zip-badge-premium">Brookville</span>
+      <span class="zip-badge zip-badge-premium">Sands Point</span>
+    </div>
+
+    <h3 class="areas-group-title">Nassau County &amp; Long Island</h3>
+    <div class="zip-list">
+      <a href="https://gamainteriorpainting.com/painter-rockville-centre-ny/"><span class="zip-badge">Rockville Centre</span></a>
+      <a href="https://gamainteriorpainting.com/learn-about-hempstead/"><span class="zip-badge">Hempstead</span></a>
+      <a href="https://gamainteriorpainting.com/uniondale-new-york/"><span class="zip-badge">Uniondale</span></a>
+      <a href="https://gamainteriorpainting.com/painter-franklin-square-ny/"><span class="zip-badge">Franklin Square</span></a>
+      <a href="https://gamainteriorpainting.com/painter-elmont-ny/"><span class="zip-badge">Elmont</span></a>
+      <a href="https://gamainteriorpainting.com/painter-valley-stream-ny/"><span class="zip-badge">Valley Stream</span></a>
+      <a href="https://gamainteriorpainting.com/painter-lynbrook-ny/"><span class="zip-badge">Lynbrook</span></a>
+      <a href="https://gamainteriorpainting.com/painter-new-hyde-park-ny/"><span class="zip-badge">New Hyde Park</span></a>
+      <a href="https://gamainteriorpainting.com/painter-baldwin-ny/"><span class="zip-badge">Baldwin</span></a>
+      <a href="https://gamainteriorpainting.com/painter-oceanside-ny/"><span class="zip-badge">Oceanside</span></a>
+    </div>
+
+    <h3 class="areas-group-title">Brooklyn Neighborhoods</h3>
+    <div class="zip-list">
+      <a href="https://gamainteriorpainting.com/interior-painting-brooklyn-ny/"><span class="zip-badge zip-badge-brooklyn">Brooklyn</span></a>
+      <a href="https://gamainteriorpainting.com/painter-brooklyn-heights-ny/"><span class="zip-badge zip-badge-brooklyn">Brooklyn Heights</span></a>
+      <a href="https://gamainteriorpainting.com/painter-park-slope-brooklyn-ny/"><span class="zip-badge zip-badge-brooklyn">Park Slope</span></a>
+    </div>
+  </div>
+</div>
+
+<div class="contact-bar">
+    <h2>Schedule Your Interior Painting Estimate</h2>
+    <p>If you&rsquo;re planning an interior painting project in Nassau County or Brooklyn, we provide detailed estimates and professional service from start to finish.</p>
+    <p>Nassau County: 206 Mayfair Ave, West Hempstead, NY 11552</p>
+    <p>Brooklyn: 41 Schermerhorn St #1018, Brooklyn, NY 11201</p>
+    <a href="tel:18889716033" class="phone-link">(888) 971-6033</a>
+    <div class="contact-btns">
+        <a href="https://gamainteriorpainting.com/contact-us/" class="btn btn-red">Get a Free Estimate</a>
+        <a href="tel:18889716033" class="btn btn-green">Call (888) 971-6033</a>
+    </div>
+</div>
+
+<div class="gp-footer">&copy; 2026 Gama Interior Painting &amp; Renovation. All rights reserved.</div>
+
+<script>
+function filterPosts(category) {
+  document.querySelectorAll('.filter-tab').forEach(function(t) { t.classList.remove('active'); });
+  event.target.classList.add('active');
+  document.querySelectorAll('[data-section]').forEach(function(s) {
+    if (category === 'all') {
+      s.style.display = '';
+    } else if (s.dataset.section === 'featured') {
+      s.style.display = '';
+    } else if (s.dataset.section === category) {
+      s.style.display = '';
+    } else {
+      s.style.display = 'none';
+    }
+  });
+}
+</script>
+
+</body>
+</html>

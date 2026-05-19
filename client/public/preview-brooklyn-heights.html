@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Brooklyn Heights' trusted interior painter. Prewar and brownstone specialists with 16 years experience. EPA Lead-Safe Certified. Free estimates. (888) 971-6033.">
+<title>Brooklyn Heights Interior Painting - Gama Interior Painting of Brooklyn</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Inter', system-ui, -apple-system, sans-serif; color: #1a1a1a; line-height: 1.7; overflow-x: hidden; }
+  img { max-width: 100%; height: auto; display: block; }
+  a { text-decoration: none; }
+
+  /* HERO */
+  .hero { background: linear-gradient(135deg, #1a1a2e 0%, #0f1a2e 50%, #0a1628 100%); color: #fff; padding: 70px 24px 60px; text-align: center; position: relative; }
+  .hero::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 5px; background: #e4181d; }
+  .hero-eyebrow { font-size: 0.78em; text-transform: uppercase; letter-spacing: 3px; color: rgba(255,255,255,0.5); margin-bottom: 8px; }
+  .hero-label { display: inline-block; font-size: 0.8em; text-transform: uppercase; letter-spacing: 3px; color: #fff; font-weight: 700; margin-bottom: 20px; background: #e4181d; padding: 6px 20px; border-radius: 999px; }
+  .hero h1 { font-size: 2.6em; font-weight: 900; margin-bottom: 20px; letter-spacing: -0.02em; line-height: 1.1; max-width: 800px; margin-left: auto; margin-right: auto; }
+  .hero h1 .accent { color: #e4181d; }
+  .hero .subtitle { font-size: 1.1em; opacity: 0.85; max-width: 620px; margin: 0 auto 28px; line-height: 1.6; }
+  .hero-badges { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-bottom: 32px; }
+  .hero-badge { display: inline-flex; align-items: center; gap: 6px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); border-radius: 999px; padding: 8px 16px; font-size: 0.82em; }
+  .hero-cta-group { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; margin-bottom: 36px; }
+  .hero-stats { display: flex; flex-wrap: wrap; justify-content: center; gap: 40px; padding-top: 32px; border-top: 1px solid rgba(255,255,255,0.12); }
+  .hero-stat-num { font-size: 2.2em; font-weight: 900; color: #e4181d; display: block; line-height: 1; }
+  .hero-stat-label { font-size: 0.78em; opacity: 0.6; margin-top: 4px; }
+
+  /* TRUST BADGES */
+  .trust-badges { background: #fff; padding: 24px; border-bottom: 1px solid #eee; }
+  .trust-badges-inner { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 24px; max-width: 1100px; margin: 0 auto; }
+  .trust-badge-item { display: flex; align-items: center; gap: 8px; padding: 10px 20px; border: 1px solid #e5e5e5; border-radius: 999px; background: #fafafa; transition: all 0.2s; }
+  .trust-badge-item:hover { border-color: #e4181d; background: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+  .trust-badge-item span { font-size: 0.85em; font-weight: 700; color: #333; white-space: nowrap; }
+  .badge-shield { width: 32px; height: 32px; flex-shrink: 0; }
+
+  /* BUTTONS */
+  .btn { display: inline-block; font-weight: 700; padding: 18px 42px; border-radius: 999px; font-size: 1.1em; transition: all 0.25s; border: none; cursor: pointer; text-align: center; }
+  .btn-red { background: #e4181d; color: #fff; }
+  .btn-red:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(228,24,29,0.35); }
+  .btn-green { background: #16a34a; color: #fff; }
+  .btn-green:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(22,163,74,0.35); }
+  .btn-sm { padding: 12px 28px; font-size: 0.95em; }
+
+  /* SECTIONS */
+  section { max-width: 1100px; margin: 0 auto; padding: 60px 24px; }
+  .section-title { font-size: 1.8em; font-weight: 900; text-align: center; margin-bottom: 10px; letter-spacing: -0.01em; }
+  .section-subtitle { text-align: center; color: #666; font-size: 1em; max-width: 650px; margin: 0 auto 40px; }
+  .red-divider { width: 60px; height: 4px; background: #e4181d; margin: 12px auto 20px; border-radius: 2px; }
+
+  /* WHY CHOOSE US */
+  .why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+  .why-card { background: #fff; border: 1px solid #eee; border-radius: 16px; padding: 32px 24px; text-align: center; transition: all 0.3s; }
+  .why-card:hover { border-color: #e4181d; transform: translateY(-4px); box-shadow: 0 12px 30px rgba(0,0,0,0.08); }
+  .why-icon { width: 56px; height: 56px; border-radius: 50%; background: rgba(228,24,29,0.08); display: flex; align-items: center; justify-content: center; font-size: 26px; margin: 0 auto 16px; }
+  .why-card h3 { font-size: 1.1em; font-weight: 800; margin-bottom: 8px; }
+  .why-card p { color: #666; font-size: 0.9em; line-height: 1.6; }
+
+  /* EXPERTISE SECTION */
+  .expertise-section { background: #f8f8f8; }
+  .expertise-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
+  .expertise-img { width: 100%; border-radius: 16px; aspect-ratio: 4/3; object-fit: cover; box-shadow: 0 8px 30px rgba(0,0,0,0.1); }
+  .expertise-content h2 { font-size: 1.6em; font-weight: 900; margin-bottom: 16px; }
+  .expertise-content p { color: #555; margin-bottom: 16px; line-height: 1.7; }
+  .expertise-list { list-style: none; padding: 0; margin-bottom: 24px; }
+  .expertise-list li { padding: 6px 0; display: flex; align-items: center; gap: 10px; font-size: 0.95em; }
+  .expertise-list li::before { content: '✓'; color: #16a34a; font-weight: 800; }
+
+  /* SOCIAL PROOF */
+  .social-proof { background: #1a1a1a; color: #fff; padding: 50px 24px; text-align: center; }
+  .social-proof h2 { font-size: 1.6em; font-weight: 900; margin-bottom: 30px; }
+  .testimonial-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; max-width: 1100px; margin: 0 auto; }
+  .testimonial-card { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 28px; text-align: left; }
+  .testimonial-stars { color: #f59e0b; font-size: 1.1em; margin-bottom: 12px; letter-spacing: 2px; }
+  .testimonial-text { font-size: 0.95em; line-height: 1.7; opacity: 0.9; margin-bottom: 16px; font-style: italic; }
+  .testimonial-author { font-size: 0.85em; color: #e4181d; font-weight: 700; }
+  .testimonial-location { font-size: 0.78em; opacity: 0.5; }
+
+  /* SERVICES */
+  .services-strip { background: #fff; }
+  .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
+  .service-item { text-align: center; padding: 24px 16px; border: 1px solid #eee; border-radius: 12px; transition: all 0.2s; }
+  .service-item:hover { border-color: #e4181d; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+  .service-emoji { font-size: 2em; margin-bottom: 10px; }
+  .service-item h3 { font-size: 0.95em; font-weight: 800; margin-bottom: 4px; }
+  .service-item p { font-size: 0.8em; color: #888; }
+
+  /* PROCESS STEPS */
+  .steps-container { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+  .step-card { text-align: center; padding: 32px 20px; }
+  .step-num { width: 48px; height: 48px; border-radius: 50%; background: #e4181d; color: #fff; font-size: 1.2em; font-weight: 900; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; }
+  .step-card h3 { font-size: 1.05em; font-weight: 800; margin-bottom: 8px; }
+  .step-card p { font-size: 0.9em; color: #666; line-height: 1.6; }
+
+  /* GALLERY (hidden until real photos are added) */
+
+  /* NEIGHBORHOOD TAGS */
+  .neighborhood-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; text-align: center; }
+  .neighborhood-tag { background: #f5f5f5; padding: 12px 16px; border-radius: 8px; font-size: 0.9em; font-weight: 600; transition: all 0.2s; }
+  .neighborhood-tag:hover { background: #e4181d; color: #fff; }
+  .neighborhood-tag.active { background: #e4181d; color: #fff; pointer-events: none; }
+  a.neighborhood-tag { color: inherit; text-decoration: none; cursor: pointer; }
+  a.neighborhood-tag:hover { color: #fff; }
+
+  /* CTA BOTTOM */
+  .cta-bottom { background: linear-gradient(135deg, #e4181d 0%, #c41018 100%); color: #fff; padding: 60px 24px; text-align: center; }
+  .cta-bottom h2 { font-size: 2em; font-weight: 900; margin-bottom: 12px; }
+  .cta-bottom p { font-size: 1.05em; opacity: 0.9; max-width: 550px; margin: 0 auto 28px; }
+  .cta-bottom .btn-white { background: #fff; color: #e4181d; font-weight: 800; border-radius: 999px; }
+  .cta-bottom .btn-white:hover { background: #f0f0f0; transform: translateY(-2px); box-shadow: 0 8px 25px rgba(0,0,0,0.2); }
+
+  /* FAQ */
+  .faq-item { border-bottom: 1px solid #eee; padding: 20px 0; }
+  .faq-q { font-weight: 700; font-size: 1em; cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
+  .faq-a { color: #666; font-size: 0.92em; padding-top: 10px; line-height: 1.7; display: none; }
+  .faq-item.open .faq-a { display: block; }
+  .faq-item.open .faq-toggle { transform: rotate(45deg); }
+  .faq-toggle { font-size: 1.4em; color: #e4181d; transition: transform 0.2s; }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    .hero h1 { font-size: 1.8em; }
+    .expertise-grid { grid-template-columns: 1fr; }
+    .steps-container { grid-template-columns: 1fr; gap: 16px; }
+    section { padding: 40px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-eyebrow">Gama Interior Painting of Brooklyn</div>
+  <div class="hero-label">Brooklyn Heights' Trusted Painter</div>
+  <h1>Refined Painting for <span class="accent">Brooklyn Heights</span> Homes</h1>
+  <p class="subtitle">From landmark brownstones on Pierrepont to prewar co-ops on Montague — we bring 16 years of precision craftsmanship to one of Brooklyn's most distinguished neighborhoods.</p>
+  <div class="hero-badges">
+    <span class="hero-badge">🏛️ Prewar & Landmark Specialists</span>
+    <span class="hero-badge">🛡️ EPA Lead-Safe Certified</span>
+    <span class="hero-badge">⭐ 5-Star Reviews</span>
+    <span class="hero-badge">📋 2-Year Warranty</span>
+  </div>
+  <div class="hero-cta-group">
+    <a href="https://gamainteriorpainting.com/appointments/" class="btn btn-red">Get Your Free Estimate</a>
+    <a href="tel:8889716033" class="btn btn-green">📞 (888) 971-6033</a>
+  </div>
+  <div class="hero-stats">
+    <div><span class="hero-stat-num">16+</span><span class="hero-stat-label">Years Experience</span></div>
+    <div><span class="hero-stat-num">2,000+</span><span class="hero-stat-label">Homes Painted</span></div>
+    <div><span class="hero-stat-num">5.0</span><span class="hero-stat-label">Google Rating</span></div>
+    <div><span class="hero-stat-num">100%</span><span class="hero-stat-label">Satisfaction</span></div>
+  </div>
+</div>
+
+<!-- TRUST BADGES -->
+<div class="trust-badges">
+  <div class="trust-badges-inner">
+    <div class="trust-badge-item">
+      <svg class="badge-shield" viewBox="0 0 32 32"><circle cx="16" cy="16" r="15" fill="#16a34a"/><path d="M10 16l4 4 8-8" stroke="#fff" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span>Google Guaranteed</span>
+    </div>
+    <div class="trust-badge-item">
+      <svg class="badge-shield" viewBox="0 0 32 32"><path d="M16 2L4 8v8c0 7.5 5.1 14.5 12 16 6.9-1.5 12-8.5 12-16V8L16 2z" fill="#1e6b3a"/><path d="M16 6L8 10v6c0 5.5 3.4 10.5 8 12 4.6-1.5 8-6.5 8-12v-6L16 6z" fill="#2e8b4a"/><text x="16" y="20" text-anchor="middle" font-size="8" font-weight="700" fill="#fff" font-family="Arial">EPA</text></svg>
+      <span>EPA Lead-Safe Certified</span>
+    </div>
+    <div class="trust-badge-item">
+      <img src="https://www.pcapainted.org/wp-content/uploads/2019/07/PCA-Logo-Icon.png" alt="PCA Member" style="height: 32px;">
+      <span>PCA Member</span>
+    </div>
+    <div class="trust-badge-item">
+      <svg class="badge-shield" viewBox="0 0 32 32"><path d="M16 2L4 8v8c0 7.5 5.1 14.5 12 16 6.9-1.5 12-8.5 12-16V8L16 2z" fill="#2563eb"/><path d="M10 16l4 4 8-8" stroke="#fff" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span>Licensed & Insured</span>
+    </div>
+    <div class="trust-badge-item">
+      <svg class="badge-shield" viewBox="0 0 32 32"><path d="M16 2L4 8v8c0 7.5 5.1 14.5 12 16 6.9-1.5 12-8.5 12-16V8L16 2z" fill="#e4181d"/><text x="16" y="18" text-anchor="middle" font-size="9" font-weight="700" fill="#fff" font-family="Arial">2YR</text><text x="16" y="25" text-anchor="middle" font-size="5" fill="#fff" font-family="Arial">WARRANTY</text></svg>
+      <span>2-Year Warranty</span>
+    </div>
+  </div>
+</div>
+
+<!-- WHY BROOKLYN HEIGHTS CHOOSES GAMA -->
+<section>
+  <h2 class="section-title">Why Brooklyn Heights Residents Choose Gama</h2>
+  <div class="red-divider"></div>
+  <p class="section-subtitle">Brooklyn Heights is one of New York's first designated historic districts. Your home deserves painters who understand what that means.</p>
+  <div class="why-grid">
+    <div class="why-card">
+      <div class="why-icon">🏛️</div>
+      <h3>Historic Home Experts</h3>
+      <p>Brooklyn Heights was designated a landmark district in 1965 — the city's first. We understand the architectural details that make your home special: ornate plaster medallions, original wood trim, and period-correct color palettes.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">🛡️</div>
+      <h3>Lead-Safe for Prewar Homes</h3>
+      <p>Nearly every home in Brooklyn Heights predates 1978. Our EPA RRP-certified crews follow strict lead-safe protocols — proper containment, HEPA filtration, and wet scraping to protect your family.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">🏢</div>
+      <h3>Co-op & Condo Coordination</h3>
+      <p>From the Standish to One Pierrepont Plaza, we handle COIs, alteration agreements, building access, elevator reservations, and noise-hour compliance. Your super and board will love us.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">🎨</div>
+      <h3>Premium Finishes</h3>
+      <p>Benjamin Moore Regal Select for walls, Advance for cabinetry, and Aura for high-traffic areas. We also do specialty finishes — limewash, Venetian plaster, and lacquer — for clients who want something extraordinary.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">👶</div>
+      <h3>Family-Safe Process</h3>
+      <p>Low-VOC and zero-VOC paints, full furniture protection, daily cleanup, and background-checked crews. Brooklyn Heights families trust us inside their homes — you can too.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">📋</div>
+      <h3>Transparent & Detailed</h3>
+      <p>Written estimates itemized by room, surface, and coat. No surprise charges. You approve everything before we start — and our 2-year warranty means we stand behind every brushstroke.</p>
+    </div>
+  </div>
+</section>
+
+<!-- BROOKLYN HEIGHTS EXPERTISE -->
+<div class="expertise-section">
+  <section>
+    <div class="expertise-grid" style="grid-template-columns: 1fr;">
+      <div class="expertise-content">
+        <h2>Made for Brooklyn Heights Architecture</h2>
+        <p>From the grand Federal and Greek Revival row houses along Willow Street to the elegant prewar co-ops on Hicks, Brooklyn Heights homes demand a higher standard of painting. We've spent 16 years perfecting our approach to these distinctive spaces.</p>
+        <p>Whether it's a parlor floor with 14-foot ceilings, a brownstone stairwell with original banister, or a compact Heights co-op where every detail shows — we deliver museum-quality results.</p>
+        <ul class="expertise-list">
+          <li>High ceiling and stairwell painting (no scaffold marks)</li>
+          <li>Plaster repair — cracks, water damage, skim coating</li>
+          <li>Original wood trim and millwork restoration</li>
+          <li>Wallpaper removal with zero wall damage</li>
+          <li>Lead paint encapsulation (EPA certified)</li>
+          <li>Period-appropriate color consultations</li>
+          <li>Landmark-compliant exterior prep (where applicable)</li>
+        </ul>
+        <a href="https://gamainteriorpainting.com/appointments/" class="btn btn-red btn-sm">Get a Brooklyn Heights Quote →</a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- SOCIAL PROOF -->
+<div class="social-proof">
+  <h2>What Brooklyn Heights Neighbors Say</h2>
+  <div class="testimonial-grid">
+    <div class="testimonial-card">
+      <div class="testimonial-stars">★★★★★</div>
+      <p class="testimonial-text">"We live in a landmarked brownstone on Pierrepont and needed someone who understood the level of care required. Gamaliel's crew was meticulous — they repaired 100-year-old plaster, prepped every surface perfectly, and the paint job is flawless."</p>
+      <div class="testimonial-author">Margaret & Robert T.</div>
+      <div class="testimonial-location">Pierrepont Street, Brooklyn Heights</div>
+    </div>
+    <div class="testimonial-card">
+      <div class="testimonial-stars">★★★★★</div>
+      <p class="testimonial-text">"Our co-op board is very particular about contractors. Gama provided insurance certificates same-day, coordinated perfectly with the building, and left zero mess in the hallway. Best painters we've ever hired."</p>
+      <div class="testimonial-author">James L.</div>
+      <div class="testimonial-location">Montague Terrace, Brooklyn Heights</div>
+    </div>
+    <div class="testimonial-card">
+      <div class="testimonial-stars">★★★★★</div>
+      <p class="testimonial-text">"Painted our entire 3BR apartment on Hicks Street. They used Benjamin Moore Advance on all the trim and it looks incredible — smooth as glass. The crew was professional, clean, and finished a day early."</p>
+      <div class="testimonial-author">Catherine M.</div>
+      <div class="testimonial-location">Hicks Street, Brooklyn Heights</div>
+    </div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section class="services-strip">
+  <h2 class="section-title">Our Brooklyn Heights Services</h2>
+  <div class="red-divider"></div>
+  <p class="section-subtitle">Full-service interior painting for Brooklyn Heights homes — brownstones, co-ops, and condos.</p>
+  <div class="services-grid">
+    <div class="service-item">
+      <div class="service-emoji">🎨</div>
+      <h3>Interior Painting</h3>
+      <p>Walls, ceilings, trim</p>
+    </div>
+    <div class="service-item">
+      <div class="service-emoji">🖌️</div>
+      <h3>Cabinet Refinishing</h3>
+      <p>Kitchen & bathroom</p>
+    </div>
+    <div class="service-item">
+      <div class="service-emoji">✨</div>
+      <h3>Plaster Repair</h3>
+      <p>Cracks, skim coating</p>
+    </div>
+    <div class="service-item">
+      <div class="service-emoji">🔲</div>
+      <h3>Wallpaper Removal</h3>
+      <p>Clean, damage-free</p>
+    </div>
+    <div class="service-item">
+      <div class="service-emoji">🪟</div>
+      <h3>Trim & Molding</h3>
+      <p>Crown, base, window</p>
+    </div>
+    <div class="service-item">
+      <div class="service-emoji">🏠</div>
+      <h3>Color Consultation</h3>
+      <p>Period-correct palettes</p>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section>
+  <h2 class="section-title">How It Works</h2>
+  <div class="red-divider"></div>
+  <p class="section-subtitle">From first call to final walkthrough — simple, transparent, and stress-free.</p>
+  <div class="steps-container">
+    <div class="step-card">
+      <div class="step-num">1</div>
+      <h3>Free In-Home Estimate</h3>
+      <p>We visit your Brooklyn Heights home, take measurements, discuss your vision and colors, and deliver a detailed written quote — usually within 24 hours.</p>
+    </div>
+    <div class="step-card">
+      <div class="step-num">2</div>
+      <h3>Expert Prep & Paint</h3>
+      <p>Furniture fully protected, surfaces expertly prepped (plaster repairs, sanding, priming), and premium Benjamin Moore paint applied with precision. Most rooms done in 1–2 days.</p>
+    </div>
+    <div class="step-card">
+      <div class="step-num">3</div>
+      <h3>Final Walkthrough</h3>
+      <p>We inspect every room together. Touch-ups done on the spot. You don't pay the final balance until you're 100% satisfied. Plus our 2-year warranty covers everything.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- NEARBY -->
+<section>
+  <h2 class="section-title">We Also Serve Nearby</h2>
+  <div class="red-divider"></div>
+  <p class="section-subtitle">Brooklyn Heights is our home — but we serve all surrounding neighborhoods too.</p>
+  <div class="neighborhood-grid">
+    <div class="neighborhood-tag active">Brooklyn Heights</div>
+    <div class="neighborhood-tag">DUMBO</div>
+    <div class="neighborhood-tag">Cobble Hill</div>
+    <div class="neighborhood-tag">Boerum Hill</div>
+    <div class="neighborhood-tag">Downtown Brooklyn</div>
+    <div class="neighborhood-tag">Carroll Gardens</div>
+    <a href="/api/public/preview-parkslope" class="neighborhood-tag">Park Slope</a>
+    <div class="neighborhood-tag">Fort Greene</div>
+    <div class="neighborhood-tag">Clinton Hill</div>
+    <div class="neighborhood-tag">Prospect Heights</div>
+    <div class="neighborhood-tag">Vinegar Hill</div>
+    <div class="neighborhood-tag">Red Hook</div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section>
+  <h2 class="section-title">Brooklyn Heights Painting FAQ</h2>
+  <div class="red-divider"></div>
+  <div style="max-width: 700px; margin: 0 auto;">
+    <div class="faq-item" onclick="this.classList.toggle('open')">
+      <div class="faq-q">Do you have experience with landmarked Brooklyn Heights homes? <span class="faq-toggle">+</span></div>
+      <div class="faq-a">Yes — Brooklyn Heights was New York City's first landmarked district. We regularly work on historic row houses and brownstones here. We understand plaster walls, original wood details, and the care these homes require. Our EPA Lead-Safe certification means we handle prewar surfaces properly.</div>
+    </div>
+    <div class="faq-item" onclick="this.classList.toggle('open')">
+      <div class="faq-q">How much does it cost to paint an apartment in Brooklyn Heights? <span class="faq-toggle">+</span></div>
+      <div class="faq-a">Most rooms run $800–$1,200 depending on size and prep work needed. Every project is different — ceiling height, plaster condition, and scope all factor in. We provide a detailed written estimate broken down by room so you know exactly what you're paying for. No surprises, no hidden fees. All prices include premium Benjamin Moore paint, thorough prep, and our 2-year warranty.</div>
+    </div>
+    <div class="faq-item" onclick="this.classList.toggle('open')">
+      <div class="faq-q">Can you work with my co-op board's requirements? <span class="faq-toggle">+</span></div>
+      <div class="faq-a">Absolutely. We provide Certificates of Insurance the same day, customized to your building. We coordinate elevator bookings, follow noise-hour restrictions, protect common areas, and clean up daily. Many Brooklyn Heights buildings have used us repeatedly because we know the process.</div>
+    </div>
+    <div class="faq-item" onclick="this.classList.toggle('open')">
+      <div class="faq-q">Is the paint safe for children? <span class="faq-toggle">+</span></div>
+      <div class="faq-a">Yes. We use low-VOC and zero-VOC Benjamin Moore paints. Rooms are typically safe to sleep in the same night. For prewar homes with existing lead paint, we follow strict EPA containment procedures to prevent any dust exposure.</div>
+    </div>
+    <div class="faq-item" onclick="this.classList.toggle('open')">
+      <div class="faq-q">How long does a Brooklyn Heights brownstone floor take? <span class="faq-toggle">+</span></div>
+      <div class="faq-a">A single parlor floor (living room, dining room, hallway) typically takes 3–5 days. A single room is 1–2 days. Full brownstone projects (all floors) can take 2–3 weeks. We provide a detailed timeline with your estimate.</div>
+    </div>
+    <div class="faq-item" onclick="this.classList.toggle('open')">
+      <div class="faq-q">Do you handle plaster repair before painting? <span class="faq-toggle">+</span></div>
+      <div class="faq-a">Yes — it's one of our specialties. Brooklyn Heights homes often have plaster cracks, water damage spots, and areas needing skim coating. We repair everything before painting so you get a smooth, lasting finish. The repair cost is included in your estimate.</div>
+    </div>
+  </div>
+</section>
+
+<!-- BOTTOM CTA -->
+<div class="cta-bottom">
+  <h2>Ready to Elevate Your Brooklyn Heights Home?</h2>
+  <p>Join the Brooklyn Heights residents who trust Gama for meticulous, premium interior painting. Free estimates, no pressure.</p>
+  <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 14px;">
+    <a href="https://gamainteriorpainting.com/appointments/" class="btn btn-white">Get Your Free Estimate</a>
+    <a href="tel:8889716033" class="btn btn-green">📞 Call (888) 971-6033</a>
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover, interactive-widget=resizes-content" />
+    <title>Fuse Phone — CRM for Small Business</title>
+    <meta name="description" content="Fuse Phone is the all-in-one CRM for small businesses and contractors. Manage leads, projects, estimates, invoices, payments, scheduling, and customer communication in one place." />
+    <link rel="canonical" href="https://app.fusephone.com/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Fuse Phone" />
+    <meta property="og:title" content="Fuse Phone — CRM for Small Business" />
+    <meta property="og:description" content="Manage leads, projects, estimates, invoices, payments, and customer communication in one place." />
+    <meta property="og:url" content="https://app.fusephone.com/" />
+    <meta property="og:image" content="https://app.fusephone.com/icon-512.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Fuse Phone — CRM for Small Business" />
+    <meta name="twitter:description" content="Manage leads, projects, estimates, invoices, payments, and customer communication in one place." />
+    <meta name="twitter:image" content="https://app.fusephone.com/icon-512.png" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/icon-192.png" />
+    <link rel="apple-touch-icon" sizes="128x128" href="/icon-128.png" />
+    <link rel="apple-touch-icon" sizes="144x144" href="/icon-144.png" />
+    <link rel="apple-touch-icon" sizes="192x192" href="/icon-192.png" />
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Fuse Phone" />
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#232d3b" media="(prefers-color-scheme: dark)" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="application-name" content="Fuse Phone" />
+    <meta name="msapplication-TileImage" content="/icon-144.png" />
+    <meta name="msapplication-TileColor" content="#232d3b" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://app.fusephone.com">
+  </head>
+  <body>
+    <div id="native-splash" style="display:none;position:fixed;top:0;right:0;bottom:0;left:0;background:linear-gradient(135deg,#0F172A 0%,#1E293B 50%,#0F172A 100%);z-index:99999;justify-content:center;align-items:center;flex-direction:column">
+      <div style="width:112px;height:112px;background:white;border-radius:16px;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 15px -3px rgba(0,0,0,0.1)">
+        <img src="/icon-192.png" alt="" style="width:80px;height:80px;object-fit:contain">
+      </div>
+      <div style="color:white;font-family:'Outfit',sans-serif;font-size:24px;font-weight:700;margin-top:16px">Fuse Phone</div>
+    </div>
+    <script>
+      (function(){
+        var ua = navigator.userAgent || '';
+        if (ua.indexOf('FusePhone') !== -1 || ua.indexOf('Capacitor') !== -1) {
+          document.getElementById('native-splash').style.display = 'flex';
+          document.body.style.backgroundColor = '#0F172A';
+        }
+      })();
+    </script>
+    <div id="root"></div>
+    <div id="compose-portal"></div>
+    <script>
+      (function(){
+        var key = '__fuse_reload_count';
+        var max = 3;
+        setTimeout(function(){
+          var root = document.getElementById('root');
+          if (root && root.children.length > 0) return;
+          var body = document.body.innerText || '';
+          var lower = body.toLowerCase();
+          if (lower.indexOf('rate') !== -1 || lower.indexOf('exceeded') !== -1 || (lower.trim().length > 0 && lower.trim().length < 50 && !root)) {
+            var count = parseInt(sessionStorage.getItem(key) || '0', 10);
+            if (count < max) {
+              sessionStorage.setItem(key, String(count + 1));
+              var delay = Math.pow(2, count) * 1500;
+              setTimeout(function(){ window.location.reload(); }, delay);
+            }
+          } else {
+            sessionStorage.removeItem(key);
+          }
+        }, 2000);
+      })();
+    </script>
+    <script type="module" src="/src/main.tsx"></script>
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function() {
+          navigator.serviceWorker.register('/service-worker.js', { scope: '/' })
+            .then(function(reg) {
+              console.log('SW registered, scope:', reg.scope);
+              reg.addEventListener('updatefound', function() {
+                var newSW = reg.installing;
+                if (newSW) {
+                  newSW.addEventListener('statechange', function() {
+                    if (newSW.state === 'activated') {
+                      if (navigator.serviceWorker.controller) {
+                        window.location.reload();
+                      }
+                    }
+                  });
+                }
+              });
+            })
+            .catch(function(err) {
+              console.warn('SW registration failed:', err);
+            });
+        });
+        navigator.serviceWorker.addEventListener('controllerchange', function() {
+          window.location.reload();
+        });
+      }
+    </script>
+  </body>
+</html>

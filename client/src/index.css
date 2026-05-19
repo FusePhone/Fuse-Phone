@@ -1,0 +1,456 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+:root {
+  /* Navy-tinted light palette — same brand DNA as dark theme */
+  --background: 214 30% 96%;
+  --foreground: 214 32% 15%;
+
+  --card: 214 25% 99%;
+  --card-foreground: 214 32% 15%;
+  --card-border: 214 20% 85%;
+
+  --popover: 214 25% 99%;
+  --popover-foreground: 214 32% 15%;
+
+  --primary: 216 23% 22%;
+  --primary-foreground: 210 40% 98%;
+
+  --secondary: 214 25% 93%;
+  --secondary-foreground: 214 32% 15%;
+
+  --muted: 214 25% 93%;
+  --muted-foreground: 214 16% 46%;
+
+  --accent: 262 83% 58%;
+  --accent-foreground: 210 40% 98%;
+
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 210 40% 98%;
+
+  --border: 214 25% 89%;
+  --input: 214 25% 89%;
+  --ring: 216 23% 22%;
+
+  --radius: 0.75rem;
+
+  --font-sans: 'Inter', sans-serif;
+  --font-display: 'Outfit', sans-serif;
+}
+
+.dark {
+  --background: 214 32% 17%;
+  --foreground: 210 40% 98%;
+
+  --card: 214 30% 21%;
+  --card-foreground: 210 40% 98%;
+  --card-border: 215 12% 58%;
+
+  --popover: 214 32% 19%;
+  --popover-foreground: 210 40% 98%;
+
+  --primary: 213 27% 54%;
+  --primary-foreground: 210 40% 98%;
+
+  --secondary: 214 30% 24%;
+  --secondary-foreground: 210 40% 98%;
+
+  --muted: 214 30% 24%;
+  --muted-foreground: 215 20.2% 65.1%;
+
+  --accent: 262 83% 58%;
+  --accent-foreground: 210 40% 98%;
+
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 210 40% 98%;
+
+  --border: 214 28% 27%;
+  --input: 214 28% 27%;
+  --ring: 213 27% 54%;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html, body {
+    @apply overflow-x-hidden;
+    max-width: 100vw;
+    -webkit-overflow-scrolling: touch;
+  }
+  html.capacitor-native,
+  html.capacitor-native body {
+    -webkit-overflow-scrolling: touch;
+    background-color: hsl(214 30% 96%);
+    overscroll-behavior-y: auto;
+  }
+  html.capacitor-native main,
+  html.capacitor-native [data-scroll-container],
+  html.capacitor-native .overflow-y-auto,
+  html.capacitor-native .overflow-auto,
+  html.capacitor-native [data-radix-scroll-area-viewport] {
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-y: auto !important;
+  }
+  .dark.capacitor-native,
+  .dark.capacitor-native body {
+    background-color: hsl(214 32% 17%);
+  }
+  @media (max-width: 1023px) {
+    html, body {
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+    html::-webkit-scrollbar,
+    body::-webkit-scrollbar {
+      display: none;
+    }
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: var(--font-sans);
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    @apply font-bold tracking-tight text-foreground;
+  }
+}
+
+/* Custom Utilities for Polish */
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .glass-panel {
+    @apply bg-white/70 dark:bg-black/70 backdrop-blur-md border border-white/20 shadow-xl;
+  }
+  
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-lg hover:-translate-y-1 hover:border-primary/20;
+  }
+
+  .pt-safe-top {
+    padding-top: env(safe-area-inset-top, 0px);
+  }
+
+  .pb-safe-bottom {
+    padding-bottom: env(safe-area-inset-bottom, 2px);
+  }
+
+  .pt-mobile-header {
+    padding-top: calc(3.5rem + env(safe-area-inset-top, 0px));
+  }
+}
+
+/* Normalize date input height on iOS to match select triggers */
+input[type="date"] {
+  -webkit-appearance: none;
+  appearance: none;
+  min-height: 0;
+  box-sizing: border-box;
+}
+
+/* Force bottom nav to stick on iOS Safari during scroll */
+@supports (-webkit-touch-callout: none) {
+  [data-testid="mobile-bottom-nav"] {
+    position: fixed !important;
+    bottom: 0 !important;
+  }
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-muted-foreground/20 rounded-full hover:bg-muted-foreground/40 transition-colors;
+}
+
+/* Rich Text Editor Styles */
+.ProseMirror {
+  @apply min-h-[200px] p-3 focus:outline-none;
+  user-select: text;
+  -webkit-user-select: text;
+  cursor: text;
+  touch-action: manipulation;
+}
+
+.ProseMirror:focus {
+  padding-bottom: 0;
+}
+
+.ProseMirror p {
+  @apply mb-2 last:mb-0;
+  line-height: 1.6;
+}
+
+/* Ensure larger font sizes have proper line height */
+.ProseMirror span[style*="font-size"] {
+  line-height: 1.5;
+  display: inline;
+  vertical-align: baseline;
+}
+
+.ProseMirror ul {
+  @apply list-disc mb-2;
+  padding-left: 1.5rem;
+  list-style-position: outside;
+}
+
+.ProseMirror ol {
+  @apply list-decimal mb-2;
+  padding-left: 1.5rem;
+  list-style-position: outside;
+}
+
+.ProseMirror ul ul,
+.ProseMirror ol ul {
+  @apply list-disc mt-1 mb-1;
+  padding-left: 1.5rem;
+}
+
+.ProseMirror ul ol,
+.ProseMirror ol ol {
+  @apply list-decimal mt-1 mb-1;
+  padding-left: 1.5rem;
+}
+
+.ProseMirror li {
+  @apply mb-1;
+  padding-left: 0.25rem;
+}
+
+.ProseMirror li > p {
+  @apply mb-0;
+  display: inline;
+}
+
+.ProseMirror li > p + p {
+  display: block;
+  @apply mt-1;
+}
+
+.ProseMirror mark {
+  @apply rounded px-0.5;
+}
+
+.ProseMirror p.is-editor-empty:first-child::before {
+  @apply text-muted-foreground pointer-events-none float-left h-0;
+  content: attr(data-placeholder);
+}
+
+/* Prose display for rich text content */
+.prose {
+  @apply text-foreground;
+}
+
+.prose ul {
+  @apply list-disc mb-2;
+  padding-left: 1.5rem;
+  list-style-position: outside;
+}
+
+.prose ol {
+  @apply list-decimal mb-2;
+  padding-left: 1.5rem;
+  list-style-position: outside;
+}
+
+.prose li {
+  @apply mb-1 text-foreground;
+  padding-left: 0.25rem;
+}
+
+.prose ul ul,
+.prose ol ul {
+  @apply list-disc mt-1 mb-1;
+  padding-left: 1.5rem;
+}
+
+.prose ul ol,
+.prose ol ol {
+  @apply list-decimal mt-1 mb-1;
+  padding-left: 1.5rem;
+}
+
+.prose li > p {
+  @apply mb-0;
+  display: inline;
+}
+
+.prose li > p + p {
+  display: block;
+  @apply mt-1;
+}
+
+.prose li::marker {
+  @apply text-foreground;
+}
+
+.prose p {
+  @apply mb-2 last:mb-0;
+  line-height: 1.6;
+}
+
+/* Ensure larger font sizes display properly in prose content */
+.prose span[style*="font-size"] {
+  line-height: 1.5;
+  display: inline;
+  vertical-align: baseline;
+}
+
+.prose mark {
+  @apply rounded px-0.5;
+}
+
+@media print {
+  body {
+    background: white !important;
+    color: black !important;
+  }
+  .print\\:hidden,
+  nav,
+  aside,
+  [data-sidebar],
+  header {
+    display: none !important;
+  }
+  .print\\:block {
+    display: block !important;
+  }
+  .print\\:p-0 {
+    padding: 0 !important;
+  }
+  .print\\:max-w-none {
+    max-width: none !important;
+  }
+  .print\\:break-inside-avoid {
+    break-inside: avoid;
+  }
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.keyboard-open [data-testid="compose-bar"] {
+  padding-bottom: 8px !important;
+}
+
+/* Dark mode: adjust inline text colors for visibility on dark backgrounds */
+.dark .prose [style*="color"],
+.dark .rich-text-content [style*="color"] {
+  filter: brightness(1.8) saturate(0.8);
+}
+
+
+
+/* Keyboard-aware overlays.
+   Both Dialog and Sheet read the --kb-height variable that is set by the
+   Capacitor Keyboard listener in main.tsx. On native iOS the visualViewport
+   does NOT shrink when the keyboard opens, so without this the bottom of any
+   dialog/sheet (and any address autocomplete inside it) sits hidden behind
+   the keyboard. */
+:root { --kb-height: 0px; }
+
+.dialog-kb-aware {
+  max-height: calc(85dvh - var(--kb-height));
+  /* Keep the dialog visually centered within the area above the keyboard */
+  top: calc(50% - (var(--kb-height) / 2));
+}
+
+.sheet-kb-aware {
+  /* Reserve space at the bottom so internal scroll areas can scroll past
+     the keyboard. */
+  padding-bottom: calc(max(1.5rem, env(safe-area-inset-bottom)) + var(--kb-height)) !important;
+}
+
+/* Bottom sheets need their max-height pulled up too. */
+[data-state="open"][data-side="bottom"].sheet-kb-aware,
+.sheet-kb-aware[data-side="bottom"] {
+  max-height: calc(95dvh - var(--kb-height));
+  overflow-y: auto;
+}
+
+/* Main app scroll container — shrink it by the keyboard height when the
+   soft keyboard is open. Without this, the <main> element keeps its
+   `h-screen` height (iOS WKWebView with Capacitor `resize: 'none'`
+   does NOT shrink the visual viewport), so any focused input near the
+   bottom of a long page (Delete Account confirm, deep settings forms,
+   etc.) sits behind the keyboard and `scrollIntoView({block:'center'})`
+   computes "center" against the FULL window — landing the field where
+   the keyboard covers it. With this rule, the scroll container's own
+   height drops to the visible-above-keyboard area, so center IS above
+   the keyboard, and every focused field gets scrolled correctly app-wide. */
+html.kb-open .main-kb-aware {
+  height: calc(100vh - var(--kb-height));
+  height: calc(100dvh - var(--kb-height));
+  /* Mobile bottom nav (pb-20 = 80px) is hidden behind the soft keyboard
+     anyway, so reserving space for it just creates dead pink/white space
+     below the focused field (e.g. Delete Account confirm). Drop it while
+     the keyboard is open — restored automatically on keyboard close. */
+  padding-bottom: 0 !important;
+}
+
+
+/* Read-only edit/view dialog: gray out inputs and prevent typing while
+   keeping buttons/links/expanders fully clickable so the user can still
+   navigate, scroll, and open items to inspect overrides. */
+[data-edit-readonly="true"] input,
+[data-edit-readonly="true"] textarea,
+[data-edit-readonly="true"] select,
+[data-edit-readonly="true"] [contenteditable="true"] {
+  pointer-events: none !important;
+  background-color: hsl(var(--muted)) !important;
+  color: hsl(var(--muted-foreground)) !important;
+  cursor: not-allowed !important;
+  opacity: 0.9;
+}
+
+[data-edit-readonly="true"] [contenteditable="true"] {
+  user-select: text;
+  -webkit-user-select: text;
+}
+
+/* Buttons that mutate data (delete, remove, trash, drag handles) become
+   visually muted and non-interactive in read-only mode. */
+[data-edit-readonly="true"] [data-mutating="true"] {
+  display: none !important;
+}
+
+/* Read-only also disables Radix toggles, checkboxes, and radio controls so
+   "section on/off" toggles inside the production rate block editor cannot
+   be flipped. Visually grayed out so the user can still see current state. */
+[data-edit-readonly="true"] [role="switch"],
+[data-edit-readonly="true"] [role="checkbox"],
+[data-edit-readonly="true"] [role="radio"] {
+  pointer-events: none !important;
+  opacity: 0.55 !important;
+  cursor: not-allowed !important;
+}
+
+/* Native checkbox/radio inputs also get disabled. The general input rule
+   above already covers them, but make their disabled state visible. */
+[data-edit-readonly="true"] input[type="checkbox"],
+[data-edit-readonly="true"] input[type="radio"] {
+  filter: grayscale(0.5);
+}

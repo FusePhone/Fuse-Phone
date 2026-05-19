@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Gama Interior Painting - Professional interior painting, remodeling & specialty finishes in West Hempstead, Nassau County, Brooklyn & Long Island. Now serving Brooklyn! Free estimates. Call (888) 971-6033.">
+<title>Gama Interior Painting - Professional Interior Painting in West Hempstead, Nassau County & Brooklyn NY</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Inter', system-ui, -apple-system, sans-serif; color: #1a1a1a; line-height: 1.7; overflow-x: hidden; }
+  img { max-width: 100%; height: auto; display: block; }
+  a { text-decoration: none; }
+
+  /* HEADER */
+    .gp-header { background: #111; padding: 20px 24px; display: flex; align-items: center; justify-content: center; gap: 14px; }
+    .gp-header img { height: 120px; width: auto; }
+    .gp-header span { color: #fff; font-weight: 800; font-size: 1.1em; text-transform: uppercase; letter-spacing: 2px; }
+    .gp-btns { position: sticky; top: 0; z-index: 1000; background: #111; padding: 10px 24px; display: flex; justify-content: center; gap: 10px; }
+    .gp-btns a { color: #fff; font-weight: 700; border-radius: 999px; padding: 12px 22px; font-size: 0.85em; display: inline-flex; align-items: center; gap: 6px; text-decoration: none; }
+    .gp-btn-call { background: #16a34a; }
+    .gp-btn-est { background: #e4181d; }
+    @media (max-width: 768px) {
+      .gp-header img { height: 80px; }
+      .gp-header span { font-size: 0.85em; }
+      .gp-btns a { padding: 10px 16px; font-size: 0.8em; }
+    }
+
+    /* HERO */
+  .hero { background: #111; color: #fff; padding: 80px 24px 70px; text-align: center; position: relative; }
+  .hero::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 5px; background: #e4181d; }
+  .hero h1, .hero p, .hero .subtitle, .hero span, .hero-label, .hero-stat-number, .hero-stat-label { color: #ffffff !important; }
+  .hero-label { font-size: 0.85em; text-transform: uppercase; letter-spacing: 3px; color: #e4181d; font-weight: 700; margin-bottom: 16px; }
+  .hero h1 { font-size: 3em; font-weight: 900; color: #ffffff !important; margin-bottom: 20px; letter-spacing: -0.02em; line-height: 1.1; max-width: 900px; margin-left: auto; margin-right: auto; }
+  .hero .subtitle { color: #ffffff !important; font-size: 1.2em; opacity: 0.8; max-width: 650px; margin: 0 auto 32px; line-height: 1.6; }
+  .hero-badges { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-bottom: 36px; }
+  .hero-badge { display: inline-flex; align-items: center; gap: 6px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); border-radius: 999px; padding: 8px 18px; font-size: 0.88em; }
+  .hero-badge-highlight { background: rgba(228,24,29,0.2); border-color: #e4181d; font-weight: 700; }
+  .hero-cta-group { display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; margin-bottom: 40px; }
+  .hero-stats { display: flex; flex-wrap: wrap; justify-content: center; gap: 40px; padding-top: 36px; border-top: 1px solid rgba(255,255,255,0.12); }
+  .hero-stat-num { font-size: 2.4em; font-weight: 900; color: #e4181d; display: block; line-height: 1; }
+  .hero-stat-label { font-size: 0.82em; opacity: 0.6; margin-top: 4px; }
+
+  /* TRUST BADGES */
+  .trust-badges { background: #fff; padding: 24px; border-bottom: 1px solid #eee; }
+  .trust-badges-inner { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 24px; max-width: 1100px; margin: 0 auto; }
+  .trust-badge-item { display: flex; align-items: center; gap: 8px; padding: 10px 20px; border: 1px solid #e5e5e5; border-radius: 999px; background: #fafafa; transition: all 0.2s; }
+  .trust-badge-item:hover { border-color: #e4181d; background: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+  .trust-badge-item img { height: 28px; width: auto; }
+  .trust-badge-item span { font-size: 0.85em; font-weight: 700; color: #333; white-space: nowrap; }
+  .badge-shield { width: 32px; height: 32px; flex-shrink: 0; }
+
+  /* BUTTONS */
+  .btn { display: inline-block; font-weight: 700; padding: 18px 42px; border-radius: 999px; font-size: 1.1em; transition: all 0.25s; border: none; cursor: pointer; text-align: center; }
+  .btn-red { background: #e4181d; color: #fff; }
+  .btn-red:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(228,24,29,0.35); }
+  .btn-green { background: #16a34a; color: #fff; }
+  .btn-green:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(22,163,74,0.35); }
+  .btn-outline { background: transparent; border: 2px solid; }
+  .btn-white { background: #fff; color: #111; }
+  .btn-white:hover { background: #f0f0f0; }
+
+  /* SECTIONS */
+  section { padding: 80px 24px; max-width: 1200px; margin: 0 auto; }
+  .section-title { font-size: 2.4em; font-weight: 800; text-align: center; margin-bottom: 14px; color: #111; line-height: 1.2; }
+  .section-subtitle { text-align: center; color: #555; margin-bottom: 50px; max-width: 700px; margin-left: auto; margin-right: auto; font-size: 1.08em; line-height: 1.6; }
+  .red-divider { width: 60px; height: 4px; background: #e4181d; margin: 0 auto 28px; border-radius: 2px; }
+
+  /* GRIDS */
+  .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+
+  /* CARDS */
+  .card { background: #fff; border-radius: 16px; padding: 36px 28px; text-align: center; transition: all 0.3s; box-shadow: 0 2px 16px rgba(0,0,0,0.06); border-left: 4px solid #e4181d; }
+  .card:hover { box-shadow: 0 12px 40px rgba(228,24,29,0.12); transform: translateY(-6px); }
+  .card h3 { font-size: 1.2em; font-weight: 700; margin: 16px 0 10px; color: #111; }
+  .card p { color: #555; font-size: 0.95em; line-height: 1.6; }
+  .card-icon { width: 56px; height: 56px; background: rgba(228,24,29,0.08); border-radius: 14px; display: flex; align-items: center; justify-content: center; margin: 0 auto; font-size: 28px; }
+
+  /* PROMISE LIST */
+  .promise-list { list-style: none; padding: 0; }
+  .promise-list li { padding: 10px 0; font-size: 1.02em; display: flex; align-items: center; gap: 12px; color: #333; }
+  .promise-check { width: 26px; height: 26px; background: #e4181d; color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.75em; flex-shrink: 0; }
+
+  /* PROCESS STEPS */
+  .process-step { text-align: center; padding: 28px 20px; }
+  .step-num { width: 60px; height: 60px; background: #e4181d; color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 1.4em; margin: 0 auto 18px; box-shadow: 0 4px 15px rgba(228,24,29,0.25); }
+  .process-step h3 { font-size: 1.15em; font-weight: 700; margin-bottom: 8px; color: #111; }
+  .process-step p { color: #555; font-size: 0.95em; line-height: 1.6; }
+
+  /* STATS BAR */
+  .stats-bar { background: #111; color: #fff; padding: 60px 24px; text-align: center; }
+
+  /* WHY SECTION */
+  .why-section { background: #fafafa; }
+  .why-section section { max-width: 1200px; margin: 0 auto; }
+
+  /* GALLERY */
+  .gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .gallery-img { border-radius: 14px; width: 100%; aspect-ratio: 4/3; object-fit: cover; box-shadow: 0 4px 20px rgba(0,0,0,0.08); transition: transform 0.3s; }
+  .gallery-img:hover { transform: scale(1.03); }
+
+  /* MEET OWNER */
+  .meet-owner { background: linear-gradient(135deg, #fafafa 0%, #fff 100%); }
+  .meet-owner section { max-width: 1200px; margin: 0 auto; }
+  .owner-photo { border-radius: 20px; box-shadow: 0 12px 40px rgba(0,0,0,0.12); width: 100%; max-width: 450px; aspect-ratio: 1; object-fit: cover; }
+  .owner-quote { font-style: italic; font-size: 1.1em; color: #555; border-left: 4px solid #e4181d; padding-left: 20px; margin: 20px 0; line-height: 1.7; }
+
+  /* BROOKLYN BANNER */
+  .brooklyn-banner { background: #e4181d; color: #fff; padding: 60px 24px; text-align: center; }
+  .brooklyn-banner h2 { font-size: 2.2em; font-weight: 800; margin-bottom: 12px; }
+  .brooklyn-banner p { font-size: 1.08em; opacity: 0.9; max-width: 700px; margin: 0 auto 24px; line-height: 1.6; }
+  .brooklyn-locations { display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; margin-bottom: 28px; }
+  .brooklyn-loc { display: flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.15); border-radius: 999px; padding: 10px 22px; font-weight: 600; font-size: 0.95em; }
+
+  /* TESTIMONIALS */
+  .social-proof { background: #1a1a1a; color: #fff; padding: 60px 24px; text-align: center; }
+  .social-proof h2 { font-size: 1.8em; font-weight: 900; margin-bottom: 10px; }
+  .social-proof .red-divider { background: #e4181d; width: 60px; height: 4px; margin: 12px auto 20px; border-radius: 2px; }
+  .social-proof .section-subtitle { color: rgba(255,255,255,0.6); margin-bottom: 32px; }
+  .testimonial-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); gap: 24px; max-width: 1100px; margin: 0 auto; }
+  .testimonial-card { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 28px; text-align: left; }
+  .testimonial-stars { color: #f59e0b; font-size: 1.1em; margin-bottom: 12px; letter-spacing: 2px; }
+  .testimonial-text { font-size: 0.95em; line-height: 1.7; opacity: 0.9; margin-bottom: 16px; font-style: italic; }
+  .testimonial-author { font-size: 0.85em; color: #e4181d; font-weight: 700; }
+  .testimonial-location { font-size: 0.78em; opacity: 0.5; }
+
+  /* FAQ */
+  .faq-section { max-width: 800px; margin: 0 auto; }
+  .faq-item { border-bottom: 1px solid #eee; padding: 24px 0; }
+  .faq-item h3 { font-size: 1.08em; font-weight: 700; color: #111; margin-bottom: 8px; }
+  .faq-item p { color: #555; line-height: 1.7; font-size: 0.95em; }
+
+  /* SERVICE AREAS */
+  .areas-section { background: #fafafa; }
+  .areas-section section { max-width: 1200px; margin: 0 auto; }
+  .areas-group-title { font-size: 1.1em; font-weight: 700; color: #111; margin: 28px 0 12px; text-align: center; }
+  .areas-group-title:first-of-type { margin-top: 0; }
+  .zip-list { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-bottom: 16px; }
+  .zip-badge { background: #fff; border: 1px solid #ddd; border-radius: 999px; padding: 8px 20px; font-size: 0.88em; color: #333; transition: all 0.2s; }
+  .zip-badge:hover { border-color: #e4181d; color: #e4181d; }
+  .zip-badge-brooklyn { border-color: #e4181d; color: #e4181d; font-weight: 600; }
+
+  /* CONTACT BAR */
+  .contact-bar { background: #111; color: #fff; padding: 70px 24px; text-align: center; }
+  .contact-bar h2 { font-size: 2.2em; font-weight: 800; margin-bottom: 12px; color: #ffffff !important; }
+  .contact-bar p { opacity: 0.7; color: #ffffff !important; margin-bottom: 10px; font-size: 1.05em; }
+  .phone-link { color: #16a34a; font-weight: 900; font-size: 1.8em; display: block; margin-bottom: 28px; }
+  .phone-link:hover { color: #22c55e; }
+  .contact-btns { display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; }
+
+  /* IMAGE-TEXT ROW */
+  .image-text-row { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+  .image-text-row img { border-radius: 14px; box-shadow: 0 8px 30px rgba(0,0,0,0.1); width: 100%; }
+  .text-side h2 { font-size: 1.8em; font-weight: 800; margin-bottom: 16px; color: #111; }
+  .text-side h3 { font-size: 1.3em; font-weight: 700; margin-bottom: 12px; color: #111; }
+  .text-side p { color: #555; line-height: 1.7; margin-bottom: 14px; font-size: 1.02em; }
+
+  /* TABLET */
+  @media (max-width: 768px) {
+    .hero { padding: 60px 16px 50px; }
+    .hero h1 { font-size: 1.85em; }
+    .hero .subtitle { font-size: 1em; margin-bottom: 24px; }
+    .hero-badges { gap: 8px; }
+    .hero-badge { font-size: 0.78em; padding: 6px 12px; }
+    .hero-stats { gap: 20px; }
+    .hero-stat-num { font-size: 1.8em; }
+    .hero-cta-group { flex-direction: column; align-items: stretch; padding: 0 20px; }
+    section { padding: 50px 16px; }
+    .section-title { font-size: 1.6em; }
+    .section-subtitle { font-size: 0.95em; margin-bottom: 30px; }
+    .grid-3 { grid-template-columns: 1fr; gap: 16px; }
+    .image-text-row { grid-template-columns: 1fr; gap: 24px; }
+    .card { padding: 28px 20px; }
+    .stats-bar { padding: 40px 16px; }
+    .btn { padding: 16px 28px; font-size: 1em; width: 100%; display: block; }
+    .contact-bar { padding: 50px 16px; }
+    .contact-bar h2 { font-size: 1.6em; }
+    .phone-link { font-size: 1.4em; }
+    .contact-btns { flex-direction: column; gap: 12px; }
+    .gallery-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+    .brooklyn-banner h2 { font-size: 1.6em; }
+    .brooklyn-locations { flex-direction: column; align-items: center; gap: 10px; }
+    .owner-photo { max-width: 300px; margin: 0 auto; }
+  }
+
+  /* PHONE */
+  @media (max-width: 480px) {
+    .hero { padding: 48px 14px 40px; }
+    .hero h1 { font-size: 1.5em; }
+    .hero .subtitle { font-size: 0.9em; }
+    .hero-badges { flex-direction: column; align-items: center; gap: 6px; }
+    .hero-stats { flex-direction: column; gap: 16px; }
+    section { padding: 40px 14px; }
+    .section-title { font-size: 1.35em; }
+    .gallery-grid { grid-template-columns: 1fr; }
+    .card-icon { width: 48px; height: 48px; font-size: 24px; }
+    .btn { padding: 14px 20px; font-size: 0.95em; }
+    .owner-photo { max-width: 250px; }
+  }
+
+  /* WordPress theme overrides */
+  .sharedaddy, .sd-sharing-enabled, .sd-block { display: none !important; }
+  .entry-content, .post-content, .page-content, .elementor-widget-theme-post-content { margin: 0 !important; padding: 0 !important; }
+  .site-content, .content-area, #content, #primary, main { margin-top: 0 !important; padding-top: 0 !important; }
+  .elementor-section-wrap > .elementor-section:first-child { margin-top: 0 !important; }
+
+    /* FOOTER */
+    .gp-footer { background: #000000; color: rgba(255,255,255,0.6); text-align: center; padding: 24px; font-size: 0.85em; }
+</style>
+</head>
+<body>
+
+  <div class="gp-header">
+    <a href="https://gamainteriorpainting.com" style="display:flex;align-items:center;gap:14px;text-decoration:none;">
+      <img src="https://gamainteriorpainting.com/wp-content/uploads/2024/02/cropped-cropped-cropped-gama-Brush-handle-New-yelow.png" alt="Gama Interior Painting">
+      <span>Painting & Renovation</span>
+    </a>
+  </div>
+  <div class="gp-btns">
+    <a href="tel:18889716033" class="gp-btn-call">📞 CALL NOW</a>
+    <a href="https://gamainteriorpainting.com/contact-us/" class="gp-btn-est">📅 GET A FREE ESTIMATE</a>
+  </div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-label">Premium Interior Painting</div>
+  <h1>Transform Your Space, Transform Your Story</h1>
+  <p class="subtitle">Professional interior painting & remodeling services serving West Hempstead, Nassau County, <strong>Brooklyn</strong> & Long Island. Licensed, insured & trusted by 1,000+ homeowners.</p>
+  <div class="hero-badges">
+    <span class="hero-badge">✓ Licensed & Insured</span>
+    <span class="hero-badge">✓ 5-Star Reviews</span>
+    <span class="hero-badge">✓ Free Estimates</span>
+    <span class="hero-badge hero-badge-highlight">✓ Brooklyn Office Open!</span>
+  </div>
+  <div class="hero-cta-group">
+    <a href="https://gamainteriorpainting.com/contact-us/" class="btn btn-red">Schedule a FREE Estimate</a>
+    <a href="tel:18889716033" class="btn btn-green">Call (888) 971-6033</a>
+  </div>
+  <div class="hero-stats">
+    <div><span class="hero-stat-num">1,000+</span><span class="hero-stat-label">Projects Completed</span></div>
+    <div><span class="hero-stat-num">16+</span><span class="hero-stat-label">Years Experience</span></div>
+    <div><span class="hero-stat-num">200+</span><span class="hero-stat-label">5-Star Reviews</span></div>
+    <div><span class="hero-stat-num">50+</span><span class="hero-stat-label">Cities Served</span></div>
+  </div>
+</div>
+
+<!-- TRUST BADGES -->
+<div class="trust-badges">
+  <div class="trust-badges-inner">
+    <div class="trust-badge-item">
+      <svg class="badge-shield" viewBox="0 0 32 32"><circle cx="16" cy="16" r="15" fill="#16a34a"/><path d="M10 16l4 4 8-8" stroke="#fff" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span>Google Guaranteed</span>
+    </div>
+    <div class="trust-badge-item">
+      <svg class="badge-shield" viewBox="0 0 32 32"><path d="M16 2L4 8v8c0 7.5 5.1 14.5 12 16 6.9-1.5 12-8.5 12-16V8L16 2z" fill="#1e6b3a"/><path d="M16 6L8 10v6c0 5.5 3.4 10.5 8 12 4.6-1.5 8-6.5 8-12v-6L16 6z" fill="#2e8b4a"/><text x="16" y="20" text-anchor="middle" font-size="8" font-weight="700" fill="#fff" font-family="Arial">EPA</text></svg>
+      <span>EPA Lead-Safe Certified</span>
+    </div>
+    <div class="trust-badge-item">
+      <img src="https://www.pcapainted.org/wp-content/uploads/2019/07/PCA-Logo-Icon.png" alt="PCA Member" style="height: 32px;">
+      <span>PCA Member</span>
+    </div>
+    <div class="trust-badge-item">
+      <svg class="badge-shield" viewBox="0 0 32 32"><path d="M16 2L4 8v8c0 7.5 5.1 14.5 12 16 6.9-1.5 12-8.5 12-16V8L16 2z" fill="#2563eb"/><path d="M10 16l4 4 8-8" stroke="#fff" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span>Licensed & Insured</span>
+    </div>
+    <div class="trust-badge-item">
+      <svg class="badge-shield" viewBox="0 0 32 32"><path d="M16 2L4 8v8c0 7.5 5.1 14.5 12 16 6.9-1.5 12-8.5 12-16V8L16 2z" fill="#e4181d"/><text x="16" y="18" text-anchor="middle" font-size="9" font-weight="700" fill="#fff" font-family="Arial">2YR</text><text x="16" y="25" text-anchor="middle" font-size="5" fill="#fff" font-family="Arial">WARRANTY</text></svg>
+      <span>2-Year Warranty</span>
+    </div>
+  </div>
+</div>
+
+<!-- MEET THE OWNER -->
+<div class="meet-owner">
+  <section>
+    <div class="image-text-row">
+      <img class="owner-photo" src="https://i0.wp.com/gamainteriorpainting.com/wp-content/uploads/2025/03/interior-painter-west-hampstead.jpg?fit=1024%2C1024&ssl=1" alt="Gamaliel Revolorio - Owner of Gama Interior Painting">
+      <div class="text-side">
+        <h2>Meet Gamaliel Revolorio</h2>
+        <h3>Owner & Lead Painter</h3>
+        <p class="owner-quote">"I started Gama Interior Painting with one mission — to give every homeowner the quality, honesty, and care they deserve. When you hire us, you're not just getting painters. You're getting a team that treats your home like our own."</p>
+        <p>With over <strong>16 years of hands-on experience</strong>, Gamaliel started his career doing prep work and painting in <strong>the Hamptons</strong> — one of the most prestigious areas on the East Coast — where attention to detail and flawless execution are non-negotiable.</p>
+        <p>That same level of craftsmanship is what he brought to <strong>West Hempstead</strong> when he founded Gama Interior Painting. Today, the company has grown to proudly serve homeowners across <strong>Nassau County, Brooklyn, and all of Long Island</strong> with the same elite standards.</p>
+        <a href="https://gamainteriorpainting.com/contact-us/" class="btn btn-red">Schedule a Free Estimate with Gamaliel</a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- PROMISE -->
+<section>
+  <h2 class="section-title">The Gama Interior Painting Promise</h2>
+  <div class="red-divider"></div>
+  <div class="image-text-row">
+    <img src="https://i0.wp.com/gamainteriorpainting.com/wp-content/uploads/2024/03/417475633_1125313028591927_6956982292667950719_n.jpg?fit=1024%2C1024&ssl=1" alt="Gama Interior Painting team at work in West Hempstead NY">
+    <div class="text-side">
+      <h3>Where Every Brushstroke Tells Your Story</h3>
+      <p>At Gama Interior Painting, we believe your home is more than just walls — it's where memories are made. Based in <strong>West Hempstead, NY</strong>, our family-owned business has been transforming homes across <strong>Nassau County, Brooklyn, and Long Island</strong> for over 16 years.</p>
+      <ul class="promise-list">
+        <li><span class="promise-check">✓</span> Free On-Site Estimates</li>
+        <li><span class="promise-check">✓</span> No-Surprise Guarantee — What We Quote Is What You Pay</li>
+        <li><span class="promise-check">✓</span> Clear, Transparent, Daily Communication</li>
+        <li><span class="promise-check">✓</span> Always On-Time</li>
+        <li><span class="promise-check">✓</span> Locally Owned & Operated</li>
+        <li><span class="promise-check">✓</span> Licensed & Insured</li>
+        <li><span class="promise-check">✓</span> Premium Benjamin Moore & Sherwin-Williams Paints</li>
+      </ul>
+      <br>
+      <a href="https://gamainteriorpainting.com/contact-us/" class="btn btn-red">Schedule an Estimate</a>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section>
+  <h2 class="section-title">Make Your Spaces Extraordinary</h2>
+  <div class="red-divider"></div>
+  <p class="section-subtitle">From refreshing interiors to specialty finishes — we make it simple to get the painting services you need for your home.</p>
+  <div class="grid-3">
+    <div class="card">
+      <div class="card-icon">🎨</div>
+      <h3>Interior Painting</h3>
+      <p>Complete interior painting services including walls, ceilings, trim, and doors. Expert prep work, premium paints, and flawless coverage for every room in your Nassau County or Brooklyn home.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🏠</div>
+      <h3>Exterior Painting</h3>
+      <p>Protect and beautify your home's exterior with weather-resistant paints and expert application. We handle thorough prep and use premium materials for a durable, stunning finish.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🪵</div>
+      <h3>Cabinet Refinishing</h3>
+      <p>Transform your kitchen without the cost of replacement. Our professional cabinet refinishing breathes new life into existing cabinetry with smooth, factory-quality finishes.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">✨</div>
+      <h3>Venetian Plaster</h3>
+      <p>Luxurious European-inspired textured walls that add depth and elegance. Our artisans create stunning Venetian plaster finishes that transform any room into a work of art.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🖌️</div>
+      <h3>Limewash & Faux Finishes</h3>
+      <p>Create beautiful old-world charm with limewash painting or transform walls with faux finishing techniques mimicking marble, wood, or natural stone textures.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🏢</div>
+      <h3>Commercial Painting</h3>
+      <p>Professional painting solutions for offices, retail spaces, and commercial properties. Minimal disruption to your business with flexible scheduling and efficient crews.</p>
+    </div>
+  </div>
+</section>
+
+<!-- NOW SERVING BROOKLYN -->
+<div class="brooklyn-banner">
+  <h2>Gama Interior Painting of Brooklyn</h2>
+  <p>We've been serving Brooklyn homeowners since day one — and now we have a dedicated Brooklyn office to serve you even better. The same trusted quality, premium materials, and expert craftsmanship that built our reputation in Nassau County, right in your neighborhood.</p>
+  <div class="brooklyn-locations">
+    <span class="brooklyn-loc">📍 Nassau County HQ — 206 Mayfair Ave, West Hempstead, NY 11552</span>
+    <span class="brooklyn-loc">📍 Brooklyn Office — 41 Schermerhorn St #1018, Brooklyn, NY 11201</span>
+  </div>
+  <a href="https://gamainteriorpainting.com/contact-us/" class="btn btn-white">Schedule a Free Brooklyn Estimate</a>
+</div>
+
+<!-- 3-STEP PROCESS -->
+<div class="stats-bar">
+  <section style="padding: 0; max-width: 1200px; margin: 0 auto;">
+    <h2 style="font-size: 2.2em; font-weight: 800; margin-bottom: 12px; color: #fff;">Getting Started Is Easy</h2>
+    <div style="width: 60px; height: 4px; background: #e4181d; margin: 0 auto 40px; border-radius: 2px;"></div>
+    <div class="grid-3">
+      <div class="process-step" style="color: #fff;">
+        <div class="step-num">1</div>
+        <h3 style="color: #fff;">Estimate</h3>
+        <p style="color: rgba(255,255,255,0.7);">Answer a few quick questions and schedule a free on-site estimate. We'll assess your project and provide a transparent, no-obligation quote.</p>
+      </div>
+      <div class="process-step" style="color: #fff;">
+        <div class="step-num">2</div>
+        <h3 style="color: #fff;">Plan</h3>
+        <p style="color: rgba(255,255,255,0.7);">Finalize your colors, schedule your crew, and get started. We handle all the prep work so you don't have to lift a finger.</p>
+      </div>
+      <div class="process-step" style="color: #fff;">
+        <div class="step-num">3</div>
+        <h3 style="color: #fff;">Enjoy</h3>
+        <p style="color: rgba(255,255,255,0.7);">Relax knowing your home is in the best hands. We deliver beautiful results, complete cleanup, and your total satisfaction is guaranteed.</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- INTERIOR FOCUS -->
+<section>
+  <h2 class="section-title">Interior House Painting Experts</h2>
+  <div class="red-divider"></div>
+  <div class="image-text-row">
+    <img src="https://i0.wp.com/gamainteriorpainting.com/wp-content/uploads/2025/03/residential-painting-near-me.jpg?fit=1080%2C1080&ssl=1" alt="Interior painting project by Gama Interior Painting in Nassau County">
+    <div class="text-side">
+      <p>When it comes to the interior of your home, <strong>every detail matters</strong>. Whether you're transforming a single room or painting the entire house, our interior painting services in <strong>West Hempstead, Nassau County, and Brooklyn</strong> bring a new level of beauty and comfort to your space.</p>
+      <p>We use only the <strong>best paints and materials</strong> from trusted brands like <strong>Benjamin Moore</strong> and <strong>Sherwin-Williams</strong>. Our complete surface preparation includes professional taping, skim coating, drywall repair, and plaster restoration tailored to Long Island's diverse housing stock.</p>
+      <p>From prep work to the final brushstroke, we treat your home like it's our own — delivering <strong>precision and quality</strong> every step of the way.</p>
+      <a href="https://gamainteriorpainting.com/contact-us/" class="btn btn-red">Get a Free Interior Painting Estimate</a>
+    </div>
+  </div>
+</section>
+
+<!-- WHY CHOOSE US -->
+<div class="why-section">
+  <section>
+    <h2 class="section-title">Why Homeowners Trust Gama Interior Painting</h2>
+    <div class="red-divider"></div>
+    <p class="section-subtitle">Family-owned, community-minded. We treat your home like our own.</p>
+    <div class="grid-3">
+      <div class="card">
+        <div class="card-icon">🛡️</div>
+        <h3>Licensed & Insured</h3>
+        <p>Fully licensed and insured painting contractors. Complete peace of mind with every project in Nassau County and Brooklyn.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">⭐</div>
+        <h3>2-Year Workmanship Warranty</h3>
+        <p>We stand behind our work. If anything isn't perfect, we'll make it right — guaranteed for two full years after completion.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🎯</div>
+        <h3>Premium Materials</h3>
+        <p>We never cut corners. Only top-quality paints from Benjamin Moore and Sherwin-Williams for beautiful, long-lasting results.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🧹</div>
+        <h3>Complete Cleanup</h3>
+        <p>We leave your home spotless when the job is done. No paint drips, no mess — just beautifully transformed spaces.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">⏰</div>
+        <h3>Always On-Time</h3>
+        <p>We respect your schedule. Projects start and finish when promised, with clear daily communication throughout.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">❤️</div>
+        <h3>Locally Owned & Operated</h3>
+        <p>Based in West Hempstead with a new Brooklyn office, we're your neighbors. We take pride in beautifying homes across Nassau County and Brooklyn.</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- GALLERY -->
+<section>
+  <h2 class="section-title">Our Work Speaks for Itself</h2>
+  <div class="red-divider"></div>
+  <p class="section-subtitle">Browse some of our recent interior painting projects across Nassau County, Brooklyn & Long Island.</p>
+  <div class="gallery-grid">
+    <img class="gallery-img" src="https://i0.wp.com/gamainteriorpainting.com/wp-content/uploads/2020/05/IMG_4033-2-1.jpg?fit=4032%2C3024&ssl=1" alt="Living room painting transformation in West Hempstead NY">
+    <img class="gallery-img" src="https://i0.wp.com/gamainteriorpainting.com/wp-content/uploads/2020/05/IMG_6714-2-1.jpg?fit=4032%2C3024&ssl=1" alt="Kitchen interior painting in Nassau County">
+    <img class="gallery-img" src="https://i0.wp.com/gamainteriorpainting.com/wp-content/uploads/2020/05/IMG_8275-2-1.jpg?fit=1920%2C1200&ssl=1" alt="Bedroom repaint project by Gama Interior Painting">
+    <img class="gallery-img" src="https://i0.wp.com/gamainteriorpainting.com/wp-content/uploads/2020/05/IMG_4028-copy.jpg?fit=1920%2C1200&ssl=1" alt="Interior painting detail work in Brooklyn">
+    <img class="gallery-img" src="https://i0.wp.com/gamainteriorpainting.com/wp-content/uploads/2020/05/IMG_4034-1.jpg?fit=4032%2C3024&ssl=1" alt="Molding installation and painting in Long Island">
+    <img class="gallery-img" src="https://i0.wp.com/gamainteriorpainting.com/wp-content/uploads/2020/05/IMG_5176-2-1.jpg?fit=4032%2C3024&ssl=1" alt="Dining room painting project in Nassau County NY">
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<div class="social-proof">
+  <h2>What Our Customers Say</h2>
+  <div class="red-divider"></div>
+  <p class="section-subtitle">Real reviews from real homeowners across Nassau County and Brooklyn.</p>
+  <div class="testimonial-grid">
+    <div class="testimonial-card">
+      <div class="testimonial-stars">★★★★★</div>
+      <p class="testimonial-text">"Gamaliel and his crew did an incredible job painting our entire first floor. They were on time every day, covered everything carefully, and the finished product is stunning. The attention to detail on the trim work was impressive. Highly recommend!"</p>
+      <div class="testimonial-author">Jennifer R.</div>
+      <div class="testimonial-location">West Hempstead, NY</div>
+    </div>
+    <div class="testimonial-card">
+      <div class="testimonial-stars">★★★★★</div>
+      <p class="testimonial-text">"We had our kitchen cabinets refinished and three bedrooms painted. The transformation is unbelievable — our cabinets look brand new. They used Benjamin Moore Advance and the finish is smooth as glass. Very professional from estimate to final walkthrough."</p>
+      <div class="testimonial-author">David & Lisa M.</div>
+      <div class="testimonial-location">Garden City, NY</div>
+    </div>
+    <div class="testimonial-card">
+      <div class="testimonial-stars">★★★★★</div>
+      <p class="testimonial-text">"Best painters on Long Island. Period. They repaired all the cracks in our plaster walls, did a perfect skim coat, and the paint job is flawless. Gamaliel personally checked every room before we did the final walkthrough. You can tell he takes real pride in his work."</p>
+      <div class="testimonial-author">Michael T.</div>
+      <div class="testimonial-location">Rockville Centre, NY</div>
+    </div>
+  </div>
+</div>
+
+<!-- FAQ -->
+<section>
+  <h2 class="section-title">Frequently Asked Questions</h2>
+  <div class="red-divider"></div>
+  <div class="faq-section">
+    <div class="faq-item">
+      <h3>How much does interior painting cost in Nassau County?</h3>
+      <p>Interior painting costs vary based on room size, prep work needed, and paint quality. We offer free on-site estimates with transparent, no-surprise pricing. Most rooms range from $800-$1,200 depending on size and complexity.</p>
+    </div>
+    <div class="faq-item">
+      <h3>How long does it take to paint a room?</h3>
+      <p>A standard room typically takes 1-2 days including prep work, priming, and two coats of paint. Larger projects or rooms requiring extensive prep may take longer. We'll provide a clear timeline during your estimate.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Do you offer free estimates?</h3>
+      <p>Yes! We provide free on-site estimates for all projects in Nassau County, Brooklyn, and Long Island. We'll assess your space, discuss your vision, and provide a detailed, written quote with no obligation.</p>
+    </div>
+    <div class="faq-item">
+      <h3>What paint brands do you use?</h3>
+      <p>We use premium paints from Benjamin Moore and Sherwin-Williams — the industry's most trusted brands. We recommend low-VOC options that are safe for your family and deliver beautiful, long-lasting color.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Do you serve Brooklyn?</h3>
+      <p>Yes! Gama Interior Painting now has an office in Brooklyn at 41 Schermerhorn St #1018, Brooklyn, NY 11201. We serve all Brooklyn neighborhoods including Brooklyn Heights, Park Slope, Williamsburg, DUMBO, and more. <a href="https://gamainteriorpainting.com/of-brooklyn" style="color: #e4181d; font-weight: 600;">Learn more about our Brooklyn painting services.</a></p>
+    </div>
+    <div class="faq-item">
+      <h3>Are you licensed and insured?</h3>
+      <p>Absolutely. Gama Interior Painting is fully licensed and insured. We carry comprehensive liability insurance and workers' compensation coverage for your complete peace of mind.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICE AREAS -->
+<div class="areas-section">
+  <section>
+    <h2 class="section-title">Proudly Serving</h2>
+    <div class="red-divider"></div>
+    <p class="section-subtitle">Professional interior painting services across Nassau County, Brooklyn & Long Island, NY</p>
+
+    <h3 class="areas-group-title">Nassau County & Long Island</h3>
+    <div class="zip-list">
+      <span class="zip-badge">West Hempstead</span>
+      <a href="/preview-garden-city.html" class="zip-badge" style="text-decoration:none;color:inherit;">Garden City</a>
+      <span class="zip-badge">Rockville Centre</span>
+      <span class="zip-badge">Hempstead</span>
+      <span class="zip-badge">Uniondale</span>
+      <span class="zip-badge">Franklin Square</span>
+      <span class="zip-badge">Elmont</span>
+      <span class="zip-badge">Valley Stream</span>
+      <span class="zip-badge">Lynbrook</span>
+      <span class="zip-badge">Malverne</span>
+      <span class="zip-badge">Floral Park</span>
+      <a href="/preview-new-hyde-park.html" class="zip-badge" style="text-decoration:none;color:inherit;">New Hyde Park</a>
+      <span class="zip-badge">Mineola</span>
+      <span class="zip-badge">Merrick</span>
+      <span class="zip-badge">Bellmore</span>
+      <span class="zip-badge">Freeport</span>
+      <span class="zip-badge">Baldwin</span>
+      <span class="zip-badge">Oceanside</span>
+      <span class="zip-badge">Long Beach</span>
+      <span class="zip-badge">Levittown</span>
+      <span class="zip-badge">Massapequa</span>
+    </div>
+
+    <h3 class="areas-group-title">Brooklyn Neighborhoods</h3>
+    <div class="zip-list">
+      <span class="zip-badge zip-badge-brooklyn">Brooklyn Heights</span>
+      <span class="zip-badge zip-badge-brooklyn">DUMBO</span>
+      <span class="zip-badge zip-badge-brooklyn">Park Slope</span>
+      <span class="zip-badge zip-badge-brooklyn">Williamsburg</span>
+      <span class="zip-badge zip-badge-brooklyn">Cobble Hill</span>
+      <span class="zip-badge zip-badge-brooklyn">Carroll Gardens</span>
+      <span class="zip-badge zip-badge-brooklyn">Boerum Hill</span>
+      <span class="zip-badge zip-badge-brooklyn">Fort Greene</span>
+      <span class="zip-badge zip-badge-brooklyn">Clinton Hill</span>
+      <span class="zip-badge zip-badge-brooklyn">Prospect Heights</span>
+      <span class="zip-badge zip-badge-brooklyn">Windsor Terrace</span>
+      <span class="zip-badge zip-badge-brooklyn">Bay Ridge</span>
+      <span class="zip-badge zip-badge-brooklyn">Dyker Heights</span>
+      <span class="zip-badge zip-badge-brooklyn">Bensonhurst</span>
+      <span class="zip-badge zip-badge-brooklyn">Sunset Park</span>
+      <span class="zip-badge zip-badge-brooklyn">Red Hook</span>
+      <span class="zip-badge zip-badge-brooklyn">Greenpoint</span>
+      <span class="zip-badge zip-badge-brooklyn">Bushwick</span>
+      <span class="zip-badge zip-badge-brooklyn">Bed-Stuy</span>
+      <span class="zip-badge zip-badge-brooklyn">Crown Heights</span>
+      <span class="zip-badge zip-badge-brooklyn">Flatbush</span>
+      <span class="zip-badge zip-badge-brooklyn">Kensington</span>
+      <span class="zip-badge zip-badge-brooklyn">Gravesend</span>
+      <span class="zip-badge zip-badge-brooklyn">Sheepshead Bay</span>
+      <span class="zip-badge zip-badge-brooklyn">Marine Park</span>
+      <span class="zip-badge zip-badge-brooklyn">Mill Basin</span>
+    </div>
+  </section>
+</div>
+
+<!-- CONTACT BAR -->
+<div class="contact-bar">
+  <h2>Ready to Transform Your Space?</h2>
+  <p>Nassau County: 206 Mayfair Ave, West Hempstead, NY 11552</p>
+  <p>Brooklyn: 41 Schermerhorn St #1018, Brooklyn, NY 11201</p>
+  <a href="tel:18889716033" class="phone-link">(888) 971-6033</a>
+  <div class="contact-btns">
+    <a href="https://gamainteriorpainting.com/contact-us/" class="btn btn-red">Get a Free Estimate</a>
+    <a href="tel:18889716033" class="btn btn-green">Call (888) 971-6033</a>
+  </div>
+</div>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HousePainter",
+  "name": "Gama Interior Painting",
+  "telephone": "+18889716033",
+  "email": "info@gamainteriorpainting.com",
+  "address": [
+    {
+      "@type": "PostalAddress",
+      "streetAddress": "206 Mayfair Ave",
+      "addressLocality": "West Hempstead",
+      "addressRegion": "NY",
+      "postalCode": "11552"
+    },
+    {
+      "@type": "PostalAddress",
+      "streetAddress": "41 Schermerhorn St #1018",
+      "addressLocality": "Brooklyn",
+      "addressRegion": "NY",
+      "postalCode": "11201"
+    }
+  ],
+  "url": "https://gamainteriorpainting.com",
+  "areaServed": [
+    {"@type": "City", "name": "West Hempstead"},
+    {"@type": "City", "name": "Brooklyn"},
+    {"@type": "City", "name": "Garden City"},
+    {"@type": "City", "name": "Rockville Centre"},
+    {"@type": "City", "name": "Hempstead"},
+    {"@type": "City", "name": "Nassau County"},
+    {"@type": "City", "name": "Long Island"}
+  ],
+  "priceRange": "$$",
+  "sameAs": []
+}
+</script>
+
+<div class="gp-footer">&copy; 2026 Gama Interior Painting & Renovation. All rights reserved.</div>
+</body>
+</html>

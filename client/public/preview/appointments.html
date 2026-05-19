@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+  <html lang="en">
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Contact Gama Interior Painting for a free estimate. Serving West Hempstead, Nassau County, Brooklyn & Long Island.">
+  <title>Contact Us - Gama Interior Painting</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', system-ui, -apple-system, sans-serif; color: #1a1a1a; line-height: 1.7; overflow-x: hidden; background: #111; }
+    img { max-width: 100%; height: auto; display: block; }
+    a { text-decoration: none; }
+
+    .gp-header { background: #111; padding: 20px 24px; display: flex; align-items: center; justify-content: center; gap: 14px; }
+    .gp-header img { height: 120px; width: auto; }
+    .gp-header span { color: #fff; font-weight: 800; font-size: 1.1em; text-transform: uppercase; letter-spacing: 2px; }
+    .gp-btns { position: sticky; top: 0; z-index: 1000; background: #111; padding: 10px 24px; display: flex; justify-content: center; gap: 10px; }
+    .gp-btns a { color: #fff; font-weight: 700; border-radius: 999px; padding: 12px 22px; font-size: 0.85em; display: inline-flex; align-items: center; gap: 6px; text-decoration: none; }
+    .gp-btn-call { background: #16a34a; }
+    .gp-btn-est { background: #e4181d; }
+
+    .appt-hero { background: #111; color: #fff; text-align: center; padding: 40px 24px 30px; }
+    .appt-hero h1 { font-size: 2.2em; font-weight: 900; margin-bottom: 12px; color: #fff; }
+    .appt-hero p { font-size: 1.05em; opacity: 0.8; max-width: 600px; margin: 0 auto 20px; }
+    .appt-badges { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 16px; }
+    .appt-badge { display: inline-flex; align-items: center; gap: 6px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); border-radius: 999px; padding: 8px 18px; font-size: 0.85em; color: #fff; }
+
+    .booking-section { background: #fff; }
+    .booking-iframe { width: 100%; border: none; display: block; overflow: hidden; }
+
+    .trust-section { background: #111 !important; color: #fff !important; padding: 40px 24px; text-align: center; }
+    .trust-section h2 { font-size: 1.4em; font-weight: 800; margin-bottom: 20px; color: #fff !important; }
+    .trust-items { display: flex; flex-wrap: wrap; justify-content: center; gap: 24px; max-width: 800px; margin: 0 auto; }
+    .trust-item { display: flex; align-items: center; gap: 8px; font-size: 0.95em; color: #fff !important; }
+    .trust-check { color: #16a34a; font-weight: 700; }
+
+    .gp-footer { background: #000000; color: rgba(255,255,255,0.6); text-align: center; padding: 24px; font-size: 0.85em; }
+
+    .sharedaddy, .sd-sharing-enabled, .sd-block { display: none !important; }
+
+    @media (max-width: 768px) {
+      .gp-header img { height: 80px; }
+      .gp-header span { font-size: 0.85em; }
+      .gp-btns a { padding: 10px 16px; font-size: 0.8em; }
+      .appt-hero h1 { font-size: 1.6em; }
+      .appt-hero p { font-size: 0.95em; }
+      .appt-badge { font-size: 0.78em; padding: 6px 14px; }
+    }
+  </style>
+  </head>
+  <body>
+
+  <div class="gp-header">
+    <a href="https://gamainteriorpainting.com" style="display:flex;align-items:center;gap:14px;text-decoration:none;">
+      <img src="https://gamainteriorpainting.com/wp-content/uploads/2024/02/cropped-cropped-cropped-gama-Brush-handle-New-yelow.png" alt="Gama Interior Painting">
+      <span>Painting & Renovation</span>
+    </a>
+  </div>
+  <div class="gp-btns">
+    <a href="tel:18889716033" class="gp-btn-call">📞 CALL NOW</a>
+    <a href="#booking" class="gp-btn-est" onclick="document.getElementById('booking').scrollIntoView({behavior:'smooth'});return false;">📅 GET A FREE ESTIMATE</a>
+  </div>
+
+  <div class="appt-hero">
+    <h1>Contact Us</h1>
+    <p>Book a convenient time and we'll come to you. No pressure, no obligation — just expert advice for your painting project.</p>
+    <div class="appt-badges">
+      <span class="appt-badge">✓ Free In-Home Estimate</span>
+      <span class="appt-badge">✓ Licensed & Insured</span>
+      <span class="appt-badge">✓ 1,000+ Projects Completed</span>
+    </div>
+  </div>
+
+  <div class="booking-section" id="booking">
+    <iframe class="booking-iframe" id="bookingFrame" src="https://fusephone.com/gamainteriorpainting/booking" title="Schedule an Appointment" scrolling="no"></iframe>
+  </div>
+  <script>
+  window.addEventListener('message', function(e) {
+    if (e.data && e.data.type === 'resize' && e.data.height) {
+      document.getElementById('bookingFrame').style.height = e.data.height + 'px';
+    }
+  });
+  document.getElementById('bookingFrame').addEventListener('load', function() {
+    this.style.height = '2000px';
+  });
+  </script>
+
+  <div class="trust-section">
+    <h2>Why Homeowners Trust Gama</h2>
+    <div class="trust-items">
+      <div class="trust-item"><span class="trust-check">✓</span> 16+ Years Experience</div>
+      <div class="trust-item"><span class="trust-check">✓</span> 5-Star Google Reviews</div>
+      <div class="trust-item"><span class="trust-check">✓</span> Same-Day Estimates</div>
+      <div class="trust-item"><span class="trust-check">✓</span> Transparent Pricing</div>
+      <div class="trust-item"><span class="trust-check">✓</span> Nassau County & Brooklyn</div>
+      <div class="trust-item"><span class="trust-check">✓</span> Satisfaction Guaranteed</div>
+    </div>
+  </div>
+
+  <div class="gp-footer">&copy; 2026 Gama Interior Painting & Renovation. All rights reserved.</div>
+
+  </body>
+  </html>

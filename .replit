@@ -1,0 +1,67 @@
+modules = ["nodejs-20", "web", "python-3.11", "postgresql-16"]
+run = "npm run dev"
+hidden = [".config", ".git", "generated-icon.png", "node_modules", "dist"]
+
+[nix]
+channel = "stable-24_05"
+packages = ["imagemagick"]
+
+[[ports]]
+localPort = 5000
+externalPort = 5000
+
+[[ports]]
+localPort = 23636
+externalPort = 80
+
+[env]
+PORT = "5000"
+
+[deployment]
+deploymentTarget = "autoscale"
+run = ["node", "./dist/index.cjs"]
+build = ["npm", "run", "build"]
+
+[workflows]
+runButton = "Project"
+
+[[workflows.workflow]]
+name = "Project"
+mode = "parallel"
+author = "agent"
+
+[[workflows.workflow.tasks]]
+task = "workflow.run"
+args = "Start application"
+
+[[workflows.workflow]]
+name = "Start application"
+author = "agent"
+
+[workflows.workflow.metadata]
+outputType = "webview"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "node scripts/port-proxy.cjs & npm run dev"
+waitForPort = 5000
+
+[agent]
+integrations = ["javascript_log_in_with_replit:2.0.0", "stripe:2.0.0", "javascript_openai_ai_integrations:2.0.0", "javascript_stripe:1.0.0", "javascript_object_storage:2.0.0"]
+
+[userenv]
+
+[userenv.shared]
+VAPID_PUBLIC_KEY = "BAoDIBbCTimh0CBCjOqbmfpL6kxIy1RJcgOu_QmfHRFuhyKn2SkocNqVsvo-GD04rZns8VfJzMI8bTYu51Apf70"
+VAPID_PRIVATE_KEY = "Yaisz3u7YtbR55fW6b5t8aRwbeyWsSoSFg3kYsoWcZs"
+VITE_VAPID_PUBLIC_KEY = "BAoDIBbCTimh0CBCjOqbmfpL6kxIy1RJcgOu_QmfHRFuhyKn2SkocNqVsvo-GD04rZns8VfJzMI8bTYu51Apf70"
+CLOUDFLARE_ZONE_ID = "e9464a206b07db98824d0cec429a93c4"
+WORKER_AUTH_SECRET = "7a47bff741c92d3de1aa10c609838d1212301c023c59d218821027bd241d36b7"
+APPLE_IAP_KEY_ID = "2W9S99QU73"
+APPLE_IAP_ISSUER_ID = "8f976c19-dd3c-4814-8b28-9a7f999546f0"
+APPLE_IAP_BUNDLE_ID = "com.fusephone.app"
+APPLE_IAP_ENV = "sandbox"
+
+[postMerge]
+path = "scripts/post-merge.sh"
+timeoutMs = 20000

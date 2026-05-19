@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gama Interior Painting - Business Card</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: #f2f2f2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 40px 16px;
+    gap: 48px;
+  }
+
+  .cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 56px;
+    justify-content: center;
+  }
+
+  .card-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .card-label {
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    color: #bbb;
+  }
+
+  .card {
+    width: 3.5in;
+    height: 2in;
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.04), 0 12px 40px rgba(0,0,0,0.1);
+  }
+
+  /* ===== FRONT — Dark with logo ===== */
+  .card-front {
+    background: #111;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 24px;
+    position: relative;
+  }
+
+  .card-front::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: #e4181d;
+  }
+
+  .front-logo {
+    width: 82px;
+    height: 82px;
+    object-fit: contain;
+    margin-bottom: 6px;
+  }
+
+  .front-divider {
+    width: 32px;
+    height: 1.5px;
+    background: #e4181d;
+    border-radius: 1px;
+    margin-bottom: 6px;
+  }
+
+  .phone-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #16a34a;
+    color: #fff;
+    text-decoration: none;
+    padding: 5px 16px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    margin-bottom: 5px;
+  }
+
+  .phone-icon {
+    width: 13px;
+    height: 13px;
+    fill: none;
+    stroke: #fff;
+    stroke-width: 2.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .front-web {
+    font-size: 9px;
+    font-weight: 600;
+    color: #ffffff;
+    letter-spacing: 1.2px;
+  }
+
+  .front-areas {
+    font-size: 7px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.7);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-top: 3px;
+  }
+
+  /* ===== BACK — White with QR ===== */
+  .card-back {
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+
+  .card-back::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: #e4181d;
+  }
+
+  .back-top {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 16px 8px;
+  }
+
+  .back-logo {
+    width: 52px;
+    height: 52px;
+    object-fit: contain;
+    flex-shrink: 0;
+  }
+
+  .back-brand {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+    gap: 4px;
+  }
+
+  .back-company {
+    font-size: 10px;
+    font-weight: 700;
+    color: #111;
+    letter-spacing: 0.8px;
+  }
+
+  .back-motto {
+    font-size: 6.5px;
+    font-weight: 500;
+    color: #fff;
+    letter-spacing: 0.6px;
+    font-style: italic;
+    background: #111;
+    padding: 3px 12px;
+    border-radius: 999px;
+  }
+
+  .back-body {
+    display: flex;
+    flex: 1;
+    padding: 0 16px 6px;
+    align-items: center;
+  }
+
+  .back-steps {
+    display: flex;
+    gap: 4px;
+    padding-right: 12px;
+    flex: 1;
+  }
+
+  .step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    flex: 1;
+    text-align: center;
+  }
+
+  .step-num {
+    width: 15px;
+    height: 15px;
+    background: #e4181d;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 7px;
+    font-weight: 800;
+    flex-shrink: 0;
+  }
+
+  .step-title {
+    font-size: 6.5px;
+    font-weight: 700;
+    color: #111;
+    line-height: 1.2;
+  }
+
+  .step-desc {
+    font-size: 5px;
+    font-weight: 400;
+    color: #666;
+    line-height: 1.3;
+  }
+
+
+  .back-services {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2px 4px;
+    padding: 0 16px 4px;
+    font-size: 5.5px;
+    font-weight: 600;
+    color: #555;
+  }
+
+  .back-services .sep {
+    color: #ccc;
+  }
+
+  .back-right {
+    width: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    border-left: 1px solid #f0f0f0;
+    flex-shrink: 0;
+    padding: 0 10px;
+  }
+
+  .qr-frame {
+    width: 62px;
+    height: 62px;
+    background: #fff;
+    border-radius: 5px;
+    border: 1px solid #eee;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .qr-frame img, .qr-frame svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  .qr-label {
+    font-size: 6px;
+    font-weight: 700;
+    color: #777;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    text-align: center;
+  }
+
+  .back-badges {
+    display: flex;
+    gap: 5px;
+    justify-content: center;
+    padding: 0 16px 10px;
+  }
+
+  .back-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 6px;
+    font-weight: 700;
+    color: #222;
+    letter-spacing: 0.3px;
+    border: 1px solid #e0e0e0;
+    border-radius: 999px;
+    padding: 3px 8px;
+    background: #fafafa;
+  }
+
+  .back-badge .check {
+    color: #16a34a;
+    font-size: 7.5px;
+    font-weight: 800;
+    line-height: 1;
+  }
+
+  .download-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background: #111;
+    color: #fff;
+    border: none;
+    padding: 8px 18px;
+    border-radius: 999px;
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    cursor: pointer;
+    letter-spacing: 0.5px;
+    transition: background 0.2s;
+    margin-top: 4px;
+  }
+
+  .download-btn:hover {
+    background: #e4181d;
+  }
+
+  .download-btn svg {
+    width: 14px;
+    height: 14px;
+    stroke: #fff;
+    fill: none;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .print-note {
+    color: #ccc;
+    font-size: 11px;
+    letter-spacing: 0.5px;
+  }
+
+  @media print {
+    body { background: #fff; padding: 0.5in; }
+    .card-label, .print-note, .download-btn { display: none; }
+    .card { box-shadow: none; border: 0.5px solid #ddd; }
+  }
+
+  @media (max-width: 500px) {
+    .card { transform: scale(0.82); transform-origin: center; }
+    .cards-container { gap: 24px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="cards-container">
+  <div class="card-wrapper">
+    <div class="card-label">Front</div>
+    <div class="card card-front" id="card-front">
+      <img src="/downloads/gama-brush-logo.png" alt="Gama Interior Painting" class="front-logo">
+      <div class="front-divider"></div>
+      <a href="tel:18889716033" class="phone-btn">
+        <svg class="phone-icon" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        (888) 971-6033
+      </a>
+      <div class="front-web">gamainteriorpainting.com</div>
+      <div class="front-areas">Long Island &bull; Queens &bull; Brooklyn</div>
+    </div>
+    <button class="download-btn" onclick="downloadCard('card-front', 'business-card-front.png')">
+      <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      Download Front
+    </button>
+  </div>
+
+  <div class="card-wrapper">
+    <div class="card-label">Back</div>
+    <div class="card card-back" id="card-back">
+      <div class="back-top">
+        <img src="/downloads/gama-brush-logo.png" alt="Gama Interior Painting" class="back-logo">
+        <div class="back-brand">
+          <div class="back-company">GAMA INTERIOR PAINTING</div>
+          <div class="back-motto">Transform Your Space, Transform Your Story</div>
+        </div>
+      </div>
+      <div class="back-body">
+        <div class="back-steps">
+          <div class="step">
+            <div class="step-num">1</div>
+            <div class="step-title">Free Estimate</div>
+            <div class="step-desc">Schedule a free on-site consultation</div>
+          </div>
+          <div class="step">
+            <div class="step-num">2</div>
+            <div class="step-title">Plan & Prep</div>
+            <div class="step-desc">Pick colors, we handle the rest</div>
+          </div>
+          <div class="step">
+            <div class="step-num">3</div>
+            <div class="step-title">Love Your Space</div>
+            <div class="step-desc">Enjoy your transformed home</div>
+          </div>
+        </div>
+        <div class="back-right">
+          <div class="qr-frame" id="qr-img">
+          </div>
+          <div class="qr-label">Scan to Book</div>
+        </div>
+      </div>
+      <div class="back-services">
+        <span>Interior Painting</span><span class="sep">/</span>
+        <span>Cabinet Painting</span><span class="sep">/</span>
+        <span>Wallpaper Removal</span><span class="sep">/</span>
+        <span>Plaster Repair</span><span class="sep">/</span>
+        <span>Decorative Finishes</span>
+      </div>
+      <div class="back-badges">
+        <span class="back-badge"><span class="check">&#x2713;</span> Licensed & Insured</span>
+        <span class="back-badge"><span class="check">&#x2713;</span> EPA Lead-Safe Certified</span>
+      </div>
+    </div>
+    <button class="download-btn" onclick="downloadCard('card-back', 'business-card-back.png')">
+      <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      Download Back
+    </button>
+  </div>
+</div>
+
+<div class="print-note">3.5" &times; 2" &mdash; Ctrl+P to print</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.min.js"></script>
+<script>
+(function() {
+  var qr = qrcode(0, 'M');
+  qr.addData('https://gamainteriorpainting.com/contact-us/?utm_source=business_card');
+  qr.make();
+  var qrContainer = document.getElementById('qr-img');
+  qrContainer.innerHTML = qr.createSvgTag({ cellSize: 4, margin: 0 });
+})();
+
+async function downloadCard(id, filename) {
+  var el = document.getElementById(id);
+  var canvas = await html2canvas(el, {
+    scale: 4,
+    useCORS: true,
+    backgroundColor: null,
+    logging: false
+  });
+  var link = document.createElement('a');
+  link.download = filename;
+  link.href = canvas.toDataURL('image/png');
+  link.click();
+}
+</script>
+
+</body>
+</html>

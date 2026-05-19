@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gama Interior Painting - Door Hanger</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #d5d5d5;
+    font-family: 'Open Sans', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 60px;
+    padding: 60px 20px 40px;
+  }
+
+  .page-label {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800; font-size: 14px;
+    color: #666; text-transform: uppercase;
+    letter-spacing: 3px; margin-bottom: -40px;
+  }
+
+  .door-hanger {
+    width: 4.25in;
+    height: 11in;
+    background: #ffffff;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.18);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+
+  /* ---- Shared: Hole ---- */
+  .hole-area {
+    height: 0.7in;
+    background: #111;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .hole {
+    width: 0.44in; height: 0.44in;
+    border-radius: 50%;
+    background: #d1d5db;
+    border: 2px solid #9ca3af;
+    box-shadow: inset 0 2px 5px rgba(0,0,0,0.3);
+    position: relative; z-index: 2;
+  }
+  .red-stripe { height: 4px; background: #e4181d; }
+
+  /* ======================================
+     FRONT SIDE
+     ====================================== */
+
+  /* Logo banner - matches website black header */
+  .f-logo-banner {
+    background: #111;
+    padding: 14px 24px 12px;
+    display: flex; align-items: center; justify-content: center;
+    gap: 10px;
+  }
+  .f-logo-icon {
+    width: 80px; height: 80px;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .f-logo-icon img {
+    width: 100%; height: 100%;
+    object-fit: contain;
+  }
+  .f-logo-text-wrap { text-align: left; }
+  .f-logo-name {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900; font-size: 26px;
+    color: #fff; letter-spacing: 3px;
+    line-height: 1;
+  }
+  .f-logo-sub {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600; font-size: 8.5px;
+    color: #ccc; letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-top: 1px;
+  }
+
+  /* CTA buttons row - matches website "CALL NOW" + "GET A FREE ESTIMATE" */
+  .f-cta-row {
+    display: flex; gap: 0;
+  }
+  .f-cta-call {
+    flex: 1;
+    padding: 8px 0;
+    background: #16a34a;
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800; font-size: 10px;
+    letter-spacing: 1px;
+    text-align: center;
+    text-transform: uppercase;
+  }
+  .f-cta-estimate {
+    flex: 1.3;
+    padding: 8px 0;
+    background: #e4181d;
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800; font-size: 10px;
+    letter-spacing: 1px;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  /* Greeting */
+  .f-greeting {
+    padding: 16px 24px 10px;
+    text-align: center;
+  }
+  .f-greeting-tagline {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600; font-size: 10px;
+    color: #e4181d; letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .f-greeting-headline {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900; font-size: 22px;
+    line-height: 1.2; color: #111;
+    margin-bottom: 6px;
+  }
+  .f-greeting-body {
+    font-size: 11.5px; color: #555; line-height: 1.5;
+  }
+
+  /* Photo */
+  .f-photo { padding: 4px 20px 0; }
+  .f-photo-frame {
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+  }
+  .f-photo-frame img {
+    width: 100%; height: 1.55in;
+    object-fit: cover; display: block;
+  }
+  .f-photo-bar {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    background: linear-gradient(transparent, rgba(0,0,0,0.75));
+    padding: 16px 10px 6px;
+    display: flex; align-items: center; gap: 5px;
+  }
+  .f-dot {
+    width: 6px; height: 6px;
+    background: #22c55e; border-radius: 50%;
+    box-shadow: 0 0 4px rgba(34,197,94,0.6);
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse { 0%,100%{opacity:1}50%{opacity:0.3} }
+  .f-photo-label {
+    font-size: 9px; font-weight: 700;
+    color: #fff; text-transform: uppercase;
+    letter-spacing: 0.3px;
+  }
+
+  /* Stats row - matches website's stat counters */
+  .f-stats {
+    display: flex; justify-content: center; gap: 0;
+    padding: 10px 20px 6px;
+  }
+  .f-stat {
+    flex: 1;
+    text-align: center;
+    padding: 6px 4px;
+  }
+  .f-stat:not(:last-child) { border-right: 1px solid #eee; }
+  .f-stat-num {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900; font-size: 18px;
+    color: #e4181d;
+  }
+  .f-stat-label {
+    font-size: 8px; color: #888;
+    font-weight: 600; text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-top: 1px;
+  }
+
+  /* Services */
+  .f-services { padding: 6px 20px 8px; }
+  .f-services-title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800; font-size: 10px;
+    color: #999; text-transform: uppercase;
+    letter-spacing: 1.5px; text-align: center;
+    margin-bottom: 6px;
+  }
+  .f-svc-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 4px;
+  }
+  .f-svc {
+    display: flex; align-items: center; gap: 6px;
+    padding: 6px 8px;
+    background: #f9f9f9;
+    border-radius: 6px;
+    font-size: 10.5px; font-weight: 600; color: #333;
+  }
+  .f-svc-dot {
+    width: 5px; height: 5px;
+    background: #e4181d; border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  /* Offer */
+  .f-offer {
+    padding: 8px 24px 10px;
+    text-align: center;
+    flex: 1;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+  }
+  .f-offer-badge {
+    display: inline-block;
+    padding: 3px 14px;
+    background: #e4181d;
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800; font-size: 9px;
+    letter-spacing: 2px; border-radius: 3px;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .f-offer-amount {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900; font-size: 30px;
+    color: #e4181d;
+  }
+  .f-offer-desc {
+    font-size: 11px; color: #666; margin: 2px 0 10px; line-height: 1.4;
+  }
+  .f-offer-btn {
+    display: inline-block;
+    padding: 10px 28px;
+    background: #e4181d;
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800; font-size: 11px;
+    letter-spacing: 0.5px;
+    border-radius: 6px;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+  }
+  .f-phone {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900; font-size: 22px;
+    color: #111; letter-spacing: 1px;
+  }
+
+  /* Trust row - matches website badges */
+  .f-trust {
+    padding: 8px 16px 10px;
+    background: #f8f8f8;
+    border-top: 1px solid #eee;
+    display: flex; align-items: center;
+    justify-content: center; gap: 6px;
+    flex-wrap: wrap;
+  }
+  .f-trust-item {
+    font-size: 8px; color: #666; font-weight: 700;
+    display: flex; align-items: center; gap: 3px;
+    text-transform: uppercase; letter-spacing: 0.3px;
+  }
+  .f-trust-dot { color: #ccc; font-size: 4px; }
+
+  /* Bottom bar */
+  .f-bottom-bar {
+    background: #111;
+    padding: 8px 20px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .f-bottom-name {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800; font-size: 8px;
+    color: #888; letter-spacing: 1.5px;
+  }
+  .f-bottom-url {
+    font-size: 9px; color: #e4181d;
+    font-weight: 700; letter-spacing: 0.3px;
+  }
+
+  /* ======================================
+     BACK SIDE
+     ====================================== */
+
+  .b-logo-banner {
+    background: #111;
+    padding: 12px 24px 10px;
+    display: flex; align-items: center; justify-content: center;
+    gap: 8px;
+  }
+  .b-logo-icon { width: 60px; height: 60px; flex-shrink: 0; }
+  .b-logo-icon img { width: 100%; height: 100%; object-fit: contain; }
+  .b-logo-name {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900; font-size: 20px;
+    color: #fff; letter-spacing: 2px; line-height: 1;
+  }
+  .b-logo-sub {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600; font-size: 7px;
+    color: #ccc; letter-spacing: 3px;
+    text-transform: uppercase; margin-top: 1px;
+  }
+
+  .b-heading-area {
+    padding: 16px 24px 10px;
+    text-align: center;
+  }
+  .b-heading {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900; font-size: 22px;
+    line-height: 1.2; color: #111;
+    margin-bottom: 8px;
+  }
+  .b-heading span { color: #e4181d; }
+  .b-heading-bar {
+    width: 40px; height: 3px;
+    background: #e4181d; margin: 0 auto; border-radius: 2px;
+  }
+
+  /* Real testimonial from website */
+  .b-testimonial {
+    padding: 10px 24px 12px;
+    text-align: center;
+  }
+  .b-quote-mark {
+    font-family: Georgia, serif;
+    font-size: 40px; color: #e4181d;
+    line-height: 0.5; margin-bottom: 6px; opacity: 0.3;
+  }
+  .b-quote-text {
+    font-size: 12px; color: #444;
+    line-height: 1.55; font-style: italic;
+    margin-bottom: 6px;
+  }
+  .b-stars { font-size: 14px; color: #f59e0b; letter-spacing: 2px; }
+  .b-reviewer {
+    font-size: 9px; color: #999; font-weight: 600; margin-top: 2px;
+  }
+
+  /* Promise checklist - matches website's promise section */
+  .b-promises {
+    padding: 2px 20px 8px;
+    display: flex; flex-direction: column; gap: 4px;
+  }
+  .b-promise {
+    display: flex; align-items: center; gap: 8px;
+    padding: 7px 10px;
+    background: #f9f9f9;
+    border-radius: 6px;
+  }
+  .b-check {
+    width: 20px; height: 20px;
+    background: #e4181d; color: #fff;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 10px; font-weight: 800; flex-shrink: 0;
+  }
+  .b-promise-text strong {
+    display: block; font-size: 11px; color: #111; font-weight: 700;
+  }
+  .b-promise-text span {
+    font-size: 9px; color: #888;
+  }
+
+  /* Booking card */
+  .b-booking { padding: 4px 20px 6px; flex: 1; }
+  .b-booking-card {
+    border: 1.5px solid #eee;
+    border-radius: 10px;
+    padding: 12px 14px;
+  }
+  .b-booking-title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800; font-size: 11px;
+    color: #e4181d; text-align: center;
+    margin-bottom: 8px;
+    text-transform: uppercase; letter-spacing: 0.5px;
+  }
+  .b-booking-rows { display: flex; flex-direction: column; gap: 7px; }
+  .b-booking-row { display: flex; align-items: center; gap: 8px; }
+  .b-booking-icon { font-size: 15px; flex-shrink: 0; }
+  .b-booking-row strong {
+    display: block; font-weight: 700; font-size: 11px; color: #111;
+  }
+  .b-booking-detail { font-size: 9.5px; color: #666; }
+
+  /* Address */
+  .b-addr { padding: 4px 20px; text-align: center; }
+  .b-addr-text { font-size: 9px; color: #aaa; font-weight: 600; }
+
+  /* Areas - matches website's "Proudly Serving" section */
+  .b-areas { padding: 4px 20px 4px; text-align: center; }
+  .b-areas-title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800; font-size: 9px;
+    color: #aaa; text-transform: uppercase;
+    letter-spacing: 1.5px; margin-bottom: 3px;
+  }
+  .b-areas-list { font-size: 8.5px; color: #bbb; line-height: 1.6; }
+
+  .b-bottom {
+    background: #111;
+    padding: 8px 20px;
+    text-align: center;
+  }
+  .b-bottom-name {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900; font-size: 10px;
+    color: #fff; letter-spacing: 2px;
+  }
+  .b-bottom-tag {
+    font-size: 9px; color: #888; margin-top: 1px;
+  }
+
+  /* Print */
+  @media print {
+    body { background: white; padding: 0; gap: 0; }
+    .page-label, .download-bar { display: none !important; }
+    .door-hanger {
+      box-shadow: none;
+      page-break-after: always;
+      border-radius: 0;
+      width: 4.25in; height: 11in;
+    }
+  }
+
+  .download-bar {
+    position: fixed; top: 0; left: 0; right: 0;
+    background: #111; color: #fff;
+    padding: 12px 24px;
+    display: flex; align-items: center; justify-content: center;
+    gap: 16px; z-index: 100;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    font-family: 'Montserrat', sans-serif;
+  }
+  .download-bar span { font-size: 13px; font-weight: 600; }
+  .download-btn {
+    padding: 8px 24px;
+    background: #e4181d; color: #fff;
+    border: none; border-radius: 6px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700; font-size: 12px;
+    cursor: pointer; letter-spacing: 0.5px;
+  }
+  .download-btn:hover { background: #cc1118; }
+</style>
+</head>
+<body>
+  <div class="download-bar">
+    <span>Gama Interior Painting — Door Hanger</span>
+    <button class="download-btn" onclick="window.print()">⬇ SAVE AS PDF</button>
+  </div>
+
+  <!-- ========== FRONT SIDE ========== -->
+  <div class="page-label">Front Side</div>
+  <div class="door-hanger">
+    <div class="hole-area"><div class="hole"></div></div>
+    <div class="red-stripe"></div>
+
+    <!-- Logo banner matching website header -->
+    <div class="f-logo-banner">
+      <div class="f-logo-icon">
+        <img src="/downloads/gama-brush-only.png" alt="Gama Brush">
+      </div>
+      <div class="f-logo-text-wrap">
+        <div class="f-logo-name">GAMA</div>
+        <div class="f-logo-sub">Interior Painting</div>
+      </div>
+    </div>
+
+    <!-- CTA row matching website buttons -->
+    <div class="f-cta-row">
+      <div class="f-cta-call">📞 Call Now</div>
+      <div class="f-cta-estimate">📅 Get a Free Estimate</div>
+    </div>
+
+    <!-- Greeting -->
+    <div class="f-greeting">
+      <div class="f-greeting-tagline">Premium Interior Painting</div>
+      <h1 class="f-greeting-headline">We're Painting In<br>Your Neighborhood!</h1>
+      <p class="f-greeting-body">Our crew is working on a home nearby.<br>We'd love to transform yours next.</p>
+    </div>
+
+    <!-- Work photo -->
+    <div class="f-photo">
+      <div class="f-photo-frame">
+        <img src="/downloads/work-photo.jpeg" alt="Gama crew at work">
+        <div class="f-photo-bar">
+          <span class="f-dot"></span>
+          <span class="f-photo-label">Active project in your area</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stats matching website counters -->
+    <div class="f-stats">
+      <div class="f-stat"><div class="f-stat-num">2,000+</div><div class="f-stat-label">Projects</div></div>
+      <div class="f-stat"><div class="f-stat-num">16+</div><div class="f-stat-label">Years Exp.</div></div>
+      <div class="f-stat"><div class="f-stat-num">200+</div><div class="f-stat-label">5-Star Reviews</div></div>
+      <div class="f-stat"><div class="f-stat-num">2 Yr</div><div class="f-stat-label">Warranty</div></div>
+    </div>
+
+    <!-- Services -->
+    <div class="f-services">
+      <div class="f-services-title">Our Specialties</div>
+      <div class="f-svc-grid">
+        <div class="f-svc"><span class="f-svc-dot"></span> Interior Painting</div>
+        <div class="f-svc"><span class="f-svc-dot"></span> Wall & Ceiling</div>
+        <div class="f-svc"><span class="f-svc-dot"></span> Trim & Doors</div>
+        <div class="f-svc"><span class="f-svc-dot"></span> Drywall Repair</div>
+      </div>
+    </div>
+
+    <!-- Offer + CTA -->
+    <div class="f-offer">
+      <div class="f-offer-badge">NEIGHBOR SPECIAL</div>
+      <div class="f-offer-amount">10% OFF</div>
+      <div class="f-offer-desc">your project when you mention this door hanger</div>
+      <div class="f-offer-btn">Schedule a FREE Estimate</div>
+      <div class="f-phone">(888) 971-6033</div>
+    </div>
+
+    <!-- Trust badges matching website -->
+    <div class="f-trust">
+      <span class="f-trust-item">🛡️ Licensed & Insured</span>
+      <span class="f-trust-item f-trust-dot">•</span>
+      <span class="f-trust-item">✅ Google Guaranteed</span>
+      <span class="f-trust-item f-trust-dot">•</span>
+      <span class="f-trust-item">🏆 EPA Lead-Safe</span>
+      <span class="f-trust-item f-trust-dot">•</span>
+      <span class="f-trust-item">⭐ PCA Member</span>
+    </div>
+
+    <div class="f-bottom-bar">
+      <div class="f-bottom-name">GAMA INTERIOR PAINTING</div>
+      <div class="f-bottom-url">gamainteriorpainting.com</div>
+    </div>
+  </div>
+
+  <!-- ========== BACK SIDE ========== -->
+  <div class="page-label">Back Side</div>
+  <div class="door-hanger">
+    <div class="hole-area"><div class="hole"></div></div>
+    <div class="red-stripe"></div>
+
+    <div class="b-logo-banner">
+      <div class="b-logo-icon">
+        <img src="/downloads/gama-brush-only.png" alt="Gama Brush">
+      </div>
+      <div>
+        <div class="b-logo-name">GAMA</div>
+        <div class="b-logo-sub">Interior Painting</div>
+      </div>
+    </div>
+
+    <div class="b-heading-area">
+      <h2 class="b-heading">Why Homeowners<br>Trust <span>Gama</span></h2>
+      <div class="b-heading-bar"></div>
+    </div>
+
+    <!-- Real testimonial from website -->
+    <div class="b-testimonial">
+      <div class="b-quote-mark">"</div>
+      <p class="b-quote-text">Gamaliel and his crew did an incredible job painting our entire first floor. They were on time every day, covered everything carefully, and the finished product is stunning. Highly recommend!</p>
+      <div class="b-stars">★★★★★</div>
+      <div class="b-reviewer">— Jennifer R., West Hempstead, NY</div>
+    </div>
+
+    <!-- Promise checklist matching website -->
+    <div class="b-promises">
+      <div class="b-promise">
+        <div class="b-check">✓</div>
+        <div class="b-promise-text"><strong>Free On-Site Estimates</strong><span>Transparent, no-surprise pricing</span></div>
+      </div>
+      <div class="b-promise">
+        <div class="b-check">✓</div>
+        <div class="b-promise-text"><strong>Premium Paints</strong><span>Benjamin Moore & Sherwin-Williams</span></div>
+      </div>
+      <div class="b-promise">
+        <div class="b-check">✓</div>
+        <div class="b-promise-text"><strong>Complete Cleanup</strong><span>We leave your home spotless</span></div>
+      </div>
+      <div class="b-promise">
+        <div class="b-check">✓</div>
+        <div class="b-promise-text"><strong>2-Year Warranty</strong><span>We stand behind every project</span></div>
+      </div>
+      <div class="b-promise">
+        <div class="b-check">✓</div>
+        <div class="b-promise-text"><strong>Always On-Time</strong><span>Clear daily communication throughout</span></div>
+      </div>
+    </div>
+
+    <!-- Booking -->
+    <div class="b-booking">
+      <div class="b-booking-card">
+        <div class="b-booking-title">Book Your Free Estimate</div>
+        <div class="b-booking-rows">
+          <div class="b-booking-row"><span class="b-booking-icon">📱</span><div><strong>Call or Text</strong><span class="b-booking-detail">(888) 971-6033</span></div></div>
+          <div class="b-booking-row"><span class="b-booking-icon">🌐</span><div><strong>Visit Us Online</strong><span class="b-booking-detail">gamainteriorpainting.com</span></div></div>
+          <div class="b-booking-row"><span class="b-booking-icon">📧</span><div><strong>Email Us</strong><span class="b-booking-detail">info@gamainteriorpainting.com</span></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="b-addr">
+      <div class="b-addr-text">206 Mayfair Ave, West Hempstead, NY 11552</div>
+    </div>
+
+    <div class="b-areas">
+      <div class="b-areas-title">Proudly Serving</div>
+      <div class="b-areas-list">West Hempstead • Garden City • Hempstead • Rockville Centre • Franklin Square • Elmont • Valley Stream • Lynbrook • Malverne • Uniondale • Floral Park • New Hyde Park • Mineola • Merrick • Bellmore • Freeport</div>
+    </div>
+
+    <div class="b-bottom">
+      <div class="b-bottom-name">GAMA INTERIOR PAINTING</div>
+      <div class="b-bottom-tag">Family-Owned · Your Neighborhood Painters Since 2008</div>
+    </div>
+  </div>
+</body>
+</html>

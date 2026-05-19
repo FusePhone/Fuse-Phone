@@ -1,0 +1,590 @@
+<!-- wp:html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Park Slope's preferred interior painter. Brownstone experts with 16 years experience. EPA Lead-Safe Certified for prewar homes. Free estimates. Call (888) 971-6033.">
+<title>Park Slope's Preferred Painter - Gama Interior Painting of Brooklyn</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Inter', system-ui, -apple-system, sans-serif; color: #1a1a1a; line-height: 1.7; overflow-x: hidden; }
+  img { max-width: 100%; height: auto; display: block; }
+  a { text-decoration: none; }
+
+/* HEADER */
+    .gp-header { background: #111; padding: 20px 24px; display: flex; align-items: center; justify-content: center; gap: 14px; }
+    .gp-header img { height: 120px; width: auto; }
+    .gp-header span { color: #fff; font-weight: 800; font-size: 1.1em; text-transform: uppercase; letter-spacing: 2px; }
+    .gp-btns { position: sticky; top: 0; z-index: 1000; background: #111; padding: 10px 24px; display: flex; justify-content: center; gap: 10px; }
+    .gp-btns a { color: #fff; font-weight: 700; border-radius: 999px; padding: 12px 22px; font-size: 0.85em; display: inline-flex; align-items: center; gap: 6px; text-decoration: none; }
+    .gp-btn-call { background: #16a34a; }
+    .gp-btn-est { background: #e4181d; }
+    @media (max-width: 768px) {
+      .gp-header img { height: 80px; }
+      .gp-header span { font-size: 0.85em; }
+      .gp-btns a { padding: 10px 16px; font-size: 0.8em; }
+    }
+
+    /* HERO — warm, inviting, neighborhood feel */
+  .hero { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); color: #fff; padding: 70px 24px 60px; text-align: center; position: relative; }
+  .hero::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 5px; background: #e4181d; }
+  .hero-eyebrow { font-size: 0.78em; text-transform: uppercase; letter-spacing: 3px; color: rgba(255,255,255,0.5); margin-bottom: 8px; }
+  .hero h1, .hero p, .hero .subtitle, .hero span, .hero-label, .hero-stat-number, .hero-stat-label { color: #ffffff !important; }
+  .hero-label { display: inline-block; font-size: 0.8em; text-transform: uppercase; letter-spacing: 3px; color: #fff; font-weight: 700; margin-bottom: 20px; background: #e4181d; padding: 6px 20px; border-radius: 999px; }
+  .hero h1 { font-size: 2.6em; font-weight: 900; margin-bottom: 20px; letter-spacing: -0.02em; line-height: 1.1; max-width: 800px; margin-left: auto; margin-right: auto; }
+  .hero h1 .accent { color: #e4181d; }
+  .hero .subtitle { font-size: 1.1em; opacity: 0.85; max-width: 600px; margin: 0 auto 28px; line-height: 1.6; }
+  .hero-badges { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-bottom: 32px; }
+  .gc { color: #16a34a !important; font-weight: 700; }
+  .hero-badge { display: inline-flex; align-items: center; gap: 6px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); border-radius: 999px; padding: 8px 16px; font-size: 0.82em; }
+  .hero-cta-group { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; margin-bottom: 36px; }
+  .hero-stats { display: flex; flex-wrap: wrap; justify-content: center; gap: 40px; padding-top: 32px; border-top: 1px solid rgba(255,255,255,0.12); }
+  .hero-stat-num { font-size: 2.2em; font-weight: 900; color: #e4181d; display: block; line-height: 1; }
+  .hero-stat-label { font-size: 0.78em; opacity: 0.6; margin-top: 4px; }
+
+  /* TRUST BADGES */
+  .trust-badges { background: #fff; padding: 24px; border-bottom: 1px solid #eee; }
+  .trust-badges-inner { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 24px; max-width: 1100px; margin: 0 auto; }
+  .trust-badge-item { display: flex; align-items: center; gap: 8px; padding: 10px 20px; border: 1px solid #e5e5e5; border-radius: 999px; background: #fafafa; transition: all 0.2s; }
+  .trust-badge-item:hover { border-color: #e4181d; background: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+  .trust-badge-item span { font-size: 0.85em; font-weight: 700; color: #333; white-space: nowrap; }
+  .badge-shield { width: 32px; height: 32px; flex-shrink: 0; }
+
+  /* BUTTONS */
+  .btn { display: inline-block; font-weight: 700; padding: 18px 42px; border-radius: 999px; font-size: 1.1em; transition: all 0.25s; border: none; cursor: pointer; text-align: center; }
+  .btn-red { background: #e4181d; color: #fff; }
+  .btn-red:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(228,24,29,0.35); }
+  .btn-green { background: #16a34a; color: #fff; }
+  .btn-green:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(22,163,74,0.35); }
+  .btn-sm { padding: 12px 28px; font-size: 0.95em; }
+
+  /* SECTIONS */
+  section { max-width: 1100px; margin: 0 auto; padding: 60px 24px; }
+  .section-title { font-size: 1.8em; font-weight: 900; text-align: center; margin-bottom: 10px; letter-spacing: -0.01em; }
+  .section-subtitle { text-align: center; color: #666; font-size: 1em; max-width: 650px; margin: 0 auto 40px; }
+  .red-divider { width: 60px; height: 4px; background: #e4181d; margin: 12px auto 20px; border-radius: 2px; }
+
+  /* EXCLUSIVE OFFER BANNER */
+  .offer-banner { background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); border: 2px solid #f59e0b; padding: 40px 24px; text-align: center; }
+  .offer-banner-inner { max-width: 700px; margin: 0 auto; }
+  .offer-tag { display: inline-block; background: #e4181d; color: #fff; font-size: 0.75em; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; padding: 6px 18px; border-radius: 999px; margin-bottom: 16px; }
+  .offer-banner h2 { font-size: 1.8em; font-weight: 900; color: #1a1a1a; margin-bottom: 10px; }
+  .offer-banner p { color: #555; font-size: 1em; margin-bottom: 24px; line-height: 1.6; }
+  .offer-details { display: flex; flex-wrap: wrap; justify-content: center; gap: 24px; margin-bottom: 28px; }
+  .offer-detail { background: #fff; border-radius: 12px; padding: 16px 24px; text-align: center; min-width: 160px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+  .offer-detail strong { display: block; font-size: 1.4em; color: #e4181d; }
+  .offer-detail span { font-size: 0.82em; color: #666; }
+
+  /* WHY PARK SLOPE CHOOSES US */
+  .why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+  .why-card { background: #fff; border: 1px solid #eee; border-radius: 16px; padding: 32px 24px; text-align: center; transition: all 0.3s; }
+  .why-card:hover { border-color: #e4181d; transform: translateY(-4px); box-shadow: 0 12px 30px rgba(0,0,0,0.08); }
+  .why-icon { width: 56px; height: 56px; border-radius: 50%; background: rgba(228,24,29,0.08); display: flex; align-items: center; justify-content: center; font-size: 26px; margin: 0 auto 16px; }
+  .why-card h3 { font-size: 1.1em; font-weight: 800; margin-bottom: 8px; }
+  .why-card p { color: #666; font-size: 0.9em; line-height: 1.6; }
+
+  /* BROWNSTONE EXPERTISE */
+  .brownstone-section { background: #f8f8f8; }
+  .brownstone-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
+  .brownstone-img { width: 100%; border-radius: 16px; aspect-ratio: 4/3; object-fit: cover; box-shadow: 0 8px 30px rgba(0,0,0,0.1); }
+  .brownstone-content h2 { font-size: 1.6em; font-weight: 900; margin-bottom: 16px; }
+  .brownstone-content p { color: #555; margin-bottom: 16px; line-height: 1.7; }
+  .brownstone-list { list-style: none; padding: 0; margin-bottom: 24px; }
+  .brownstone-list li { padding: 6px 0; display: flex; align-items: center; gap: 10px; font-size: 0.95em; }
+  .brownstone-list li::before { content: '✓'; color: #16a34a; font-weight: 800; }
+
+  /* SOCIAL PROOF */
+  .social-proof { background: #1a1a1a; color: #fff; padding: 50px 24px; text-align: center; }
+  .social-proof h2 { font-size: 1.6em; font-weight: 900; margin-bottom: 30px; }
+  .testimonial-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); gap: 24px; max-width: 1100px; margin: 0 auto; }
+  .testimonial-card { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 28px; text-align: left; }
+  .testimonial-stars { color: #f59e0b; font-size: 1.1em; margin-bottom: 12px; letter-spacing: 2px; }
+  .testimonial-text { font-size: 0.95em; line-height: 1.7; opacity: 0.9; margin-bottom: 16px; font-style: italic; }
+  .testimonial-author { font-size: 0.85em; color: #e4181d; font-weight: 700; }
+  .testimonial-location { font-size: 0.78em; opacity: 0.5; }
+
+  /* SERVICES STRIP */
+  .services-strip { background: #fff; }
+  .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
+  .service-item { text-align: center; padding: 24px 16px; border: 1px solid #eee; border-radius: 12px; transition: all 0.2s; }
+  .service-item:hover { border-color: #e4181d; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+  .service-emoji { font-size: 2em; margin-bottom: 10px; }
+  .service-item h3 { font-size: 0.95em; font-weight: 800; margin-bottom: 4px; }
+  .service-item p { font-size: 0.8em; color: #888; }
+
+  /* HOW IT WORKS */
+  .steps-container { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+  .step-card { text-align: center; padding: 32px 20px; position: relative; }
+  .step-num { width: 48px; height: 48px; border-radius: 50%; background: #e4181d; color: #fff; font-size: 1.2em; font-weight: 900; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; }
+  .step-card h3 { font-size: 1.05em; font-weight: 800; margin-bottom: 8px; }
+  .step-card p { font-size: 0.9em; color: #666; line-height: 1.6; }
+
+  /* GALLERY (hidden until real photos are added) */
+
+  /* NEIGHBORHOOD MAP */
+  .neighborhood-section { background: #fff; }
+  .neighborhood-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; text-align: center; }
+  .neighborhood-tag { background: #f5f5f5; padding: 12px 16px; border-radius: 8px; font-size: 0.9em; font-weight: 600; transition: all 0.2s; }
+  .neighborhood-tag:hover { background: #e4181d; color: #fff; }
+  .neighborhood-tag.active { background: #e4181d; color: #fff; pointer-events: none; }
+  a.neighborhood-tag { color: inherit; text-decoration: none; cursor: pointer; }
+  a.neighborhood-tag:hover { color: #fff; }
+
+  /* CTA BOTTOM */
+  .cta-bottom { background: linear-gradient(135deg, #e4181d 0%, #c41018 100%); color: #fff; padding: 60px 24px; text-align: center; }
+  .cta-bottom h2 { font-size: 2em; font-weight: 900; margin-bottom: 12px; }
+  .cta-bottom p { font-size: 1.05em; opacity: 0.9; max-width: 550px; margin: 0 auto 28px; }
+  .cta-bottom .btn-white { background: #fff; color: #e4181d; font-weight: 800; }
+  .cta-bottom .btn-white:hover { background: #f0f0f0; transform: translateY(-2px); box-shadow: 0 8px 25px rgba(0,0,0,0.2); }
+
+  /* FAQ */
+  .faq-item { border-bottom: 1px solid #eee; padding: 20px 0; }
+  .faq-q { font-weight: 700; font-size: 1em; cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
+  .faq-a { color: #666; font-size: 0.92em; padding-top: 10px; line-height: 1.7; display: none; }
+  .faq-item.open .faq-a { display: block; }
+  .faq-item.open .faq-toggle { transform: rotate(45deg); }
+  .faq-toggle { font-size: 1.4em; color: #e4181d; transition: transform 0.2s; }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    .hero h1 { font-size: 1.8em; }
+    .brownstone-grid { grid-template-columns: 1fr; }
+    .steps-container { grid-template-columns: 1fr; gap: 16px; }
+    .offer-details { flex-direction: column; align-items: center; }
+    section { padding: 40px 20px; }
+  }
+
+  /* WordPress theme overrides */
+  .sharedaddy, .sd-sharing-enabled, .sd-block { display: none !important; }
+  .entry-content, .post-content, .page-content, .elementor-widget-theme-post-content { margin: 0 !important; padding: 0 !important; }
+  .site-content, .content-area, #content, #primary, main { margin-top: 0 !important; padding-top: 0 !important; }
+  .elementor-section-wrap > .elementor-section:first-child { margin-top: 0 !important; }
+
+  /* FOOTER */
+  .gp-footer { background: #000000; color: rgba(255,255,255,0.6); text-align: center; padding: 24px; font-size: 0.85em; }
+</style>
+</head>
+<body>
+
+<div class="gp-header">
+    <a href="https://gamainteriorpainting.com" style="display:flex;align-items:center;gap:14px;text-decoration:none;">
+      <img src="https://gamainteriorpainting.com/wp-content/uploads/2024/02/cropped-cropped-cropped-gama-Brush-handle-New-yelow.png" alt="Gama Interior Painting">
+      <span style="display:flex;flex-direction:column;align-items:center;text-align:center;line-height:1.3;">Gama Interior Painting<br><span style="font-size:0.85em;">of Park Slope</span></span>
+    </a>
+  </div>
+  <div class="gp-btns">
+    <a href="tel:18889716033" class="gp-btn-call">📞 CALL NOW</a>
+    <a href="https://gamainteriorpainting.com/contact-us/" class="gp-btn-est">📅 GET A FREE ESTIMATE</a>
+  </div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-eyebrow">Gama Interior Painting of Brooklyn</div>
+  <div class="hero-label">Park Slope's Preferred Painter</div>
+  <h1>Beautiful Interiors for <span class="accent">Park Slope</span> Homes</h1>
+  <p class="subtitle">Your neighbors trust us with their brownstones, co-ops, and prewar apartments. 16 years of craftsmanship. EPA Lead-Safe Certified. Zero shortcuts.</p>
+  <div class="hero-badges">
+    <span class="hero-badge">🏠 Brownstone Specialists</span>
+    <span class="hero-badge">🛡️ EPA Lead-Safe Certified</span>
+    <span class="hero-badge">⭐ 5-Star Reviews</span>
+    <span class="hero-badge">📋 2-Year Warranty</span>
+  </div>
+  <div class="hero-cta-group">
+    <a href="https://gamainteriorpainting.com/contact-us/" class="btn btn-red">Get Your Free Estimate</a>
+    <a href="tel:8889716033" class="btn btn-green">📞 (888) 971-6033</a>
+  </div>
+  <div class="hero-stats">
+    <div><span class="hero-stat-num">16+</span><span class="hero-stat-label">Years Experience</span></div>
+    <div><span class="hero-stat-num">2,000+</span><span class="hero-stat-label">Homes Painted</span></div>
+    <div><span class="hero-stat-num">5.0</span><span class="hero-stat-label">Google Rating</span></div>
+    <div><span class="hero-stat-num">100%</span><span class="hero-stat-label">Satisfaction</span></div>
+  </div>
+</div>
+
+<!-- TRUST BADGES -->
+<div class="trust-badges">
+  <div class="trust-badges-inner">
+    <div class="trust-badge-item">
+      <svg class="badge-shield" viewBox="0 0 32 32"><circle cx="16" cy="16" r="15" fill="#16a34a"/><path d="M10 16l4 4 8-8" stroke="#fff" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span>Google Guaranteed</span>
+    </div>
+    <div class="trust-badge-item">
+      <svg class="badge-shield" viewBox="0 0 32 32"><path d="M16 2L4 8v8c0 7.5 5.1 14.5 12 16 6.9-1.5 12-8.5 12-16V8L16 2z" fill="#1e6b3a"/><path d="M16 6L8 10v6c0 5.5 3.4 10.5 8 12 4.6-1.5 8-6.5 8-12v-6L16 6z" fill="#2e8b4a"/><text x="16" y="20" text-anchor="middle" font-size="8" font-weight="700" fill="#fff" font-family="Arial">EPA</text></svg>
+      <span>EPA Lead-Safe Certified</span>
+    </div>
+    <div class="trust-badge-item">
+      <img src="https://www.pcapainted.org/wp-content/uploads/2019/07/PCA-Logo-Icon.png" alt="PCA Member" style="height: 32px;">
+      <span>PCA Member</span>
+    </div>
+    <div class="trust-badge-item">
+      <svg class="badge-shield" viewBox="0 0 32 32"><path d="M16 2L4 8v8c0 7.5 5.1 14.5 12 16 6.9-1.5 12-8.5 12-16V8L16 2z" fill="#2563eb"/><path d="M10 16l4 4 8-8" stroke="#fff" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span>Licensed & Insured</span>
+    </div>
+    <div class="trust-badge-item">
+      <svg class="badge-shield" viewBox="0 0 32 32"><path d="M16 2L4 8v8c0 7.5 5.1 14.5 12 16 6.9-1.5 12-8.5 12-16V8L16 2z" fill="#e4181d"/><text x="16" y="18" text-anchor="middle" font-size="9" font-weight="700" fill="#fff" font-family="Arial">2YR</text><text x="16" y="25" text-anchor="middle" font-size="5" fill="#fff" font-family="Arial">WARRANTY</text></svg>
+      <span>2-Year Warranty</span>
+    </div>
+  </div>
+</div>
+
+<!-- EXCLUSIVE OFFER -->
+<div class="offer-banner">
+  <div class="offer-banner-inner">
+    <span class="offer-tag">Exclusive for Park Slope Residents</span>
+    <h2>Book This Month & Save</h2>
+    <p>As a Park Slope neighbor, you get priority scheduling and our best rates. Most rooms completed in just 1–2 days with zero disruption to your routine.</p>
+    <div class="offer-details">
+      <div class="offer-detail">
+        <strong>$800–$1,200</strong>
+        <span>Avg. Room Cost</span>
+      </div>
+      <div class="offer-detail">
+        <strong>1–2 Days</strong>
+        <span>Per Room</span>
+      </div>
+      <div class="offer-detail">
+        <strong>Free</strong>
+        <span>In-Home Estimate</span>
+      </div>
+    </div>
+    <a href="https://gamainteriorpainting.com/contact-us/" class="btn btn-red">Schedule My Free Estimate →</a>
+  </div>
+</div>
+
+<!-- WHY PARK SLOPE CHOOSES US -->
+<section>
+  <h2 class="section-title">Why Park Slope Chooses Gama</h2>
+  <div class="red-divider"></div>
+  <p class="section-subtitle">We understand what Park Slope homeowners expect — meticulous work, respect for historic details, and a crew you'd trust inside your home.</p>
+  <div class="why-grid">
+    <div class="why-card">
+      <div class="why-icon">🏠</div>
+      <h3>Brownstone Experts</h3>
+      <p>Crown moldings, plaster walls, pocket doors, wainscoting — we've painted them all. We know how to prep and paint historic surfaces without damaging original details.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">🛡️</div>
+      <h3>EPA Lead-Safe Certified</h3>
+      <p>Most Park Slope homes were built before 1978. Our crews are EPA RRP certified and follow strict lead-safe work practices to keep your family safe during every project.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">👶</div>
+      <h3>Family-Friendly Process</h3>
+      <p>Low-VOC paints, furniture fully covered and protected, daily cleanup, and crews that are background-checked. Your kids and pets stay safe — we work around your life.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">🏢</div>
+      <h3>Co-op & Condo Ready</h3>
+      <p>We carry full insurance, provide COIs on request, and coordinate with building management on move-in/move-out schedules, elevator reservations, and noise restrictions.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">🎨</div>
+      <h3>Premium Materials Only</h3>
+      <p>Benjamin Moore Regal, Aura, and Advance for trim. We don't cut corners on paint — because cheap paint means repainting in 3 years. Ours lasts 7–10.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">📋</div>
+      <h3>Transparent Pricing</h3>
+      <p>Detailed written estimates before we start. No surprise charges, no hidden fees. You'll know exactly what you're paying for — down to every coat and color.</p>
+    </div>
+  </div>
+</section>
+
+<!-- MEET THE OWNER -->
+<div class="meet-owner" style="background: linear-gradient(135deg, #fafafa 0%, #f0f0f0 100%); padding: 60px 24px;">
+  <section>
+    <div class="image-text-row">
+      <img class="owner-photo" src="https://i0.wp.com/gamainteriorpainting.com/wp-content/uploads/2025/03/interior-painter-west-hampstead.jpg?fit=1024%2C1024&ssl=1" alt="Gamaliel Revolorio - Owner of Gama Interior Painting" style="max-width:340px;border-radius:16px;">
+      <div class="text-side">
+        <h2>Meet Gamaliel Revolorio</h2>
+        <h3>Owner & Lead Painter</h3>
+        <p style="font-style:italic;color:#555;border-left:3px solid #e4181d;padding-left:16px;margin:16px 0;">"Park Slope brownstones are some of the most beautiful homes in New York. Every plaster detail, every crown molding, every original door — they deserve a painter who treats them with the respect they've earned over a century. That's what my team and I do."</p>
+        <p>With <strong>16 years of experience</strong> that began in <strong>the Hamptons</strong> — where flawless execution is the standard — Gamaliel brings elite-level craftsmanship to every Park Slope project. He personally oversees each job to ensure it meets his exacting standards.</p>
+        <p>Gama Interior Painting is a trusted name serving Nassau County, Long Island, and Brooklyn for over a decade. <a href="https://gamainteriorpainting.com" style="color: #e4181d; font-weight: 600;">Learn more about us →</a></p>
+        <a href="https://gamainteriorpainting.com/contact-us/" class="btn btn-red">Book with Gamaliel</a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- BROWNSTONE EXPERTISE -->
+<div class="brownstone-section">
+  <section>
+    <div class="brownstone-grid" style="grid-template-columns: 1fr;">
+      <div class="brownstone-content">
+        <h2>Built for Park Slope Brownstones</h2>
+        <p>Park Slope's tree-lined blocks are home to some of Brooklyn's most beautiful brownstones. We specialize in the unique challenges these historic homes present — from 12-foot ceilings to intricate plaster details.</p>
+        <ul class="brownstone-list">
+          <li>High ceiling and stairwell painting (no scaffold marks)</li>
+          <li>Plaster crack repair and skim coating</li>
+          <li>Crown molding and trim detail work</li>
+          <li>Wallpaper removal with zero wall damage</li>
+          <li>Lead paint containment (EPA certified)</li>
+          <li>Color consultations for period-appropriate palettes</li>
+          <li>Parlor floor and garden level specialists</li>
+        </ul>
+        <a href="https://gamainteriorpainting.com/contact-us/" class="btn btn-red btn-sm">Get a Brownstone Quote →</a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- SOCIAL PROOF -->
+<div class="social-proof">
+  <h2>What Park Slope Neighbors Are Saying</h2>
+  <div class="testimonial-grid">
+    <div class="testimonial-card">
+      <div class="testimonial-stars">★★★★★</div>
+      <p class="testimonial-text">"Gamaliel and his crew painted our entire 3-story brownstone on 5th Avenue. The prep work was incredible — every piece of trim looks brand new. They even fixed plaster cracks we didn't know about."</p>
+      <div class="testimonial-author">Sarah M.</div>
+      <div class="testimonial-location">5th Avenue, Park Slope</div>
+    </div>
+    <div class="testimonial-card">
+      <div class="testimonial-stars">★★★★★</div>
+      <p class="testimonial-text">"We have two kids under 5 and were worried about the disruption. The crew was so respectful — cleaned up every day, used low-VOC paint, and finished our apartment 2 days early. Highly recommend."</p>
+      <div class="testimonial-author">David & Lisa R.</div>
+      <div class="testimonial-location">7th Avenue, Park Slope</div>
+    </div>
+    <div class="testimonial-card">
+      <div class="testimonial-stars">★★★★★</div>
+      <p class="testimonial-text">"Third time using Gama — they painted our kitchen, nursery, and now the whole parlor floor. Consistently excellent work. The kind of painters you keep coming back to."</p>
+      <div class="testimonial-author">Jennifer K.</div>
+      <div class="testimonial-location">Carroll Street, Park Slope</div>
+    </div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section class="services-strip">
+  <h2 class="section-title">Our Park Slope Services</h2>
+  <div class="red-divider"></div>
+  <p class="section-subtitle">Everything your home needs — from a single accent wall to a full brownstone repaint.</p>
+  <div class="services-grid">
+    <div class="service-item">
+      <div class="service-emoji">🎨</div>
+      <h3>Interior Painting</h3>
+      <p>Walls, ceilings, trim</p>
+    </div>
+    <div class="service-item">
+      <div class="service-emoji">🖌️</div>
+      <h3>Cabinet Refinishing</h3>
+      <p>Kitchen & bathroom</p>
+    </div>
+    <div class="service-item">
+      <div class="service-emoji">✨</div>
+      <h3>Plaster Repair</h3>
+      <p>Cracks, water damage</p>
+    </div>
+    <div class="service-item">
+      <div class="service-emoji">🔲</div>
+      <h3>Wallpaper Removal</h3>
+      <p>Clean, damage-free</p>
+    </div>
+    <div class="service-item">
+      <div class="service-emoji">🪟</div>
+      <h3>Trim & Molding</h3>
+      <p>Crown, base, window</p>
+    </div>
+    <div class="service-item">
+      <div class="service-emoji">🏠</div>
+      <h3>Color Consultation</h3>
+      <p>Expert guidance</p>
+    </div>
+  </div>
+</section>
+
+<!-- 3-STEP PROCESS -->
+<section>
+  <h2 class="section-title">How It Works</h2>
+  <div class="red-divider"></div>
+  <p class="section-subtitle">From first call to final walkthrough — simple, transparent, and stress-free.</p>
+  <div class="steps-container">
+    <div class="step-card">
+      <div class="step-num">1</div>
+      <h3>Free In-Home Estimate</h3>
+      <p>We visit your Park Slope home, discuss your vision, and provide a detailed written quote — usually within 24 hours. No pressure, no obligation.</p>
+    </div>
+    <div class="step-card">
+      <div class="step-num">2</div>
+      <h3>Professional Prep & Paint</h3>
+      <p>Furniture protected, surfaces properly prepped, premium Benjamin Moore paint applied with precision. Most rooms done in 1–2 days.</p>
+    </div>
+    <div class="step-card">
+      <div class="step-num">3</div>
+      <h3>Final Walkthrough</h3>
+      <p>We walk every room together. Touch-ups done on the spot. You don't pay until you're 100% satisfied. Plus our 2-year warranty backs it all.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- NEARBY NEIGHBORHOODS -->
+<section class="neighborhood-section">
+  <h2 class="section-title">We Also Serve Nearby</h2>
+  <div class="red-divider"></div>
+  <p class="section-subtitle">Park Slope is our home base in Brooklyn — but we serve all surrounding neighborhoods too.</p>
+  <div class="neighborhood-grid">
+    <div class="neighborhood-tag active">Park Slope</div>
+    <div class="neighborhood-tag">South Slope</div>
+    <div class="neighborhood-tag">Windsor Terrace</div>
+    <div class="neighborhood-tag">Prospect Heights</div>
+    <div class="neighborhood-tag">Gowanus</div>
+    <div class="neighborhood-tag">Carroll Gardens</div>
+    <div class="neighborhood-tag">Cobble Hill</div>
+    <div class="neighborhood-tag">Boerum Hill</div>
+    <a href="https://gamainteriorpainting.com/gama-interior-painting-of-brooklyn-heights/" class="neighborhood-tag">Brooklyn Heights</a>
+    <div class="neighborhood-tag">DUMBO</div>
+    <div class="neighborhood-tag">Fort Greene</div>
+    <div class="neighborhood-tag">Clinton Hill</div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section>
+  <h2 class="section-title">Common Questions from Park Slope Homeowners</h2>
+  <div class="red-divider"></div>
+  <div style="max-width: 700px; margin: 0 auto;">
+    <div class="faq-item" onclick="this.classList.toggle('open')">
+      <div class="faq-q">How much does it cost to paint a Park Slope brownstone? <span class="faq-toggle">+</span></div>
+      <div class="faq-a">Most rooms run $800–$1,200 depending on size and prep work needed. Every project is different — ceiling height, plaster condition, and scope all factor in. We provide a detailed written estimate broken down by room so you know exactly what you're paying for. No surprises, no hidden fees. All prices include premium Benjamin Moore paint, thorough prep, and our 2-year warranty.</div>
+    </div>
+    <div class="faq-item" onclick="this.classList.toggle('open')">
+      <div class="faq-q">Do you have experience with prewar brownstones? <span class="faq-toggle">+</span></div>
+      <div class="faq-a">Absolutely. Park Slope brownstones are a major part of our business. We understand plaster walls, high ceilings, intricate moldings, and the lead paint considerations that come with pre-1978 homes. We're EPA RRP certified for lead-safe work practices.</div>
+    </div>
+    <div class="faq-item" onclick="this.classList.toggle('open')">
+      <div class="faq-q">Is the paint safe for kids and babies? <span class="faq-toggle">+</span></div>
+      <div class="faq-a">Yes. We use low-VOC and zero-VOC Benjamin Moore paints by default. Rooms are safe to sleep in the same night in most cases. We also use EPA lead-safe practices in older homes to prevent any lead dust exposure.</div>
+    </div>
+    <div class="faq-item" onclick="this.classList.toggle('open')">
+      <div class="faq-q">Can you provide a COI for my co-op or condo board? <span class="faq-toggle">+</span></div>
+      <div class="faq-a">Yes, we provide Certificates of Insurance the same day, customized to your building's requirements. We also coordinate with management on elevator bookings, building access, and noise hour restrictions.</div>
+    </div>
+    <div class="faq-item" onclick="this.classList.toggle('open')">
+      <div class="faq-q">How long does a typical apartment or brownstone take? <span class="faq-toggle">+</span></div>
+      <div class="faq-a">A single room takes 1–2 days. A full 2-bedroom apartment is typically 3–4 days. A full brownstone floor can be 4–6 days depending on the scope. We'll give you a detailed timeline with your estimate.</div>
+    </div>
+    <div class="faq-item" onclick="this.classList.toggle('open')">
+      <div class="faq-q">What's included in the free estimate? <span class="faq-toggle">+</span></div>
+      <div class="faq-a">We visit your home, take measurements, discuss colors and scope, and deliver a detailed written proposal typically within 24 hours. It breaks down every room, surface, and coat so you know exactly what you're getting. No surprises.</div>
+    </div>
+    <div class="faq-item" onclick="this.classList.toggle('open')">
+      <div class="faq-q">What areas of Park Slope do you cover? <span class="faq-toggle">+</span></div>
+      <div class="faq-a">All of Park Slope — from Flatbush Avenue to Prospect Park West, Grand Army Plaza down to Greenwood. We also serve South Slope, Windsor Terrace, Prospect Heights, Gowanus, Carroll Gardens, and all surrounding Brooklyn neighborhoods. Our Brooklyn office is at 41 Schermerhorn St #1018.</div>
+    </div>
+  </div>
+</section>
+
+<!-- LOCATIONS -->
+<div class="locations-banner" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); color: #fff; padding: 60px 24px; text-align: center;">
+  <h2 style="font-size:2em;font-weight:800;margin-bottom:8px;color:#fff;">Two Locations, One Standard of Excellence</h2>
+  <p style="color:rgba(255,255,255,0.7);margin-bottom:30px;">Whether you're in Brooklyn or Nassau County, you get the same quality, the same team, and the same guarantee.</p>
+  <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:20px;max-width:700px;margin:0 auto 30px;">
+    <div style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:12px;padding:24px 32px;flex:1;min-width:260px;">
+      <h3 style="color:#fff;margin-bottom:8px;">Brooklyn Office</h3>
+      <p style="color:rgba(255,255,255,0.7);margin:0;">41 Schermerhorn St #1018<br>Brooklyn, NY 11201</p>
+    </div>
+    <div style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:12px;padding:24px 32px;flex:1;min-width:260px;">
+      <h3 style="color:#fff;margin-bottom:8px;">Nassau County HQ</h3>
+      <p style="color:rgba(255,255,255,0.7);margin:0;">206 Mayfair Ave<br>West Hempstead, NY 11552</p>
+    </div>
+  </div>
+  <a href="https://gamainteriorpainting.com/contact-us/" class="btn btn-white" style="background:#fff;color:#1a1a2e;padding:14px 32px;border-radius:8px;font-weight:700;text-decoration:none;">Schedule Your Free Estimate</a>
+</div>
+
+<!-- BOTTOM CTA -->
+<div class="cta-bottom">
+  <h2>Ready to Transform Your Park Slope Home?</h2>
+  <p>Join hundreds of Park Slope families who trust Gama for their interior painting. Free estimates, no pressure, just beautiful results.</p>
+  <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 14px;">
+    <a href="https://gamainteriorpainting.com/contact-us/" class="btn btn-white">Get Your Free Estimate</a>
+    <a href="tel:8889716033" class="btn btn-green">📞 Call (888) 971-6033</a>
+  </div>
+</div>
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How much does it cost to paint a Park Slope brownstone?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most rooms run $800–$1,200 depending on size and prep work needed. Every project is different — ceiling height, plaster condition, and scope all factor in. We provide a detailed written estimate broken down by room so you know exactly what you're paying for. No surprises, no hidden fees. All prices include premium Benjamin Moore paint, thorough prep, and our 2-year warranty."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you have experience with prewar brownstones?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Absolutely. Park Slope brownstones are a major part of our business. We understand plaster walls, high ceilings, intricate moldings, and the lead paint considerations that come with pre-1978 homes. We're EPA RRP certified for lead-safe work practices."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is the paint safe for kids and babies?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. We use low-VOC and zero-VOC Benjamin Moore paints by default. Rooms are safe to sleep in the same night in most cases. We also use EPA lead-safe practices in older homes to prevent any lead dust exposure."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can you provide a COI for my co-op or condo board?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, we provide Certificates of Insurance the same day, customized to your building's requirements. We also coordinate with management on elevator bookings, building access, and noise hour restrictions."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long does a typical apartment or brownstone take?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A single room takes 1–2 days. A full 2-bedroom apartment is typically 3–4 days. A full brownstone floor can be 4–6 days depending on the scope. We'll give you a detailed timeline with your estimate."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What's included in the free estimate?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We visit your home, take measurements, discuss colors and scope, and deliver a detailed written proposal typically within 24 hours. It breaks down every room, surface, and coat so you know exactly what you're getting. No surprises."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What areas of Park Slope do you cover?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "All of Park Slope — from Flatbush Avenue to Prospect Park West, Grand Army Plaza down to Greenwood. We also serve South Slope, Windsor Terrace, Prospect Heights, Gowanus, Carroll Gardens, and all surrounding Brooklyn neighborhoods. Our Brooklyn office is at 41 Schermerhorn St #1018."
+      }
+    }
+  ]
+}
+</script>
+
+  <!-- TRUST GAMA -->
+  <div style="background:#111;color:#fff;padding:60px 24px;text-align:center;">
+    <h2 style="font-size:1.8em;font-weight:900;margin-bottom:30px;color:#fff !important;">Why Homeowners Trust Gama</h2>
+    <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:20px 40px;max-width:800px;margin:0 auto;">
+      <div style="display:flex;align-items:center;gap:8px;font-size:1em;color:#fff;"><b style="color:#16a34a">✓</b> 16+ Years Experience</div>
+      <div style="display:flex;align-items:center;gap:8px;font-size:1em;color:#fff;"><b style="color:#16a34a">✓</b> 5-Star Google Reviews</div>
+      <div style="display:flex;align-items:center;gap:8px;font-size:1em;color:#fff;"><b style="color:#16a34a">✓</b> Free Same-Day Estimates</div>
+      <div style="display:flex;align-items:center;gap:8px;font-size:1em;color:#fff;"><b style="color:#16a34a">✓</b> Transparent Pricing</div>
+      <div style="display:flex;align-items:center;gap:8px;font-size:1em;color:#fff;"><b style="color:#16a34a">✓</b> Nassau County & Brooklyn</div>
+      <div style="display:flex;align-items:center;gap:8px;font-size:1em;color:#fff;"><b style="color:#16a34a">✓</b> Satisfaction Guaranteed</div>
+    </div>
+  </div>
+<div class="gp-footer">&copy; 2026 Gama Interior Painting & Renovation. All rights reserved.</div>
+</body>
+</html>
+<!-- /wp:html -->
