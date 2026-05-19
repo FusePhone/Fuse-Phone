@@ -22,7 +22,16 @@ async function getPreferences() {
         import("@capacitor/preferences").then(m => ({ p: m.Preferences })),
         new Promise<null>((resolve) => setTimeout(() => resolve(null), 2000)),
       ]);
-      _prefsModule = result?.p ?? null;
+      const P = result?.p;
+      if (!P) { _prefsModule = null; return null; }
+      // Wrap methods in a plain object so `await getPreferences()` doesn't
+      // try to "thenable-unwrap" the Capacitor proxy (which would call
+      // `.then()` as a native plugin method and crash on Android).
+      _prefsModule = {
+        get: (opts: any) => P.get(opts),
+        set: (opts: any) => P.set(opts),
+        remove: (opts: any) => P.remove(opts),
+      };
       return _prefsModule;
     } catch {
       return null;
