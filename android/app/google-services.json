@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "744457772679",
+    "project_id": "fuse-phone-crm",
+    "storage_bucket": "fuse-phone-crm.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:744457772679:android:31cf555c071fc0ace0a222",
+        "android_client_info": {
+          "package_name": "com.fusephone.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "744457772679-666e1pfmdi587i3to9sannq186h7ek3j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCZcNoWLOUPb4YRH4q-dwnrdb1rjmYvUts"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "744457772679-666e1pfmdi587i3to9sannq186h7ek3j.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
