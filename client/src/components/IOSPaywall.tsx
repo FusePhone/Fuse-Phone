@@ -95,6 +95,7 @@ const TIERS: TierCopy[] = [
     ctaLabel: "Subscribe",
     features: [
       "Everything in Core",
+      "3 free field worker seats included (Crew Lead / Field Employee)",
       "Unlimited photos & AI estimates",
       "Full phone system (VoIP) + SMS",
       "Crew payroll, GPS tracking & roles",
