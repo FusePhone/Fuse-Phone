@@ -2248,20 +2248,29 @@ Best regards,
           console.log('[Stripe] Schema ready');
 
           const stripeSync = await getStripeSync();
-          
-          const domain = process.env.REPLIT_DOMAINS?.split(',')[0] || process.env.REPLIT_DEV_DOMAIN;
-          if (domain) {
-            try {
-              const webhookUrl = `https://${domain}/api/stripe/webhook`;
-              const result = await stripeSync.findOrCreateManagedWebhook(webhookUrl);
-              if (result?.webhook?.url) {
-                console.log(`[Stripe] Webhook configured: ${result.webhook.url}`);
-              } else {
-                console.log('[Stripe] Webhook setup completed');
+
+          // CRITICAL: Only register Stripe webhook URL from production deployments.
+          // Previously this ran in dev too, causing the dev preview URL to overwrite
+          // the production webhook config in Stripe — silently dropping every real
+          // customer event (cancels, upgrades, payments) because dev was usually asleep.
+          // Fixed May 19, 2026 after Denis Ramos cancellation was missed.
+          if (process.env.REPLIT_DEPLOYMENT === '1') {
+            const domain = process.env.REPLIT_DOMAINS?.split(',')[0];
+            if (domain) {
+              try {
+                const webhookUrl = `https://${domain}/api/stripe/webhook`;
+                const result = await stripeSync.findOrCreateManagedWebhook(webhookUrl);
+                if (result?.webhook?.url) {
+                  console.log(`[Stripe] Webhook configured: ${result.webhook.url}`);
+                } else {
+                  console.log('[Stripe] Webhook setup completed');
+                }
+              } catch (webhookErr: any) {
+                console.log('[Stripe] Webhook setup skipped:', webhookErr.message || 'non-critical');
               }
-            } catch (webhookErr: any) {
-              console.log('[Stripe] Webhook setup skipped:', webhookErr.message || 'non-critical');
             }
+          } else {
+            console.log('[Stripe] Webhook registration skipped (dev environment — production owns the webhook URL)');
           }
 
           stripeSync.syncBackfill()
